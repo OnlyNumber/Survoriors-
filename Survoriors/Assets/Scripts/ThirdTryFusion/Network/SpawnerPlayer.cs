@@ -101,10 +101,10 @@ public class SpawnerPlayer : MonoBehaviour, INetworkRunnerCallbacks
             Debug.Log("OnPlayerJoined");
         }
 
-        foreach (var item in FindObjectsOfType<EnemyNetwork>())
+        /*foreach (var item in FindObjectsOfType<EnemyNetwork>())
         {
             item.FindPlayers();
-        } 
+        }*/ 
 
     }
 

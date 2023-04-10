@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -3510626531934447752}
   - component: {fileID: 6721787440524164889}
   - component: {fileID: 7913893760490813647}
+  - component: {fileID: 1772472235890668523}
   m_Layer: 0
   m_Name: PlayerPF
   m_TagString: Untagged
@@ -79,6 +80,7 @@ MonoBehaviour:
   - {fileID: 2110069199195832476}
   - {fileID: -3510626531934447752}
   - {fileID: 6721787440524164889}
+  - {fileID: 1772472235890668523}
   SimulationBehaviours: []
 --- !u!50 &1755115926529812917
 Rigidbody2D:
@@ -157,6 +159,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07fe9cbb8752daf4f84db7af9ae2b1b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1772472235890668523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110069199195832450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c6c4878da8e29a408d100529876b80f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
+  playerSkin: {fileID: 2110069199285501373}
+  skins:
+  - {fileID: 1378562880, guid: 99a24620d31e5ce4e823c32d11e17c2c, type: 3}
+  - {fileID: 938132271, guid: 57a1443e67528144aa07582927559650, type: 3}
+  - {fileID: -150523396, guid: 0c187a32c5bde4747be8d00770b07403, type: 3}
 --- !u!1 &2110069199285501347
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,9 +248,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1497294899
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 1378562880, guid: 99a24620d31e5ce4e823c32d11e17c2c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -315,7 +335,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2115857133
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -144335857, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -414,7 +434,7 @@ GameObject:
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -426,7 +446,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7901017192518577456}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.26, y: -0.07, z: 0}
+  m_LocalPosition: {x: 0.07, y: -0.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

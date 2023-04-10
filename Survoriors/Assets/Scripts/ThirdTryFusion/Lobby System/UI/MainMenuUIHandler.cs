@@ -6,6 +6,10 @@ using TMPro;
 
 public class MainMenuUIHandler : MonoBehaviour
 {
+    
+
+
+
     public GameObject playerDetailsPanel;
     public GameObject sessionBrowserPanel;
     public GameObject createSessionPanel;
@@ -79,5 +83,8 @@ public class MainMenuUIHandler : MonoBehaviour
 
         statusPanel.SetActive(true);
     }
+
+    
+
 
 }

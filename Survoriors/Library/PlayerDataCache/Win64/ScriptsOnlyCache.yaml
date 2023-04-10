@@ -8,6 +8,7 @@ ScriptsOnlyBuild:
     - EnemySpawner
     - GameManager
     - MainMenuUIHandler
+    - MenuSkinUIHandler
     - NetworkCharacterControllerPrototype
     - NetworkPlayer
     - NetworkPlayerController
@@ -17,6 +18,7 @@ ScriptsOnlyBuild:
     - PlayerInputHandler
     - SessionInfoListUIItem
     - SessionListUIHandler
+    - SkinController
     - SpawnerPlayer
     - WeaponRotater
     Fusion.Realtime.dll:
@@ -134,6 +136,12 @@ ScriptsOnlyBuild:
     fullTypeName: SessionInfoListUIItem
     methodName: OnClick
   - assembly: Assembly-CSharp
+    fullTypeName: MenuSkinUIHandler
+    methodName: ClearButtons
+  - assembly: Assembly-CSharp
+    fullTypeName: MenuSkinUIHandler
+    methodName: OnChooseSkin
+  - assembly: Assembly-CSharp
     fullTypeName: MainMenuUIHandler
     methodName: GoBackToMainMenu
   - assembly: Assembly-CSharp
@@ -143,11 +151,23 @@ ScriptsOnlyBuild:
     fullTypeName: MainMenuUIHandler
     methodName: OnCreateNewSessionMenu
   - assembly: Assembly-CSharp
+    fullTypeName: MenuSkinUIHandler
+    methodName: ClearButtons
+  - assembly: Assembly-CSharp
+    fullTypeName: MenuSkinUIHandler
+    methodName: OnChooseSkin
+  - assembly: Assembly-CSharp
     fullTypeName: MainMenuUIHandler
     methodName: OnJoinGameClick
   - assembly: Assembly-CSharp
     fullTypeName: MainMenuUIHandler
     methodName: GoBackToMainMenu
+  - assembly: Assembly-CSharp
+    fullTypeName: MenuSkinUIHandler
+    methodName: ClearButtons
+  - assembly: Assembly-CSharp
+    fullTypeName: MenuSkinUIHandler
+    methodName: OnChooseSkin
   sceneClasses:
     Assets/Scenes/GamePlayScene.unity:
     - Class: 1
@@ -175,29 +195,31 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2858}
     - Class: 114
-      Script: {instanceID: 5138}
+      Script: {instanceID: 3948}
     - Class: 114
-      Script: {instanceID: 5658}
+      Script: {instanceID: 5140}
     - Class: 114
-      Script: {instanceID: 6336}
+      Script: {instanceID: 5660}
     - Class: 114
-      Script: {instanceID: 6704}
+      Script: {instanceID: 6338}
     - Class: 114
-      Script: {instanceID: 6730}
+      Script: {instanceID: 6706}
     - Class: 114
-      Script: {instanceID: 6740}
+      Script: {instanceID: 6732}
     - Class: 114
-      Script: {instanceID: 7208}
+      Script: {instanceID: 6742}
     - Class: 114
-      Script: {instanceID: 7674}
+      Script: {instanceID: 7210}
     - Class: 114
-      Script: {instanceID: 7922}
+      Script: {instanceID: 7676}
     - Class: 114
-      Script: {instanceID: 8818}
+      Script: {instanceID: 7890}
     - Class: 114
-      Script: {instanceID: 31570}
+      Script: {instanceID: 7926}
     - Class: 114
-      Script: {instanceID: 33594}
+      Script: {instanceID: 8822}
+    - Class: 114
+      Script: {instanceID: 35896}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -268,37 +290,35 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3504}
     - Class: 114
-      Script: {instanceID: 4480}
+      Script: {instanceID: 4482}
     - Class: 114
-      Script: {instanceID: 4554}
+      Script: {instanceID: 4556}
     - Class: 114
-      Script: {instanceID: 4662}
+      Script: {instanceID: 4664}
     - Class: 114
-      Script: {instanceID: 4684}
+      Script: {instanceID: 4686}
     - Class: 114
-      Script: {instanceID: 4998}
+      Script: {instanceID: 5000}
     - Class: 114
-      Script: {instanceID: 5138}
+      Script: {instanceID: 5140}
     - Class: 114
-      Script: {instanceID: 5338}
+      Script: {instanceID: 5340}
     - Class: 114
-      Script: {instanceID: 5642}
+      Script: {instanceID: 5644}
     - Class: 114
-      Script: {instanceID: 5658}
+      Script: {instanceID: 5660}
     - Class: 114
-      Script: {instanceID: 5780}
+      Script: {instanceID: 5782}
     - Class: 114
-      Script: {instanceID: 5864}
+      Script: {instanceID: 5866}
     - Class: 114
-      Script: {instanceID: 6118}
+      Script: {instanceID: 6120}
     - Class: 114
-      Script: {instanceID: 6336}
+      Script: {instanceID: 6338}
     - Class: 114
-      Script: {instanceID: 6546}
+      Script: {instanceID: 6548}
     - Class: 114
-      Script: {instanceID: 6704}
-    - Class: 114
-      Script: {instanceID: 6724}
+      Script: {instanceID: 6706}
     - Class: 114
       Script: {instanceID: 6726}
     - Class: 114
@@ -306,31 +326,37 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6730}
     - Class: 114
-      Script: {instanceID: 6740}
+      Script: {instanceID: 6732}
     - Class: 114
       Script: {instanceID: 6742}
     - Class: 114
-      Script: {instanceID: 6818}
+      Script: {instanceID: 6744}
     - Class: 114
-      Script: {instanceID: 7208}
+      Script: {instanceID: 6820}
     - Class: 114
-      Script: {instanceID: 7368}
+      Script: {instanceID: 7210}
     - Class: 114
-      Script: {instanceID: 7674}
+      Script: {instanceID: 7370}
     - Class: 114
-      Script: {instanceID: 7732}
+      Script: {instanceID: 7676}
     - Class: 114
-      Script: {instanceID: 7922}
+      Script: {instanceID: 7734}
     - Class: 114
-      Script: {instanceID: 8260}
+      Script: {instanceID: 7890}
     - Class: 114
-      Script: {instanceID: 8818}
+      Script: {instanceID: 7926}
     - Class: 114
-      Script: {instanceID: 9034}
+      Script: {instanceID: 8264}
     - Class: 114
-      Script: {instanceID: 9216}
+      Script: {instanceID: 8822}
     - Class: 114
-      Script: {instanceID: 31570}
+      Script: {instanceID: 9038}
+    - Class: 114
+      Script: {instanceID: 9220}
+    - Class: 114
+      Script: {instanceID: 32150}
+    - Class: 114
+      Script: {instanceID: 35896}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -794,6 +820,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: TMPro.Examples
     className: TextMeshProFloatingText
+  - hash:
+      serializedVersion: 2
+      Hash: b8b42ba420b738adfcdbdea870d5e6d5
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EnemySpawner
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1558,6 +1590,12 @@ ScriptsOnlyBuild:
     className: VertexJitter
   - hash:
       serializedVersion: 2
+      Hash: a6bac8e7e37cadda8c3bd57c5fa305ec
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EnemyNetwork
+  - hash:
+      serializedVersion: 2
       Hash: 18c222bef9ae745ce69ddde9b74337ca
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -1876,16 +1914,16 @@ ScriptsOnlyBuild:
     className: UnityOnSliderValueChangedMessageListener
   - hash:
       serializedVersion: 2
-      Hash: a6bac8e7e37cadda8c3bd57c5fa305ec
+      Hash: a7c1475df56d9d74acc8af840038f244
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: EnemyNetwork
+    className: MenuSkinUIHandler
   - hash:
       serializedVersion: 2
-      Hash: b8b42ba420b738adfcdbdea870d5e6d5
+      Hash: 12deb413945b43a567c3bd631474d53d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: EnemySpawner
+    className: SkinController
   platform: 19
   scenePathNames:
   - Assets/Scenes/MenuScene.unity
