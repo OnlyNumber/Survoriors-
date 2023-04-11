@@ -22,7 +22,7 @@ public class EnemyNetwork : NetworkBehaviour
 
     public override void FixedUpdateNetwork()
     {
-        Debug.Log("Update");
+        //Debug.Log("Update");
 
         FindTarget();
 
@@ -39,7 +39,7 @@ public class EnemyNetwork : NetworkBehaviour
 
         if (players.Count == 0)
         {
-            Debug.Log("WTF");
+            //Debug.Log("WTF");
 
             target = null;
             return;
@@ -73,8 +73,8 @@ public class EnemyNetwork : NetworkBehaviour
 
         if (target != null)
         {
-            Debug.Log("Moving");
-            Debug.Log(target.name);
+            //Debug.Log("Moving");
+            //Debug.Log(target.name);
             transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed);
         }
         else

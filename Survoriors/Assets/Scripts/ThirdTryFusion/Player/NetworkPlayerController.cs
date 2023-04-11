@@ -8,9 +8,6 @@ public class NetworkPlayerController : NetworkBehaviour
     [SerializeField]
     float speed;
 
-    float horizontalInput;
-    float verticalInput;
-
     [SerializeField]
     Rigidbody2D rigidbody;
 
@@ -20,26 +17,29 @@ public class NetworkPlayerController : NetworkBehaviour
     public override void FixedUpdateNetwork()
     {
         Move();
+
+        RotateWeapon();
     }
 
     private void Move()
     {
         if (GetInput(out NetworkInputData networkInput))
-            {
-                rigidbody.MovePosition(transform.position + (Vector3)networkInput.movementAxisInput * speed);
-                weaponRotater.RotateWeapon(networkInput.mousePosition);
-            }
-
-        /*horizontalInput = Input.GetAxisRaw("Horizontal");
-
-        verticalInput = Input.GetAxisRaw("Vertical");
-
-        rigidbody.MovePosition(transform.position + new Vector3(horizontalInput, verticalInput) * speed * Time.deltaTime);
-        */
+        {
+            rigidbody.MovePosition(transform.position + (Vector3)networkInput.movementAxisInput * speed);
+        }
     }
 
-    public void RPC_SetNickName()
+    private void RotateWeapon()
     {
+        if (GetInput(out NetworkInputData networkInput))
+        {
+            weaponRotater.RotateWeapon(networkInput.mousePosition);
+
+
+
+        }
     }
+
+
 
 }

@@ -5126,10 +5126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93051e0aa76f97a4ca202b61385753e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   imageOfCheck:
   - {fileID: 2067918542}
   - {fileID: 1281308223}

@@ -12,7 +12,7 @@ public class SkinController : NetworkBehaviour
     SpriteRenderer playerSkin;
 
     [SerializeField]
-    Sprite[] skins;
+    SpriteRenderer[] skins;
 
     struct NetworkSkinStruct : INetworkStruct
     {
@@ -35,21 +35,21 @@ public class SkinController : NetworkBehaviour
     [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
     private void Rpc_RequestChangeSkin(NetworkSkinStruct skin, RpcInfo info = default)
     {
-
+        Debug.Log($"Recive RPC request for player {transform.name} DataHolder ID {DataHolderPlayer.playerSkin}");
 
         playerSkinNetwork = skin;
     }
 
     static void OnSkinChanged(Changed<SkinController> changed)
     {
-        Debug.Log("work");
+        //Debug.Log("work");
 
         changed.Behaviour.OnSkinChange();
     }
 
     private void OnSkinChange()
     {
-        playerSkin.sprite = skins[playerSkinNetwork.skinNumber];
+        playerSkin.sprite = skins[playerSkinNetwork.skinNumber].sprite;
     }
 
 }
