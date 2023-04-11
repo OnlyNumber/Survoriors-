@@ -4,20 +4,22 @@ using UnityEngine;
 
 public abstract class State
 {
+    protected string stateString;
     protected Animator animator;
-    protected StateManager stateManager;
 
-    public State(Animator animator, StateManager stateManager)
+
+    public State(string stateString, Animator animator)
     {
-        this.animator = animator;
-        this.stateManager = stateManager;
-    }
+        this.stateString = stateString;
 
+        this.animator = animator;
+    }
 
     public abstract void OnEnter();
 
     public abstract void OnUpdate();
 
     public abstract void OnExit();
+
 
 }

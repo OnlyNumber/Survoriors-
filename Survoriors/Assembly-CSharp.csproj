@@ -56,7 +56,6 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\ThirdTryFusion\Player\StateMachine\StateManager.cs" />
     <Compile Include="Assets\Photon\Fusion\Scripts\Prototyping\PlayerSpawnerPrototype.cs" />
     <Compile Include="Assets\Photon\Fusion\Scripts\Prototyping\CommonSceneObject.cs" />
     <Compile Include="Assets\Photon\Fusion\Scripts\FusionStats\FusionGraphBase.cs" />
@@ -163,6 +162,9 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Scripts\ThirdTryFusion\Player\StateMachine\Moving.cs" />
     <Compile Include="Assets\Photon\Fusion\Scripts\FusionGraph.cs" />
+    <Compile Include="Assets\Scripts\ThirdTryFusion\Player\SkinCreator.cs" />
+    <Compile Include="Assets\Scripts\ThirdTryFusion\Player\StateMachine\StateMachine.cs" />
+    <Compile Include="Assets\Scripts\ThirdTryFusion\Player\StateMachine\Hit.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Idle : State
 {
-    public Idle(Animator animator, StateManager stateManager) : base(animator, stateManager)
+    public Idle(string stateString, Animator animator) : base(stateString, animator)
     {
-    }
 
+    }
 
     public override void OnEnter()
     {
-
+        animator.CrossFade(stateString, 0,0);
     }
 
     public override void OnUpdate()
@@ -23,6 +23,4 @@ public class Idle : State
     {
 
     }
-
-    
 }

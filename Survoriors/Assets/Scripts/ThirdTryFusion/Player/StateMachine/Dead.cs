@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Dead : State
 {
-
-    public Dead(Animator animator, StateManager stateManager) : base(animator, stateManager)
+    public Dead(string stateString, Animator animator) : base(stateString, animator)
     {
-    }
 
+    }
 
     public override void OnEnter()
     {
-        animator.SetTrigger("DeathTrigger");
+        animator.CrossFade(stateString, 0, 0);
     }
 
     public override void OnUpdate()
@@ -24,5 +23,6 @@ public class Dead : State
     {
 
     }
+
 
 }
