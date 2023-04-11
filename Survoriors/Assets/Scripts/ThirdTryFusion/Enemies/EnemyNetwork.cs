@@ -5,62 +5,72 @@ using Fusion;
 
 public class EnemyNetwork : NetworkBehaviour
 {
-    NetworkRunner networkRunner;
+    /*struct NetworkHealth : INetworkStruct
+    {
+        public int health;
+    }
+
+    [Networked(OnChanged = nameof(OnHealthChanged))]
+    private NetworkHealth _networkHealth; */
+    
+    private NetworkRunner _networkRunner;
 
     [SerializeField]
-    private float speed;
+    protected float Speed;
 
-    List<GameObject> players;
+    private List<GameObject> _players;
 
-    private GameObject target;
+    private GameObject _target;
+
+    protected bool _isCanAttack;
+
+    protected int _healthPoints;
+
+    
+
+
+    [SerializeField]
+    protected float _timeBetweenAttack;
+
+    protected virtual void Attack() {}
 
     private void Awake()
     {
-        players = new List<GameObject>();
+        _players = new List<GameObject>();
     }
-
 
     public override void FixedUpdateNetwork()
     {
-        //Debug.Log("Update");
-
         FindTarget();
 
         MoveToTarget();
-
     }
 
     private void FindTarget()
     {
-        if(players.Count == 0)
+        if(_players.Count == 0)
         {
             FindPlayers();
         }
 
-        if (players.Count == 0)
+        if (_players.Count == 0)
         {
-            //Debug.Log("WTF");
-
-            target = null;
+            _target = null;
             return;
         }
 
-
         float dist;
-        dist = Vector2.Distance(players[0].transform.position, transform.position);
+        dist = Vector2.Distance(_players[0].transform.position, transform.position);
 
-        target = players[0];
+        _target = _players[0];
 
-        foreach (var item in players)
+        foreach (var item in _players)
         {
-
-            //Debug.Log($"{dist} |=| {Vector2.Distance(item.transform.position, transform.position)}");
-
             if(dist > Vector2.Distance(item.transform.position, transform.position))
             {
                 dist = Vector2.Distance(item.transform.position, transform.position);
 
-                target = item;
+                _target = item;
             }
 
         }
@@ -68,29 +78,17 @@ public class EnemyNetwork : NetworkBehaviour
 
     private void MoveToTarget()
     {
-
-        
-
-        if (target != null)
+        if (_target != null)
         {
-            //Debug.Log("Moving");
-            //Debug.Log(target.name);
-            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed);
-        }
-        else
-        {
-            //Debug.Log("target NULL");
+            transform.position = Vector2.MoveTowards(transform.position, _target.transform.position, Speed);
         }
     }
 
-
     public void FindPlayers()
     {
-        //Debug.Log("Find player");
-
         foreach (var item in FindObjectsOfType<PlayerInputHandler>())
         {
-            players.Add(item.gameObject);
+            _players.Add(item.gameObject);
             Debug.Log(item.gameObject.name);
 
         }
@@ -98,8 +96,34 @@ public class EnemyNetwork : NetworkBehaviour
 
     public void InitializeNetwork(NetworkRunner networkRunner)
     {
-        this.networkRunner = networkRunner;
+        this._networkRunner = networkRunner;
+    }
+    
+    private IEnumerator CR_Timer(float time)
+    {
+        _isCanAttack = false;
+
+        yield return new WaitForSecondsRealtime(time);
+
+
+        _isCanAttack = true;
     }
 
+    /*private static void OnHealthChanged(Changed<EnemyNetwork> changed)
+    {
+        changed.Behaviour.OnSkinChange();
+    }*/
+
+    [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
+    private void Rpc_RequestChangehealth(int damage, RpcInfo info = default)
+    {
+        //Debug.Log($"Recive RPC request for player {transform.name} DataHolder ID {DataHolderPlayer.playerSkin}");
+        Debug.Log($"Damage {damage}  health {_healthPoints}");
+
+        _healthPoints -= damage;
+
+        Debug.Log("health " + _healthPoints);
+
+    }
 
 }

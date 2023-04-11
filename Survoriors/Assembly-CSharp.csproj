@@ -83,7 +83,6 @@
     <Compile Include="Assets\Photon\Fusion\Scripts\Prototyping\AreaOfInterest\PlayerAOIPrototype.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\Photon\Fusion\Scripts\Prototyping\Materials\FusionPrototypingTextures.cs" />
-    <Compile Include="Assets\Scripts\SecondTryFusion\Enemy.cs" />
     <Compile Include="Assets\Photon\Fusion\Scripts\FusionStats.cs" />
     <Compile Include="Assets\Scripts\ThirdTryFusion\Player\DataHolderPlayer.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
@@ -165,6 +164,12 @@
     <Compile Include="Assets\Scripts\ThirdTryFusion\Player\SkinCreator.cs" />
     <Compile Include="Assets\Scripts\ThirdTryFusion\Player\StateMachine\StateMachine.cs" />
     <Compile Include="Assets\Scripts\ThirdTryFusion\Player\StateMachine\Hit.cs" />
+    <Compile Include="Assets\Scripts\ThirdTryFusion\Enemies\Enemy\Enemy.cs" />
+    <Compile Include="Assets\Scripts\ThirdTryFusion\Enemies\Enemy\Zombie.cs" />
+    <Compile Include="Assets\Scripts\ThirdTryFusion\Enemies\Enemy\ZombieBig.cs" />
+    <Compile Include="Assets\Scripts\ThirdTryFusion\Weapon\WeaponNetwork.cs" />
+    <Compile Include="Assets\Scripts\ThirdTryFusion\Weapon\SmallShotgun.cs" />
+    <Compile Include="Assets\Scripts\ThirdTryFusion\Weapon\BulletNetwork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

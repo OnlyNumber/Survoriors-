@@ -77,9 +77,6 @@ public class SkinController : NetworkBehaviour
     {
         playerSkin = playerSkinNetwork.skinNumber;
 
-        Debug.Log("Work or not ");
-        Debug.Log(playerSkin);
-
         if(sM == null)
         {
             sM = GetComponentInChildren<StateMachine>();
