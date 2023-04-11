@@ -173,7 +173,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
-  playerSkin: {fileID: 0}
   skins:
   - {fileID: 1758016665539819756, guid: 46165ded4d9b03f4aa3a7334e8bb4650, type: 3}
   - {fileID: 5112742746439451599, guid: 98e14fbe562870942bb9a0ee81779ae2, type: 3}
@@ -480,7 +479,7 @@ Animator:
   m_GameObject: {fileID: 8231307095378665018}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e182d3587e6363642919136d14465982, type: 2}
+  m_Controller: {fileID: 9100000, guid: 698082e10ac42cb458a6efbd2e9acdd1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

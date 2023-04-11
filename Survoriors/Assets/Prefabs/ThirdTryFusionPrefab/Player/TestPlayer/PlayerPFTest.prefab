@@ -486,7 +486,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.28235295, g: 0.25882354, b: 0.25490198, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -581,6 +581,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2110069199195832479}
     m_Modifications:
+    - target: {fileID: 89972336682134154, guid: 6612df0e989c3b8439489174373d8cc0, type: 3}
+      propertyPath: m_Color.b
+      value: 0.25490198
+      objectReference: {fileID: 0}
+    - target: {fileID: 89972336682134154, guid: 6612df0e989c3b8439489174373d8cc0, type: 3}
+      propertyPath: m_Color.g
+      value: 0.25882354
+      objectReference: {fileID: 0}
+    - target: {fileID: 89972336682134154, guid: 6612df0e989c3b8439489174373d8cc0, type: 3}
+      propertyPath: m_Color.r
+      value: 0.28235295
+      objectReference: {fileID: 0}
     - target: {fileID: 89972336682134164, guid: 6612df0e989c3b8439489174373d8cc0, type: 3}
       propertyPath: m_Name
       value: PlayerSkin

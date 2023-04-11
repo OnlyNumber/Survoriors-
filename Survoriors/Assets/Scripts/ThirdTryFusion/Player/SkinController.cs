@@ -8,8 +8,30 @@ using UnityEngine.UI;
 
 public class SkinController : NetworkBehaviour
 {
-    [SerializeField]
-    SpriteRenderer playerSkin;
+
+
+    private int  playerSkin;
+
+    public delegate void ChangePlayerSkin();
+
+    /*public ChangePlayerSkin onPlayerChangedSkin;
+
+    public int PlayerSkin
+    {
+        set
+        {
+            playerSkin = value;
+
+            onPlayerChangedSkin?.Invoke();
+        }
+
+        get
+        {
+            return playerSkin;
+        }
+    }*/
+
+    
 
     [SerializeField]
     SpriteRenderer[] skins;
@@ -22,9 +44,13 @@ public class SkinController : NetworkBehaviour
     [Networked(OnChanged = nameof(OnSkinChanged))]
     NetworkSkinStruct playerSkinNetwork { get; set; }
 
+    StateMachine sM;
+
 
     private void Start()
     {
+        sM = GetComponentInChildren<StateMachine>();
+
         NetworkSkinStruct skin ;
 
         skin.skinNumber = (int)DataHolderPlayer.playerSkin;
@@ -49,7 +75,18 @@ public class SkinController : NetworkBehaviour
 
     private void OnSkinChange()
     {
-        playerSkin.sprite = skins[playerSkinNetwork.skinNumber].sprite;
+        playerSkin = playerSkinNetwork.skinNumber;
+
+        Debug.Log("Work or not ");
+        Debug.Log(playerSkin);
+
+        if(sM == null)
+        {
+            sM = GetComponentInChildren<StateMachine>();
+        }
+
+        sM.ChangeSkin(playerSkinNetwork.skinNumber);
+        //playerSkin.sprite = skins[playerSkinNetwork.skinNumber].sprite;
     }
 
 }

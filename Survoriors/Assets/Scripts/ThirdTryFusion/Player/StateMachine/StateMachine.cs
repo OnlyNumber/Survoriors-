@@ -24,17 +24,26 @@ public class StateMachine : NetworkBehaviour
 
     private Animator _currentAnimator;
 
+    private SkinController _skinController;
+
     private void Awake()
     {
         _currentAnimator = GetComponent<Animator>();
 
-        _currentAnimator.runtimeAnimatorController = _animatorChoose[1];
+        _skinController = GetComponentInParent<SkinController>();
 
         _states.Add(new Idle("Idle",_currentAnimator));
         _states.Add(new Moving("Moving",_currentAnimator));
         _states.Add(new Dead("Dead",_currentAnimator));
 
         currentState = _states[(int)States.Idle];
+    }
+
+    public void ChangeSkin(int changedSkin)
+    {
+        _currentAnimator.runtimeAnimatorController = _animatorChoose[changedSkin];
+
+
     }
 
     public override void FixedUpdateNetwork()
