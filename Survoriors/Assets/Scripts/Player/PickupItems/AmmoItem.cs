@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Fusion;
 
-public class AmmoItem : NetworkObject, IPickupItem
+public class AmmoItem : NetworkBehaviour, IPickupItem
 {
     public void DoOnPickUp()
     {
-
         Runner.Despawn(GetComponent<NetworkObject>());
     }
 
@@ -15,7 +14,7 @@ public class AmmoItem : NetworkObject, IPickupItem
     {
         if (collision.gameObject.layer == IPickupItem.PLAYER_LAYER)
         {
-            collision.GetComponent<WeaponNetwork>().TakeAmmo();
+            collision.GetComponentInChildren<WeaponNetwork>().TakeAmmo();
 
             DoOnPickUp();
         }

@@ -5,6 +5,9 @@ using Fusion;
 
 public class HealthHandler :  NetworkBehaviour, IDamageAble
 {
+    [SerializeField]
+    private int _maxhealthPoints;
+
     public int HealthPoints
     {
         get
@@ -14,8 +17,12 @@ public class HealthHandler :  NetworkBehaviour, IDamageAble
         private set
         {
             _healthPoints = value;
+            if(_healthPoints > _maxhealthPoints)
+            {
+                _healthPoints = _maxhealthPoints;
+            }
 
-            if (HealthPoints < 0)
+            if (_healthPoints < 0)
             {
                 Die();
             }

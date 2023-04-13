@@ -5,6 +5,7 @@ using Fusion;
 
 public class HealthItem : NetworkBehaviour, IPickupItem
 {
+    [SerializeField]
     private int _healthValue;
 
     public void DoOnPickUp()

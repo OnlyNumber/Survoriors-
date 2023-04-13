@@ -6,17 +6,22 @@ using Fusion;
 public class BombItem : NetworkBehaviour, IPickupItem
 {
     [SerializeField]
+    private int damage;
+
+    [SerializeField]
     private float _bombRadius;
 
     public void DoOnPickUp()
     {
 
-        Collider2D[] _hits = Physics2D.OverlapCircleAll(transform.position, _bombRadius, IPickupItem.ENEMY_LAYER);
+        Collider2D[] _hits = Physics2D.OverlapCircleAll(transform.position, _bombRadius);
+
+        //Debug.Log(_hits.Length);
 
         foreach (var hit in _hits)
         {
-
-            hit.GetComponent<IDamageAble>().TakeDamage(10);
+            if(hit.gameObject.layer == IPickupItem.ENEMY_LAYER)
+            hit.GetComponent<IDamageAble>().TakeDamage(damage);
 
         }
 
