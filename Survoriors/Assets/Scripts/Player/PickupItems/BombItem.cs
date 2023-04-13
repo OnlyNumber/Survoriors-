@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Fusion;
 
-public class BombItem : NetworkBehaviour, PickupItem
+public class BombItem : NetworkBehaviour, IPickupItem
 {
     [SerializeField]
     private float _bombRadius;
@@ -11,19 +11,22 @@ public class BombItem : NetworkBehaviour, PickupItem
     public void DoOnPickUp()
     {
 
-        Collider2D[] _hits = Physics2D.OverlapCircleAll(transform.position, _bombRadius, PickupItem.ENEMY_LAYER);
+        Collider2D[] _hits = Physics2D.OverlapCircleAll(transform.position, _bombRadius, IPickupItem.ENEMY_LAYER);
 
-        foreach(var hit in _hits)
+        foreach (var hit in _hits)
         {
+
+            hit.GetComponent<IDamageAble>().TakeDamage(10);
 
         }
 
+        Runner.Despawn(GetComponent<NetworkObject>());
 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.layer == PickupItem.PLAYER_LAYER)
+        if(collision.gameObject.layer == IPickupItem.PLAYER_LAYER)
         {
             DoOnPickUp();
         }

@@ -172,7 +172,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Scripts\Player\StateMachine\Moving.cs" />
     <Compile Include="Assets\Photon\Fusion\Scripts\FusionGraph.cs" />
-    <Compile Include="Assets\Scripts\Player\PickupItems\PickupItem.cs" />
+    <Compile Include="Assets\Scripts\Player\PickupItems\IPickupItem.cs" />
     <Compile Include="Assets\Scripts\Player\PickupItems\BombItem.cs" />
     <Compile Include="Assets\Scripts\Player\PickupItems\HealthItem.cs" />
     <Compile Include="Assets\Scripts\Player\PickupItems\AmmoItem.cs" />

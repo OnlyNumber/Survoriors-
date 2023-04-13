@@ -451,7 +451,7 @@
 "Assets/Scripts/Player/PickupItems/AmmoItem.cs"
 "Assets/Scripts/Player/PickupItems/BombItem.cs"
 "Assets/Scripts/Player/PickupItems/HealthItem.cs"
-"Assets/Scripts/Player/PickupItems/PickupItem.cs"
+"Assets/Scripts/Player/PickupItems/IPickupItem.cs"
 "Assets/Scripts/Player/PlayerInputHandler.cs"
 "Assets/Scripts/Player/SkinController.cs"
 "Assets/Scripts/Player/SkinCreator.cs"

@@ -1,18 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Fusion;
 
-public class HealthItem : MonoBehaviour
+public class HealthItem : NetworkBehaviour, IPickupItem
 {
-    // Start is called before the first frame update
-    void Start()
+    private int _healthValue;
+
+    public void DoOnPickUp()
     {
-        
+
+        Runner.Despawn(GetComponent<NetworkObject>());
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.gameObject.layer == IPickupItem.PLAYER_LAYER)
+        {
+
+            collision.GetComponent<IDamageAble>().TakeDamage(-_healthValue);
+
+            DoOnPickUp();
+
+        }
     }
+
+
 }

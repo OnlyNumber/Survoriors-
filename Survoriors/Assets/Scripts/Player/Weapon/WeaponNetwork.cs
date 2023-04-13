@@ -67,7 +67,11 @@ public class WeaponNetwork : NetworkBehaviour
 
 
         IsCanShoot = true;
-
-        
     }
+
+    public void TakeAmmo()
+    {
+        this.Ammo += MaxBullets;
+    }
+
 }
