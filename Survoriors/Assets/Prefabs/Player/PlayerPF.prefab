@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 1772472235890668523}
   - component: {fileID: 6485729332084163488}
   - component: {fileID: 3459406909032481030}
+  - component: {fileID: 3014535470133388658}
   m_Layer: 7
   m_Name: PlayerPF
   m_TagString: Untagged
@@ -219,9 +220,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
-  _maxhealthPoints: 50
   corpse: {fileID: 0}
   _healthPoints: 50
+--- !u!114 &3014535470133388658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110069199195832450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0540a718d0f6a704d91229ee37c29157, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halthHandler: {fileID: 3459406909032481030}
 --- !u!1 &8231307095378665018
 GameObject:
   m_ObjectHideFlags: 0

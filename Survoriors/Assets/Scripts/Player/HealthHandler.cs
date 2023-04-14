@@ -8,11 +8,13 @@ using System;
 public class HealthHandler :  NetworkBehaviour, IDamageAble
 {
     [SerializeField]
-    private int _maxhealthPoints;
+    public int _maxhealthPoints { get; private set; }
 
     public delegate void OnTakeDamage();
 
     public event OnTakeDamage takeDamageEvent;
+
+    public event OnTakeDamage onChangeHealth;
 
     [SerializeField]
     private NetworkObject corpse;
@@ -34,6 +36,12 @@ public class HealthHandler :  NetworkBehaviour, IDamageAble
 
             _healthPoints = value;
 
+
+            if (HasInputAuthority)
+            {
+                onChangeHealth?.Invoke();
+            }
+
             if (_healthPoints > _maxhealthPoints)
             {
                 _healthPoints = _maxhealthPoints;
@@ -52,6 +60,12 @@ public class HealthHandler :  NetworkBehaviour, IDamageAble
 
     [SerializeField]
     private int _healthPoints;
+
+    private void Start()
+    {
+        _maxhealthPoints = _healthPoints;
+    }
+
 
     [Rpc(RpcSources.All, RpcTargets.All)]
     private void Rpc_RequestChangehealth(int damage, RpcInfo info = default)

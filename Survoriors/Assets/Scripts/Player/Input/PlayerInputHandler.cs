@@ -9,7 +9,8 @@ public class PlayerInputHandler : MonoBehaviour
     private NetworkBool _isFireButtonPressed = false;
     private NetworkBool _isReloadButtonPressed = false;
 
-    
+
+    private FixedJoystick _joystick;
 
 
     private void Update()
@@ -17,6 +18,8 @@ public class PlayerInputHandler : MonoBehaviour
         _moveInputVector.x = Input.GetAxisRaw("Horizontal");
 
         _moveInputVector.y = Input.GetAxisRaw("Vertical");
+
+
 
         if (Input.GetButton("Fire1"))
         {
