@@ -429,6 +429,7 @@
 "Assets/Photon/Fusion/Scripts/Utilities/NetworkProjectUtilities.cs"
 "Assets/Photon/PhotonLibs/WebSocket/SocketWebTcp.cs"
 "Assets/Photon/PhotonLibs/WebSocket/WebSocket.cs"
+"Assets/Scripts/Enemies/Disappearing.cs"
 "Assets/Scripts/Enemies/Enemy/Skeleton.cs"
 "Assets/Scripts/Enemies/Enemy/Zombie.cs"
 "Assets/Scripts/Enemies/EnemyNetwork.cs"

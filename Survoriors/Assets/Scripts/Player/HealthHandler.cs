@@ -14,6 +14,9 @@ public class HealthHandler :  NetworkBehaviour, IDamageAble
 
     public event OnTakeDamage takeDamageEvent;
 
+    [SerializeField]
+    private NetworkObject corpse;
+
     public int HealthPoints
     {
         get
@@ -22,16 +25,7 @@ public class HealthHandler :  NetworkBehaviour, IDamageAble
         }
         private set
         {
-            //Debug.Log($"on damage event damage: {value} health {_healthPoints}");
-
-
             
-
-            
-
-
-
-
             if (value < _healthPoints)
             {
 
@@ -47,6 +41,8 @@ public class HealthHandler :  NetworkBehaviour, IDamageAble
 
             if (_healthPoints < 0)
             {
+                Runner.Spawn(corpse, transform.position);
+
                 Die();
             }
 
