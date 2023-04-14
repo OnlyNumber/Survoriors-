@@ -62,7 +62,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\Scripts\Player\StateMachine\Hit.cs" />
     <Compile Include="Assets\Scripts\Enemies\Enemy\Skeleton.cs" />
-    <Compile Include="Assets\Scripts\Player\ConnectionTokenUtils.cs" />
+    <Compile Include="Assets\Scripts\Network\ConnectionTokenUtils.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\Photon\PhotonLibs\WebSocket\SocketWebTcp.cs" />
     <Compile Include="Assets\Scripts\WalkController.cs" />
@@ -183,6 +183,7 @@
     <Compile Include="Assets\Scripts\Enemies\EnemyStateMachine\DeadEnemy.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyStateMachine\StateEnemy.cs" />
     <Compile Include="Assets\Scripts\Enemies\Disappearing.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerUIHealthHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

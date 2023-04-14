@@ -16,6 +16,8 @@ public class SpawnerPlayer : MonoBehaviour, INetworkRunnerCallbacks
 
     private SessionListUIHandler sessionListUIHandler;
 
+    private Dictionary<PlayerRef, NetworkPlayer> _spawnedCharacters = new Dictionary<PlayerRef, NetworkPlayer>();
+
     private void Awake()
     {
         mapTokenIdWithNetworkPlayer = new Dictionary<int, NetworkPlayer>();
@@ -93,6 +95,8 @@ public class SpawnerPlayer : MonoBehaviour, INetworkRunnerCallbacks
 
                 NetworkPlayer spawnedNetworkPlayer = runner.Spawn(playerPrefab, Vector3.zero, Quaternion.identity, player);
 
+                _spawnedCharacters.Add(player, spawnedNetworkPlayer);
+
                 spawnedNetworkPlayer.token = playerToken;
             }
         }
@@ -149,7 +153,11 @@ public class SpawnerPlayer : MonoBehaviour, INetworkRunnerCallbacks
     public void OnPlayerLeft(NetworkRunner runner, PlayerRef player)
     {
 
-
+        if (_spawnedCharacters.TryGetValue(player, out NetworkPlayer networkObject))
+        {
+            runner.Despawn(networkObject.GetComponent<NetworkObject>());
+            _spawnedCharacters.Remove(player);
+        }
 
     }
 

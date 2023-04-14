@@ -51,7 +51,7 @@ public class NetworkRunnerHandler : MonoBehaviour
 
         networkRunner = Instantiate(networkRunnerPrefab);
 
-        networkRunner.name = "Network runner MMM" ;
+        networkRunner.name = "Network runner Migrated" ;
 
         var clientTask = InitializeNetworkRunnerMigration(networkRunner,  hostMigrationToken);
         
@@ -84,7 +84,7 @@ public class NetworkRunnerHandler : MonoBehaviour
 
     protected virtual Task InitializeNetworkRunnerMigration(NetworkRunner runner,HostMigrationToken hostMigrationToken)
     {
-        var sceneManager = runner.GetComponents(typeof(MonoBehaviour)).OfType<INetworkSceneManager>().FirstOrDefault();
+        var sceneManager = GetSceneManager(runner);
 
         if (sceneManager == null)
         {

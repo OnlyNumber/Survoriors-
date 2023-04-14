@@ -11,10 +11,14 @@ public class NetworkPlayer : NetworkBehaviour, IPlayerLeft
 
     public void PlayerLeft(PlayerRef player)
     {
-        if(player = Object.InputAuthority)
+        Debug.Log(player.PlayerId);
+
+        /*if(player = Object.InputAuthority)
         {
+            Debug.Log(Object.name);
+
             Runner.Despawn(Object);
-        }
+        }*/
     }
 
     public override void Spawned()
