@@ -29959,7 +29959,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1715572793919134740, guid: 6e6ae798d98a9744bb457999a18b51d2, type: 3}
       propertyPath: Flags
-      value: 2561
+      value: 133633
       objectReference: {fileID: 0}
     - target: {fileID: 1715572793919134740, guid: 6e6ae798d98a9744bb457999a18b51d2, type: 3}
       propertyPath: NetworkedBehaviours.Array.size
@@ -30035,7 +30035,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1715572793919134744, guid: 6e6ae798d98a9744bb457999a18b51d2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e6ae798d98a9744bb457999a18b51d2, type: 3}
@@ -30131,7 +30131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3138354683875181803, guid: b4a8e8686b814094586677d2fcc6d9bc, type: 3}
       propertyPath: Flags
-      value: 2561
+      value: 133633
       objectReference: {fileID: 0}
     - target: {fileID: 3138354683875181803, guid: b4a8e8686b814094586677d2fcc6d9bc, type: 3}
       propertyPath: NetworkedBehaviours.Array.size
@@ -30167,7 +30167,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3138354683875181807, guid: b4a8e8686b814094586677d2fcc6d9bc, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3138354683875181815, guid: b4a8e8686b814094586677d2fcc6d9bc, type: 3}
       propertyPath: corpse
@@ -30254,7 +30254,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2451321828171144801, guid: 9b40be8d663922245b1470d04c175fff, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2451321828171144809, guid: 9b40be8d663922245b1470d04c175fff, type: 3}
       propertyPath: corpse
@@ -30314,7 +30314,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2451321828171144813, guid: 9b40be8d663922245b1470d04c175fff, type: 3}
       propertyPath: Flags
-      value: 2561
+      value: 133633
       objectReference: {fileID: 0}
     - target: {fileID: 2451321828171144813, guid: 9b40be8d663922245b1470d04c175fff, type: 3}
       propertyPath: NetworkedBehaviours.Array.size

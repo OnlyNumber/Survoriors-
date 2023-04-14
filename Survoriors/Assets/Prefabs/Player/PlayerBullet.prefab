@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
-  _lifeTime: 2
+  _lifeTime: 1
   _speed: 0.9
   damage: 1
   numberOfCollideableLayer: 6

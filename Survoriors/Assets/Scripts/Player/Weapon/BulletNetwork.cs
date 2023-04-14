@@ -26,7 +26,7 @@ public class BulletNetwork : NetworkBehaviour
 
     
 
-    private void Awake()
+    private void Start()
     {
 
         _networkObject = GetComponent<NetworkObject>();
