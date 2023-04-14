@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovingEnemy : State
+public class MovingEnemy : StateEnemy
 {
-    public MovingEnemy(string stateString, Animator animator) : base(stateString, animator)
+    public MovingEnemy(string stateString, Animator animator, EnemyStateMachine stateMachine) : base(stateString, animator,stateMachine)
     {
 
     }

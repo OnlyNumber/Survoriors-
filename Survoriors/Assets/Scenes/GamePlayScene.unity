@@ -148,6 +148,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &83757049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83757045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3a2eeb1ccfca554286ce1786b9ee9d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
+  animator: {fileID: 0}
+  _animatorChoose: []
 --- !u!1 &220083078
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,6 +486,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1202279404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202279400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88230d6158d20d4586cb7d7fbb50c98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
+  animator: {fileID: 0}
 --- !u!1 &1472470413
 GameObject:
   m_ObjectHideFlags: 0
@@ -29931,7 +29960,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1715572793919134740, guid: 6e6ae798d98a9744bb457999a18b51d2, type: 3}
       propertyPath: Flags
-      value: 2561
+      value: 133633
       objectReference: {fileID: 0}
     - target: {fileID: 1715572793919134740, guid: 6e6ae798d98a9744bb457999a18b51d2, type: 3}
       propertyPath: NetworkedBehaviours.Array.size
@@ -30000,6 +30029,10 @@ PrefabInstance:
     - target: {fileID: 1715572793919134744, guid: 6e6ae798d98a9744bb457999a18b51d2, type: 3}
       propertyPath: m_Name
       value: SkeletonEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715572793919134744, guid: 6e6ae798d98a9744bb457999a18b51d2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e6ae798d98a9744bb457999a18b51d2, type: 3}
@@ -30099,7 +30132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3138354683875181803, guid: b4a8e8686b814094586677d2fcc6d9bc, type: 3}
       propertyPath: NetworkedBehaviours.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3138354683875181803, guid: b4a8e8686b814094586677d2fcc6d9bc, type: 3}
       propertyPath: NetworkedBehaviours.Array.data[0]
@@ -30114,6 +30147,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1724972984}
     - target: {fileID: 3138354683875181803, guid: b4a8e8686b814094586677d2fcc6d9bc, type: 3}
+      propertyPath: NetworkedBehaviours.Array.data[3]
+      value: 
+      objectReference: {fileID: 83757049}
+    - target: {fileID: 3138354683875181803, guid: b4a8e8686b814094586677d2fcc6d9bc, type: 3}
       propertyPath: NetworkGuid.RawGuidValue.Array.data[0]
       value: -1274933134814769825
       objectReference: {fileID: 0}
@@ -30124,6 +30161,10 @@ PrefabInstance:
     - target: {fileID: 3138354683875181807, guid: b4a8e8686b814094586677d2fcc6d9bc, type: 3}
       propertyPath: m_Name
       value: ZombieBig
+      objectReference: {fileID: 0}
+    - target: {fileID: 3138354683875181807, guid: b4a8e8686b814094586677d2fcc6d9bc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3138354683875181815, guid: b4a8e8686b814094586677d2fcc6d9bc, type: 3}
       propertyPath: _healthPoints
@@ -30260,6 +30301,14 @@ PrefabInstance:
       propertyPath: Flags
       value: 2561
       objectReference: {fileID: 0}
+    - target: {fileID: 2451321828171144813, guid: 9b40be8d663922245b1470d04c175fff, type: 3}
+      propertyPath: NetworkedBehaviours.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2451321828171144813, guid: 9b40be8d663922245b1470d04c175fff, type: 3}
+      propertyPath: NetworkedBehaviours.Array.data[3]
+      value: 
+      objectReference: {fileID: 1202279404}
     - target: {fileID: 2451321828171144813, guid: 9b40be8d663922245b1470d04c175fff, type: 3}
       propertyPath: NetworkGuid.RawGuidValue.Array.data[0]
       value: -8120830676302641614

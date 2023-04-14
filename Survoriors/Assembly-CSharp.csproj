@@ -181,6 +181,7 @@
     <Compile Include="Assets\Scripts\Enemies\EnemyStateMachine\IdleEnemy.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyStateMachine\HitEnemy.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyStateMachine\DeadEnemy.cs" />
+    <Compile Include="Assets\Scripts\Enemies\EnemyStateMachine\StateEnemy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

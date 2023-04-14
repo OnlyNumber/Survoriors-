@@ -16,9 +16,9 @@ public class EnemyStateMachine : NetworkBehaviour
         Hit = 2
     }
 
-    private List<State> _states = new List<State>();
+    private List<StateEnemy> _states = new List<StateEnemy>();
 
-    private State currentState;
+    private StateEnemy currentState;
 
     private Animator _currentAnimator;
 
@@ -36,9 +36,9 @@ public class EnemyStateMachine : NetworkBehaviour
 
         //_skinController = GetComponentInParent<SkinController>();
 
-        _states.Add(new MovingEnemy("Run", _currentAnimator));
-        _states.Add(new DeadEnemy("Dead", _currentAnimator));
-        _states.Add(new HitEnemy("Hit", _currentAnimator));
+        _states.Add(new MovingEnemy("Run", _currentAnimator, this));
+        _states.Add(new DeadEnemy("Dead", _currentAnimator, this));
+        _states.Add(new HitEnemy("Hit", _currentAnimator, this));
 
 
         currentState = _states[(int)StatesEnemy.Moving];
@@ -57,11 +57,6 @@ public class EnemyStateMachine : NetworkBehaviour
 
     public void GetNextState(int numberOfState)
     {
-        if(gameObject.name == "SkeletonEnemy")
-        {
-            Debug.Log(currentState.ToString());
-        }
-
         if (_states[numberOfState] == currentState)
         {
             return;
