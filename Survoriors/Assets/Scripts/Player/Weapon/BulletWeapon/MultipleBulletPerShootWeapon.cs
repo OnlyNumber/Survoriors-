@@ -11,16 +11,11 @@ public class MultipleBulletPerShootWeapon : WeaponNetwork
 
     private void Start()
     {
-        //_networkRunner = FindObjectOfType<NetworkRunner>();
-
         AmmoText = GameObject.Find("AmmoIndicator").GetComponent<TMP_Text>();
     }
 
     public override void FixedUpdateNetwork()
     {
-        //if(AmmoText == null)
-        // GameObject.Find("AmmoIndicator").GetComponent<TMP_Text>();
-
         if (HasInputAuthority)
             AmmoText.text = $"{CurrentBullets} /{MaxBullets}  {Ammo}";
         
