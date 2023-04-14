@@ -21,12 +21,9 @@ public class MultipleBulletPerShootWeapon : WeaponNetwork
         //if(AmmoText == null)
         // GameObject.Find("AmmoIndicator").GetComponent<TMP_Text>();
 
-        if (HasInputAuthority && AmmoText != null)
+        if (HasInputAuthority)
             AmmoText.text = $"{CurrentBullets} /{MaxBullets}  {Ammo}";
-        else
-        {
-            Debug.Log("No acces");
-        }
+        
 
 
 

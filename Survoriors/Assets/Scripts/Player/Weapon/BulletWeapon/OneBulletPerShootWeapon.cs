@@ -21,12 +21,11 @@ public class OneBulletPerShootWeapon : WeaponNetwork
         //if(AmmoText == null)
         // GameObject.Find("AmmoIndicator").GetComponent<TMP_Text>();
 
-        if (HasInputAuthority && AmmoText != null)
-            AmmoText.text = $"{CurrentBullets} /{MaxBullets}  {Ammo}";
-        else
+        if (HasInputAuthority)
         {
-            Debug.Log("No acces");
+            AmmoText.text = $"{CurrentBullets} /{MaxBullets}  {Ammo}";
         }
+
 
         if (GetInput(out NetworkInputData networkInput))
         {
