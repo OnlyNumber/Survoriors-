@@ -24,7 +24,9 @@ public class Skeleton : EnemyNetwork
     {
         base.FixedUpdateNetwork();
 
-        if(Vector2.Distance(Target.transform.position, transform.position) < distanceForAttack && _isCanAttack )
+        //Debug.Log("Updating");
+
+        if(GetDistance() != -1 && GetDistance() < distanceForAttack && _isCanAttack )
         {
             Attack();
 

@@ -219,6 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
+  _maxhealthPoints: 50
   _healthPoints: 50
 --- !u!1 &8231307095378665018
 GameObject:

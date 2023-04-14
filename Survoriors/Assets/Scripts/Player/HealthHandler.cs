@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Fusion;
+using System;
+
 
 public class HealthHandler :  NetworkBehaviour, IDamageAble
 {
     [SerializeField]
     private int _maxhealthPoints;
+
+    //public Action OnTakeDamage();
 
     public int HealthPoints
     {

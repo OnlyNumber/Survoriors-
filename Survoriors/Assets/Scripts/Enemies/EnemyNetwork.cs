@@ -18,8 +18,8 @@ public class EnemyNetwork : NetworkBehaviour
     [SerializeField]
     protected int damage;
 
-    [SerializeField]
-    protected float distanceForAttack;
+    [field: SerializeField]
+    public float distanceForAttack { get; protected set; }
 
     [SerializeField]
     protected float _timeBetweenAttack;
@@ -42,6 +42,15 @@ public class EnemyNetwork : NetworkBehaviour
 
     }
 
+    public float GetDistance()
+    {
+        if (Target != null)
+            return Vector2.Distance(Target.transform.position, transform.position);
+        else
+            return -1;
+    }
+
+
     protected virtual void Attack() { }
 
     private void FindTarget()
@@ -63,22 +72,27 @@ public class EnemyNetwork : NetworkBehaviour
         }
 
 
-        float dist;
-        dist = Vector2.Distance(players[0].transform.position, transform.position);
+        
+        
 
         Target = players[0];
 
-        foreach (var item in players)
+        float dist = GetDistance();
+
+        if (dist != -1)
         {
-
-
-            if(dist > Vector2.Distance(item.transform.position, transform.position))
+            foreach (var item in players)
             {
-                dist = Vector2.Distance(item.transform.position, transform.position);
 
-                Target = item;
+
+                if (dist > Vector2.Distance(item.transform.position, transform.position))
+                {
+                    dist = Vector2.Distance(item.transform.position, transform.position);
+
+                    Target = item;
+                }
+
             }
-
         }
     }
 

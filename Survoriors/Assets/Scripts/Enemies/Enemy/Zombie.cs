@@ -27,7 +27,7 @@ public class Zombie : EnemyNetwork
     {
         base.FixedUpdateNetwork();
 
-        if (Vector2.Distance(Target.transform.position, transform.position) < distanceForAttack && _isCanAttack)
+        if (GetDistance() != -1 && GetDistance() < distanceForAttack && _isCanAttack)
         {
             Attack();
 

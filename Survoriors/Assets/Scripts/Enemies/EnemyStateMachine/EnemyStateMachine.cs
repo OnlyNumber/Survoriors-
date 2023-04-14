@@ -12,7 +12,8 @@ public class EnemyStateMachine : NetworkBehaviour
     {
         Idle = 0,
         Moving = 1,
-        Dead = 2
+        Dead = 2,
+        Hit = 3
     }
 
     private List<State> _states = new List<State>();
@@ -23,15 +24,21 @@ public class EnemyStateMachine : NetworkBehaviour
 
     //private SkinController _skinController;
 
+    private EnemyNetwork _enemyNetwork;
+
     private void Awake()
     {
         _currentAnimator = GetComponent<Animator>();
+
+        _enemyNetwork = GetComponentInParent<EnemyNetwork>();
 
         //_skinController = GetComponentInParent<SkinController>();
 
         _states.Add(new Idle("Idle", _currentAnimator));
         _states.Add(new Moving("Moving", _currentAnimator));
         _states.Add(new Dead("Dead", _currentAnimator));
+        _states.Add(new Dead("Hit", _currentAnimator));
+
 
         currentState = _states[(int)States.Idle];
     }
@@ -41,17 +48,14 @@ public class EnemyStateMachine : NetworkBehaviour
 
         currentState.OnUpdate();
 
-        if (GetInput(out NetworkInputData networkInput))
-        {
-            if (Mathf.Abs(networkInput.movementAxisInput.x) > 0 || Mathf.Abs(networkInput.movementAxisInput.y) > 0)
-            {
-                GetNextState((int)States.Moving);
-            }
-            else
+            if (_enemyNetwork.GetDistance() <= _enemyNetwork.distanceForAttack)
             {
                 GetNextState((int)States.Idle);
             }
-        }
+            else
+            {
+                GetNextState((int)States.Moving);
+            }
 
     }
 
