@@ -2,17 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HitEnemy : MonoBehaviour
+public class HitEnemy : State
 {
-    // Start is called before the first frame update
-    void Start()
+    float timer = 1;
+
+    public HitEnemy(string stateString, Animator animator) : base(stateString, animator)
+    {
+
+    }
+
+    public override void OnEnter()
+    {
+        Debug.Log("Hitted");
+
+        animator.CrossFade(stateString, 0, 0);
+
+    }
+
+    public override void OnUpdate()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void OnExit()
     {
-        
+
     }
 }

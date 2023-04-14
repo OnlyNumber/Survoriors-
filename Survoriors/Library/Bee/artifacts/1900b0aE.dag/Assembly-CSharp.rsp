@@ -433,6 +433,7 @@
 "Assets/Scripts/Enemies/Enemy/Zombie.cs"
 "Assets/Scripts/Enemies/EnemyNetwork.cs"
 "Assets/Scripts/Enemies/EnemySpawner.cs"
+"Assets/Scripts/Enemies/EnemyStateMachine/DeadEnemy.cs"
 "Assets/Scripts/Enemies/EnemyStateMachine/EnemyStateMachine.cs"
 "Assets/Scripts/Enemies/EnemyStateMachine/HitEnemy.cs"
 "Assets/Scripts/Enemies/EnemyStateMachine/IdleEnemy.cs"

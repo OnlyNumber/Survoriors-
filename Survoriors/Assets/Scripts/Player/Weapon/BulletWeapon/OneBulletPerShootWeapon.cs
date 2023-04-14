@@ -36,7 +36,7 @@ public class OneBulletPerShootWeapon : WeaponNetwork
                 {
                     if (CurrentBullets > 0)
                     {
-                        Debug.Log("Shoot");
+                        //Debug.Log("Shoot");
 
                         Shoot(networkInput.mousePosition);
 

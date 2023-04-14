@@ -2,17 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovingEnemy : MonoBehaviour
+public class MovingEnemy : State
 {
-    // Start is called before the first frame update
-    void Start()
+    public MovingEnemy(string stateString, Animator animator) : base(stateString, animator)
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void OnEnter()
     {
-        
+        animator.CrossFade(stateString, 0, 0);
+    }
+
+    public override void OnUpdate()
+    {
+
+    }
+
+    public override void OnExit()
+    {
+
     }
 }

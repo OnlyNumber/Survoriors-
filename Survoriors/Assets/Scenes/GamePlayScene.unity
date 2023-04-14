@@ -29927,7 +29927,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1715572793919134736, guid: 6e6ae798d98a9744bb457999a18b51d2, type: 3}
       propertyPath: <distanceForAttack>k__BackingField
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1715572793919134740, guid: 6e6ae798d98a9744bb457999a18b51d2, type: 3}
       propertyPath: Flags
@@ -30138,7 +30138,6 @@ PrefabInstance:
       value: EnemySprite
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 3138354683875181800, guid: b4a8e8686b814094586677d2fcc6d9bc, type: 3}
     - {fileID: 3138354683875181802, guid: b4a8e8686b814094586677d2fcc6d9bc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b4a8e8686b814094586677d2fcc6d9bc, type: 3}
 --- !u!1 &1724972981 stripped

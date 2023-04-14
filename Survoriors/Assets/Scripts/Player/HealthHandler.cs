@@ -10,7 +10,9 @@ public class HealthHandler :  NetworkBehaviour, IDamageAble
     [SerializeField]
     private int _maxhealthPoints;
 
-    //public Action OnTakeDamage();
+    public delegate void OnTakeDamage();
+
+    public event OnTakeDamage takeDamageEvent;
 
     public int HealthPoints
     {
@@ -20,8 +22,25 @@ public class HealthHandler :  NetworkBehaviour, IDamageAble
         }
         private set
         {
+            //Debug.Log($"on damage event damage: {value} health {_healthPoints}");
+
+
+            
+
+            
+
+
+
+
+            if (value < _healthPoints)
+            {
+
+                takeDamageEvent?.Invoke();
+            }
+
             _healthPoints = value;
-            if(_healthPoints > _maxhealthPoints)
+
+            if (_healthPoints > _maxhealthPoints)
             {
                 _healthPoints = _maxhealthPoints;
             }
@@ -43,7 +62,7 @@ public class HealthHandler :  NetworkBehaviour, IDamageAble
     {
         HealthPoints -= damage;
 
-        Debug.Log("health " + HealthPoints);
+       // Debug.Log("health " + HealthPoints);
 
     }
 

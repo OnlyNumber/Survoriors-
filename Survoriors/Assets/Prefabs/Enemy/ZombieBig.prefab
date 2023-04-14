@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 3138354683875181805}
   - component: {fileID: 3138354683875181806}
   - component: {fileID: 3138354683875181815}
-  - component: {fileID: 3138354683875181800}
   m_Layer: 6
   m_Name: ZombieBig
   m_TagString: Untagged
@@ -54,7 +53,7 @@ MonoBehaviour:
   _interpolationDataSource: 0
   Speed: 0
   damage: 0
-  distanceForAttack: 2
+  <distanceForAttack>k__BackingField: 0
   _timeBetweenAttack: 0
 --- !u!114 &3138354683875181803
 MonoBehaviour:
@@ -81,7 +80,6 @@ MonoBehaviour:
   - {fileID: 3138354683875181802}
   - {fileID: 3138354683875181805}
   - {fileID: 3138354683875181815}
-  - {fileID: 3138354683875181800}
   SimulationBehaviours: []
 --- !u!50 &3138354683875181804
 Rigidbody2D:
@@ -171,20 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
-  _healthPoints: 10
---- !u!114 &3138354683875181800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3138354683875181807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 207d83ccd3bab0247b366b9be57f492d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interpolationDataSource: 0
+  _maxhealthPoints: 0
   _healthPoints: 10
 --- !u!1 &3138354685449355729
 GameObject:

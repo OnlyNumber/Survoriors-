@@ -51,7 +51,7 @@ public class BulletNetwork : NetworkBehaviour
     {
         if(collision.gameObject.layer == numberOfCollideableLayer)
         {
-            Debug.Log($"Who {collision.gameObject.name} + {damage}");
+           // Debug.Log($"Who {collision.gameObject.name} + {damage}");
 
 
 

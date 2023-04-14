@@ -8,12 +8,12 @@ public class EnemyStateMachine : NetworkBehaviour
     [SerializeField]
     private Animator animator;
 
-    public enum States
+    public enum StatesEnemy
     {
-        Idle = 0,
-        Moving = 1,
-        Dead = 2,
-        Hit = 3
+        
+        Moving = 0,
+        Dead = 1,
+        Hit = 2
     }
 
     private List<State> _states = new List<State>();
@@ -24,43 +24,44 @@ public class EnemyStateMachine : NetworkBehaviour
 
     //private SkinController _skinController;
 
-    private EnemyNetwork _enemyNetwork;
+    private HealthHandler _healthHandler;
 
     private void Awake()
     {
         _currentAnimator = GetComponent<Animator>();
 
-        _enemyNetwork = GetComponentInParent<EnemyNetwork>();
+        _healthHandler = GetComponentInParent<HealthHandler>();
+
+        _healthHandler.takeDamageEvent += GetNextStateHit;
 
         //_skinController = GetComponentInParent<SkinController>();
 
-        _states.Add(new Idle("Idle", _currentAnimator));
-        _states.Add(new Moving("Moving", _currentAnimator));
-        _states.Add(new Dead("Dead", _currentAnimator));
-        _states.Add(new Dead("Hit", _currentAnimator));
+        _states.Add(new MovingEnemy("Run", _currentAnimator));
+        _states.Add(new DeadEnemy("Dead", _currentAnimator));
+        _states.Add(new HitEnemy("Hit", _currentAnimator));
 
 
-        currentState = _states[(int)States.Idle];
+        currentState = _states[(int)StatesEnemy.Moving];
     }
 
     public override void FixedUpdateNetwork()
     {
 
         currentState.OnUpdate();
+        
 
-            if (_enemyNetwork.GetDistance() <= _enemyNetwork.distanceForAttack)
-            {
-                GetNextState((int)States.Idle);
-            }
-            else
-            {
-                GetNextState((int)States.Moving);
-            }
-
+        //GetNextState((int)StatesEnemy.Moving);
+        
+    
     }
 
     public void GetNextState(int numberOfState)
     {
+        if(gameObject.name == "SkeletonEnemy")
+        {
+            Debug.Log(currentState.ToString());
+        }
+
         if (_states[numberOfState] == currentState)
         {
             return;
@@ -79,7 +80,10 @@ public class EnemyStateMachine : NetworkBehaviour
         currentState.OnEnter();
     }
 
-
+    public void GetNextStateHit()
+    {
+        GetNextState((int)StatesEnemy.Hit);
+    }
 
 
 }
