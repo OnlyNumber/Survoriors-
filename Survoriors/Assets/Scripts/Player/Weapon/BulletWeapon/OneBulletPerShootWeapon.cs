@@ -14,9 +14,17 @@ public class OneBulletPerShootWeapon : WeaponNetwork
 
     public override void FixedUpdateNetwork()
     {
-        if (HasInputAuthority)
+
+        try
         {
-            AmmoText.text = $"{CurrentBullets} /{MaxBullets}  {Ammo}";
+            if (HasInputAuthority)
+            {
+                AmmoText.text = $"{CurrentBullets} /{MaxBullets}  {Ammo}";
+            }
+        }
+        catch
+        {
+
         }
 
 

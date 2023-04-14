@@ -155,8 +155,10 @@ public class SpawnerPlayer : MonoBehaviour, INetworkRunnerCallbacks
 
         if (_spawnedCharacters.TryGetValue(player, out NetworkPlayer networkObject))
         {
-            runner.Despawn(networkObject.GetComponent<NetworkObject>());
             _spawnedCharacters.Remove(player);
+
+            runner.Despawn(networkObject.GetComponent<NetworkObject>());
+            
         }
 
     }
