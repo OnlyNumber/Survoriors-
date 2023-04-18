@@ -5,32 +5,28 @@ using Fusion;
 
 public class PlayerInputHandler : MonoBehaviour
 {
-    private Vector3 _moveInputVector = Vector2.zero;
+    private Vector2 _mousePosition = Vector2.zero;
+    private Vector2 _moveInputVector = Vector2.zero;
     private NetworkBool _isFireButtonPressed = false;
     private NetworkBool _isReloadButtonPressed = false;
+    private IInput moveInput;
 
+    //private FixedJoystick _joystick;
+    private void Start()
+    {
+        moveInput = new MobileInput();
 
-    private FixedJoystick _joystick;
-
+        moveInput.Start();
+    }
 
     private void Update()
     {
-        _moveInputVector.x = Input.GetAxisRaw("Horizontal");
+        moveInput.GetInput(out _moveInputVector, out _mousePosition, out _isFireButtonPressed);
 
-        _moveInputVector.y = Input.GetAxisRaw("Vertical");
-
-
-
-        if (Input.GetButton("Fire1"))
-        {
-            _isFireButtonPressed = true;
-        }
-        
         if (Input.GetKeyDown(KeyCode.R))
         {
             _isReloadButtonPressed = true;
         }
-
 
     }
 
@@ -42,7 +38,7 @@ public class PlayerInputHandler : MonoBehaviour
 
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = Camera.main.nearClipPlane;
-        networkInputData.mousePosition = Camera.main.ScreenToWorldPoint(mousePos);
+        networkInputData.mousePosition = _mousePosition;//Camera.main.ScreenToWorldPoint(mousePos);
 
         networkInputData.isFireButtonPressed = _isFireButtonPressed;
         networkInputData.isReloadButtonPressed = _isReloadButtonPressed;

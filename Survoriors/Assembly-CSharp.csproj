@@ -65,9 +65,12 @@
     <Compile Include="Assets\Scripts\Network\ConnectionTokenUtils.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\Photon\PhotonLibs\WebSocket\SocketWebTcp.cs" />
+    <Compile Include="Assets\Scripts\Player\Input\MobileInput.cs" />
+    <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FixedJoystick.cs" />
     <Compile Include="Assets\Scripts\WalkController.cs" />
     <Compile Include="Assets\Photon\Fusion\Scripts\FusionProfiler.cs" />
     <Compile Include="Assets\Photon\Fusion\Scripts\FusionStats\FusionStatsBillboard.cs" />
+    <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
     <Compile Include="Assets\Photon\Fusion\Scripts\Prototyping\ToggleRunnerVisibility.cs" />
     <Compile Include="Assets\Scripts\Network\SpawnerPlayer.cs" />
     <Compile Include="Assets\Scripts\Lobby System\UI\MenuSkinUIHandler.cs" />
@@ -80,6 +83,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Scripts\Lobby System\UI\SessionListUIHandler.cs" />
     <Compile Include="Assets\Photon\Fusion\Scripts\Prototyping\Assistants\FusionSceneSetupAssistants.cs" />
+    <Compile Include="Assets\Scripts\Player\Input\ComputerInput.cs" />
     <Compile Include="Assets\Scripts\Player\PickupItems\BombItem.cs" />
     <Compile Include="Assets\Photon\Fusion\Scripts\Prototyping\Utilities\FusionPrototypingAssetUtils.cs" />
     <Compile Include="Assets\Scripts\Player\PickupItems\IPickupItem.cs" />
@@ -109,6 +113,7 @@
     <Compile Include="Assets\Scripts\IDamageAble.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\Player\HealthHandler.cs" />
+    <Compile Include="Assets\Joystick Pack\Examples\JoystickPlayerExample.cs" />
     <Compile Include="Assets\Photon\Fusion\Scripts\Prototyping\ToggleRunnerProvideInput.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
@@ -120,12 +125,14 @@
     <Compile Include="Assets\Scripts\Lobby System\UI\SessionInfoListUIItem.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets\Scripts\Player\Weapon\BulletWeapon\AutomaticWeapon.cs" />
-    <Compile Include="Assets\Scripts\Player\NetworkInputData.cs" />
+    <Compile Include="Assets\Scripts\Player\Input\NetworkInputData.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
+    <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\DynamicJoystick.cs" />
     <Compile Include="Assets\Photon\Fusion\Scripts\Utilities\NetworkProjectUtilities.cs" />
-    <Compile Include="Assets\Scripts\Player\WeaponRotater.cs" />
+    <Compile Include="Assets\Scripts\Player\Input\WeaponRotater.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\Photon\PhotonLibs\WebSocket\WebSocket.cs" />
+    <Compile Include="Assets\Joystick Pack\Scripts\Base\Joystick.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyStateMachine\IdleEnemy.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\Photon\Fusion\Scripts\Prototyping\SpawnPoints\SpawnerPrototypeT.cs" />
@@ -143,6 +150,7 @@
     <Compile Include="Assets\Photon\Fusion\Scripts\Prototyping\SpawnPoints\SpawnPointManagerPrototype.cs" />
     <Compile Include="Assets\Photon\Fusion\Scripts\Prototyping\SpawnPoints\ISpawnPointManagerPrototypeT.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
+    <Compile Include="Assets\Joystick Pack\Examples\JoystickSetterExample.cs" />
     <Compile Include="Assets\Photon\Fusion\Scripts\FusionRuntimeCheck.cs" />
     <Compile Include="Assets\Scripts\Player\PickupItems\HealthItem.cs" />
     <Compile Include="Assets\Photon\Fusion\Scripts\Prototyping\Materials\FusionPrototypeMaterials.cs" />
@@ -153,6 +161,7 @@
     <Compile Include="Assets\Scripts\Player\Input\PlayerInputHandler.cs" />
     <Compile Include="Assets\Photon\Fusion\Scripts\BurstDeltaCompressor.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
+    <Compile Include="Assets\Scripts\Player\Input\IInput.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyNetwork.cs" />
     <Compile Include="Assets\Scripts\Network\NetworkRunnerHandler.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyStateMachine\EnemyStateMachine.cs" />
@@ -160,6 +169,7 @@
     <Compile Include="Assets\Photon\Fusion\Scripts\Prototyping\NetworkDebugStartGUI.cs" />
     <Compile Include="Assets\Scripts\Player\Weapon\BulletWeapon\OneBulletPerShootWeapon.cs" />
     <Compile Include="Assets\Photon\Fusion\Scripts\FusionStats\FusionStatsUtilities.cs" />
+    <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
     <Compile Include="Assets\Photon\Fusion\Scripts\Prototyping\Prefabs\FusionPrototypingPrefabs.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\Scripts\Lobby System\Startup.cs" />
@@ -184,16 +194,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Scripts\Player\StateMachine\Moving.cs" />
     <Compile Include="Assets\Photon\Fusion\Scripts\FusionGraph.cs" />
-    <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\DynamicJoystick.cs" />
-    <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
-    <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
-    <Compile Include="Assets\Joystick Pack\Scripts\Base\Joystick.cs" />
-    <Compile Include="Assets\Joystick Pack\Examples\JoystickPlayerExample.cs" />
-    <Compile Include="Assets\Joystick Pack\Examples\JoystickSetterExample.cs" />
-    <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FixedJoystick.cs" />
-    <Compile Include="Assets\Scripts\Player\Input\MobileInput.cs" />
-    <Compile Include="Assets\Scripts\Player\Input\ComputerInput.cs" />
-    <Compile Include="Assets\Scripts\Player\Input\IInput.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

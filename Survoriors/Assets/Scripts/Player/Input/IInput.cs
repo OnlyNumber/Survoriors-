@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Fusion;
 public interface IInput 
 {
 
-    public void GetInput();
+    public void Start();
+
+    public void GetInput(out Vector2 moveInputVector, out Vector2 mousePosition, out NetworkBool isCanShoot);
 
 }

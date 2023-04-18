@@ -63,8 +63,8 @@ public class OneBulletPerShootWeapon : WeaponNetwork
 
     public override void Shoot(Vector3 rotatePos)
     {
-        Vector3 direction = rotatePos - transform.position;
-        direction.z = 0;
+        //Vector3 direction = rotatePos - transform.position;
+        //direction.z = 0;
 
         if (Runner == null)
         {
@@ -77,7 +77,7 @@ public class OneBulletPerShootWeapon : WeaponNetwork
         //direction *= 3f;
 
 
-        Runner.Spawn(Bullet, transform.position, null, null, (Runner, obj) => { obj.GetComponent<BulletNetwork>().InitializeDamage(Damage, direction); });
+        Runner.Spawn(Bullet, transform.position, null, null, (Runner, obj) => { obj.GetComponent<BulletNetwork>().InitializeDamage(Damage, rotatePos); });
 
         CurrentBullets--;
 

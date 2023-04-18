@@ -5,11 +5,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fusion.Addressables", "Fusion.Addressables.csproj", "{CAFD5FED-8389-7791-8EC4-C9C8D484BC44}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{BF1295EE-B754-FEEE-EBF9-9AA464300866}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Fusion.CodeGen", "Unity.Fusion.CodeGen.csproj", "{C80646FA-5BB8-7AE6-48DC-6BE5551ED6D6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fusion.Editor", "Fusion.Editor.csproj", "{C1B0B393-9415-C231-A651-694D985DA5BE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{BF1295EE-B754-FEEE-EBF9-9AA464300866}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +25,10 @@ Global
 		{CAFD5FED-8389-7791-8EC4-C9C8D484BC44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAFD5FED-8389-7791-8EC4-C9C8D484BC44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CAFD5FED-8389-7791-8EC4-C9C8D484BC44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF1295EE-B754-FEEE-EBF9-9AA464300866}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF1295EE-B754-FEEE-EBF9-9AA464300866}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF1295EE-B754-FEEE-EBF9-9AA464300866}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF1295EE-B754-FEEE-EBF9-9AA464300866}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C80646FA-5BB8-7AE6-48DC-6BE5551ED6D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C80646FA-5BB8-7AE6-48DC-6BE5551ED6D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C80646FA-5BB8-7AE6-48DC-6BE5551ED6D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,10 +37,6 @@ Global
 		{C1B0B393-9415-C231-A651-694D985DA5BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1B0B393-9415-C231-A651-694D985DA5BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1B0B393-9415-C231-A651-694D985DA5BE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BF1295EE-B754-FEEE-EBF9-9AA464300866}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BF1295EE-B754-FEEE-EBF9-9AA464300866}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BF1295EE-B754-FEEE-EBF9-9AA464300866}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BF1295EE-B754-FEEE-EBF9-9AA464300866}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

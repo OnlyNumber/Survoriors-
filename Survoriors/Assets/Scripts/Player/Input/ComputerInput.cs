@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ComputerInput : IInput
+public class ComputerInput
 {
-    public void OnUpdate()
+    public void GetInput(out Vector3 moveInputVector)
     {
-
+        moveInputVector = Vector3.zero;
     }
 
-    public void GetInput()
+    public void Start()
     {
 
     }
