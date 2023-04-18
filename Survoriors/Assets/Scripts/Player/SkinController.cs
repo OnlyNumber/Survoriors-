@@ -78,16 +78,12 @@ public class SkinController : NetworkBehaviour
     {
         playerSkin = playerSkinNetwork.skinNumber;
 
-        Debug.Log("Work or not ");
-        Debug.Log(playerSkin);
-
         if(sM == null)
         {
             sM = GetComponentInChildren<StateMachine>();
         }
 
         sM.ChangeSkin(playerSkinNetwork.skinNumber);
-        //playerSkin.sprite = skins[playerSkinNetwork.skinNumber].sprite;
     }
 
 }

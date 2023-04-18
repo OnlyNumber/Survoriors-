@@ -14,6 +14,8 @@ public class NetworkRunnerHandler : MonoBehaviour
 
     public NetworkRunner networkRunnerPrefab;
 
+    public EnemySpawner enemySpawnerPrebaf;
+
     private NetworkRunner networkRunner;
 
     private const string MENU_SCENE = "MenuScene";
@@ -34,7 +36,7 @@ public class NetworkRunnerHandler : MonoBehaviour
         {
             networkRunner = Instantiate(networkRunnerPrefab);
 
-
+            Instantiate(enemySpawnerPrebaf);
 
             networkRunner.name = "Network runner";
 
@@ -42,6 +44,7 @@ public class NetworkRunnerHandler : MonoBehaviour
             {
                 var clientTask = InitializeNetworkRunner(networkRunner, GameMode.AutoHostOrClient, "TestSessionName", GameManager.instance.GetConnectionToken(),NetAddress.Any(), SceneManager.GetActiveScene().buildIndex, null);
             }
+
             Debug.Log("Server NetworkRunner started");
         }
     }

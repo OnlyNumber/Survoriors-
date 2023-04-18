@@ -21,13 +21,13 @@ public class SpawnerPlayer : MonoBehaviour, INetworkRunnerCallbacks
     private void Awake()
     {
         mapTokenIdWithNetworkPlayer = new Dictionary<int, NetworkPlayer>();
-
+        
         sessionListUIHandler = FindObjectOfType<SessionListUIHandler>(true);
     }
 
     private void Start()
     {
-
+        
     }
 
     int GetPlayerToken(NetworkRunner runner, PlayerRef player)
@@ -77,11 +77,11 @@ public class SpawnerPlayer : MonoBehaviour, INetworkRunnerCallbacks
     {
         if(runner.IsServer)
         {
-            Debug.Log("asdad" + runner.SessionInfo);
+            //Debug.Log("asdad" + runner.SessionInfo);
 
             int playerToken = GetPlayerToken(runner, player);
 
-            Debug.Log("OnPlayerJoined We are server. Spawn player");
+            Debug.Log("OnPlayerJoined We are server Spawn player");
 
             if(mapTokenIdWithNetworkPlayer.TryGetValue(playerToken, out NetworkPlayer networkPlayer))
             {
@@ -95,9 +95,15 @@ public class SpawnerPlayer : MonoBehaviour, INetworkRunnerCallbacks
 
                 NetworkPlayer spawnedNetworkPlayer = runner.Spawn(playerPrefab, Vector3.zero, Quaternion.identity, player);
 
+                spawnedNetworkPlayer.token = playerToken;
+
+                //Debug.Log()
+
+                //mapTokenIdWithNetworkPlayer[playerToken] = spawnedNetworkPlayer;
+
                 _spawnedCharacters.Add(player, spawnedNetworkPlayer);
 
-                spawnedNetworkPlayer.token = playerToken;
+                
             }
         }
         else

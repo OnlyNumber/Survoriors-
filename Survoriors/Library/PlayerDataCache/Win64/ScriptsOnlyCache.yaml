@@ -155,6 +155,9 @@ ScriptsOnlyBuild:
     fullTypeName: SessionInfoListUIItem
     methodName: OnClick
   - assembly: Assembly-CSharp
+    fullTypeName: SessionInfoListUIItem
+    methodName: OnClick
+  - assembly: Assembly-CSharp
     fullTypeName: MenuSkinUIHandler
     methodName: ClearButtons
   - assembly: Assembly-CSharp
@@ -187,9 +190,6 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: MenuSkinUIHandler
     methodName: OnChooseSkin
-  - assembly: Assembly-CSharp
-    fullTypeName: SessionInfoListUIItem
-    methodName: OnClick
   sceneClasses:
     Assets/Scenes/GamePlayScene.unity:
     - Class: 1
