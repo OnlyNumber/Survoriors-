@@ -96,6 +96,7 @@
     <Compile Include="Assets\Photon\Fusion\Scripts\FusionStats.cs" />
     <Compile Include="Assets\Scripts\Enemies\Disappearing.cs" />
     <Compile Include="Assets\Scripts\Player\DataHolderPlayer.cs" />
+    <Compile Include="Assets\Scripts\ProxyTest\ProxyTest.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\Photon\Fusion\Scripts\Prototyping\Utilities\FusionUnitySceneManagerUtils.cs" />
     <Compile Include="Assets\Scripts\UI\StartButton.cs" />
@@ -141,6 +142,7 @@
     <Compile Include="Assets\Scripts\Enemies\Enemy Spawner\EnemyWave.cs" />
     <Compile Include="Assets\Scripts\Player\Weapon\BulletWeapon\MultipleBulletPerShootWeapon.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
+    <Compile Include="Assets\Scripts\Player\FlipManager.cs" />
     <Compile Include="Assets\Photon\Fusion\Scripts\Prototyping\NetworkSceneManagerBase.cs" />
     <Compile Include="Assets\Photon\Fusion\Scripts\Prototyping\NetworkCharacterControllerPrototype.cs" />
     <Compile Include="Assets\Scripts\Player\SkinController.cs" />
@@ -197,7 +199,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Scripts\Player\StateMachine\Moving.cs" />
     <Compile Include="Assets\Photon\Fusion\Scripts\FusionGraph.cs" />
-    <Compile Include="Assets\Scripts\Player\FlipManager.cs" />
+    <Compile Include="Assets\Scripts\Player\FlipManagerWeapon.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

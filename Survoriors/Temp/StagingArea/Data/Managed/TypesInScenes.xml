@@ -11,6 +11,7 @@
 		<type fullname="EnemyWave" preserve="nothing"/>
 		<type fullname="FixedJoystick" preserve="nothing"/>
 		<type fullname="FlipManager" preserve="nothing"/>
+		<type fullname="FlipManagerWeapon" preserve="nothing"/>
 		<type fullname="GameManager" preserve="nothing"/>
 		<type fullname="HealthHandler" preserve="nothing"/>
 		<type fullname="HealthItem" preserve="nothing"/>

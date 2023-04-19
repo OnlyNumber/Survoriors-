@@ -103,6 +103,13 @@
             "usedInScenes": []
         },
         {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "FlipManagerWeapon",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
             "managedAssemblyName": "Fusion.Runtime.dll",
             "nativeClass": "",
             "fullManagedTypeName": "Fusion.NetworkObject",

@@ -15,6 +15,9 @@ public class SkinController : NetworkBehaviour
     struct NetworkSkinStruct : INetworkStruct
     {
         public int skinNumber;
+        public int numberOfWeapon;
+        public PlayerRef playerRef;
+
     }
 
     [Networked(OnChanged = nameof(OnSkinChanged))]
@@ -30,7 +33,8 @@ public class SkinController : NetworkBehaviour
 
     //public SpriteRenderer weaponSprite;
 
-    public int numberOfWeapon { get; private set; }
+    [SerializeField]
+    public int numberOfWeapon;
 
     private Vector2 WEAPON_POSITION = new Vector2(-0.02f, -0.18f);
 
@@ -97,45 +101,44 @@ public class SkinController : NetworkBehaviour
         stateMachine = GetComponentInChildren<StateMachine>();
         NetworkSkinStruct skin;
         skin.skinNumber = (int)DataHolderPlayer.playerSkin;
-        Rpc_RequestChangeSkin(skin);
+
+        skin.playerRef = Runner.LocalPlayer;
+        //Rpc_RequestChangeSkin(skin);
 
         do
         {
-
+        
             numberOfWeapon = Random.Range(0, _weaponList.Count);
-
+        
         } while (CheckThisNumberOfWeapon(numberOfWeapon));
 
-        Rpc_RequestSpawnWeapon(Runner.LocalPlayer, numberOfWeapon);
+        //Debug.Log(numberOfWeapon);
+        
+        skin.numberOfWeapon = numberOfWeapon;
+        
+        //Debug.Log(HasStateAuthority);
+
+        Rpc_RequestChangeSkin(skin);
+        
+
+
+        Rpc_Do_Smth();
+
+        //Rpc_RequestSpawnWeapon(Runner.LocalPlayer, numberOfWeapon);
     }
 
     [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
     private void Rpc_RequestChangeSkin(NetworkSkinStruct skin, RpcInfo info = default)
     {
-        Debug.Log($"Recive RPC request for player {transform.name} DataHolder ID {DataHolderPlayer.playerSkin}");
+        //Debug.Log($"Recive RPC request for player {transform.name} DataHolder ID {DataHolderPlayer.playerSkin}");
 
         playerSkinNetwork = skin;
     }
 
-
-
-    [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
-    private void Rpc_RequestSpawnWeapon(PlayerRef playerRef,int numberOfWeapon,  RpcInfo info = default)
+    [Rpc(RpcSources.All, RpcTargets.All)]
+    private void Rpc_Do_Smth()
     {
-        Debug.Log($"Recive RPC request for player {transform.name} DataHolder ID {DataHolderPlayer.playerSkin}");
-
-        //numberOfWeapon = Random.Range(0, _weaponList.Count);
-
-        //CheckThisNumberOfWeapon(numberOfWeapon);
-
-        this.numberOfWeapon = numberOfWeapon;
-
-        NetworkObject weaponObject = Runner.Spawn(_weaponList[numberOfWeapon], null, null, playerRef);
-        weaponObject.gameObject.transform.SetParent(gameObject.transform);
-        weaponObject.transform.position = WEAPON_POSITION;
-
-        //weaponObject.transform.localScale = new Vector3(1, 1, 0);
-
+        Debug.Log("Do smth");
     }
 
     static void OnSkinChanged(Changed<SkinController> changed)
@@ -153,28 +156,69 @@ public class SkinController : NetworkBehaviour
         }
 
         stateMachine.ChangeSkin(playerSkinNetwork.skinNumber);
+
+        //Debug.Log(playerSkinNetwork.numberOfWeapon);
+
+        this.numberOfWeapon = playerSkinNetwork.numberOfWeapon;
+
+        if(!HasStateAuthority)
+        {
+            Debug.Log("No Host");
+            Debug.Log(numberOfWeapon + "Number weapon");
+        }
+
+        _weaponList[numberOfWeapon].gameObject.SetActive(true);
+        
+        if(!HasStateAuthority)
+        {
+            _weaponList[numberOfWeapon].gameObject.SetActive(true);
+        }    
+
+        /*NetworkObject weaponObject = Runner.Spawn(_weaponList[numberOfWeapon], null, null, playerSkinNetwork.playerRef, (Runner, obj) => 
+            {
+
+                obj.gameObject.transform.SetParent(gameObject.transform);
+                Debug.Log(gameObject.transform);
+                obj.transform.position = WEAPON_POSITION;
+
+            });*/
+
+
+        // GameObject.Find(_weaponList[numberOfWeapon].name + "(Clone)").transform.SetParent(gameObject.transform);
+
+        /* if (weaponObject == null)
+         {
+             Debug.Log("No weaponObject");
+         }
+
+         if (weaponObject.gameObject == null)
+         {
+             Debug.Log("No gameobject");
+         }
+
+         weaponObject.gameObject.transform.SetParent(gameObject.transform);
+         weaponObject.transform.position = WEAPON_POSITION;*/
+
     }
+
+
 
     private bool CheckThisNumberOfWeapon(int numberOfWeapon)
     {
         foreach(var player in FindObjectsOfType<NetworkPlayer>())
         {
-            Debug.Log("Search");
 
-            if(player.GetComponent<NetworkObject>().InputAuthority.PlayerId != GetComponent<NetworkObject>().InputAuthority.PlayerId && numberOfWeapon == player.GetComponent<SkinController>().numberOfWeapon)
+            if(player.GetComponent<NetworkObject>().HasInputAuthority != GetComponent<NetworkObject>().HasInputAuthority && numberOfWeapon == player.GetComponent<SkinController>().numberOfWeapon)
             {
-                if(player.GetComponent<NetworkObject>().InputAuthority.PlayerId != GetComponent<NetworkObject>().InputAuthority.PlayerId)
-                {
-                    Debug.Log($" Same weapons ID");
-                }
-                Debug.Log($"{player.token} {GetComponent<NetworkPlayer>().token} Same weapons");
+                Debug.Log($"{player.token} {GetComponent<NetworkPlayer>().token} Same weapons {numberOfWeapon} == {player.GetComponent<SkinController>().numberOfWeapon}");
 
                 return true;
             }
             else
             {
-                Debug.Log($"{player.GetComponent<NetworkObject>().InputAuthority.PlayerId} {GetComponent<NetworkObject>().InputAuthority.PlayerId} Not Same Weapons");
+                Debug.Log($"{player.GetComponent<NetworkObject>().InputAuthority.PlayerId} =Id= {GetComponent<NetworkObject>().InputAuthority.PlayerId} Not Same weapons {numberOfWeapon} == {player.GetComponent<SkinController>().numberOfWeapon}");
             }
+
         }
 
         return false;

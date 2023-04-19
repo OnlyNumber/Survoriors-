@@ -7,6 +7,27 @@ public class FlipManager : NetworkBehaviour
 {
     private bool isFlipped = false;
 
+    public delegate void OnChangeFlip();
+
+    public event OnChangeFlip flipChange;
+
+    public bool IsFlipped
+    {
+        get
+        {
+            return isFlipped;
+        }
+        set
+        {
+            flipChange?.Invoke();
+
+            isFlipped = value;
+
+        }
+    }
+
+    
+
     public override void FixedUpdateNetwork()
     {
         if(GetInput(out NetworkInputData networkInputData))
@@ -27,7 +48,7 @@ public class FlipManager : NetworkBehaviour
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
-        isFlipped = !isFlipped;
+        IsFlipped = !IsFlipped;
     }
 
 }
