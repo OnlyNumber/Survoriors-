@@ -32,11 +32,15 @@ public class NetworkRunnerHandler : MonoBehaviour
 
     private void Start()
     {
+        if (enemySpawnerPrebaf != null)
+            Instantiate(enemySpawnerPrebaf);
+
         if (networkRunner == null)
         {
             networkRunner = Instantiate(networkRunnerPrefab);
 
-            Instantiate(enemySpawnerPrebaf);
+            //if (enemySpawnerPrebaf != null)
+            //Instantiate(enemySpawnerPrebaf);
 
             networkRunner.name = "Network runner";
 

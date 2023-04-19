@@ -47,8 +47,8 @@ MonoBehaviour:
   pickupItemsList:
   - {fileID: 3509581635181322078, guid: 36a265a01ee4c3c4796ef1d9d92646c6, type: 3}
   enemyList:
-  - {fileID: 5526300992233355082, guid: 05b652d9b751f2b49aad75ece8c5f582, type: 3}
+  - {fileID: 5526300992233355121, guid: 05b652d9b751f2b49aad75ece8c5f582, type: 3}
   enemiesCount: 3
   timeBetweenWaveEnemy: 5
-  timeBetweenItem: 3
+  timeBetweenItem: 5
   waveDuration: 60

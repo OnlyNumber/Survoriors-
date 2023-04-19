@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 325928653295565562}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2117001271344109166}
@@ -171,6 +171,8 @@ GameObject:
   - component: {fileID: 2117001271344109166}
   - component: {fileID: 6959434594946108603}
   - component: {fileID: 7111507247542777509}
+  - component: {fileID: -8376730568859996375}
+  - component: {fileID: 1373025917126981870}
   m_Layer: 7
   m_Name: ShotGun
   m_TagString: Untagged
@@ -219,10 +221,59 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
+  networkObject: {fileID: 0}
   AmmoText: {fileID: 0}
   Damage: 2
   TimeBetweenAttack: 1
-  ReloadTime: 0
+  ReloadTime: 1
+  MaxBullets: 8
+  Ammo: 8
+  Bullet: {fileID: 5612761927162581345, guid: 057e07d77e9783a449a7ca317eba876c, type: 3}
+  _randoScatter: 20
+--- !u!114 &-8376730568859996375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8579698352025098052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectInterest: 1
+  DefaultInterestGroups: []
+  DestroyWhenStateAuthorityLeaves: 0
+  AllowStateAuthorityOverride: 1
+  AoiPositionSource: {fileID: 0}
+  Flags: 2305
+  NetworkGuid:
+    RawGuidValue: 9ec419ebeb08c164b8850337e3fbd106
+  NestedObjects:
+  - {fileID: 1341687274633384665}
+  NetworkedBehaviours:
+  - {fileID: 7111507247542777509}
+  - {fileID: 1373025917126981870}
+  SimulationBehaviours: []
+--- !u!114 &1373025917126981870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8579698352025098052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e28e7c4208d654f4b9c6282c9716cf49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
+  networkObject: {fileID: 0}
+  AmmoText: {fileID: 0}
+  Damage: 2
+  TimeBetweenAttack: 1
+  ReloadTime: 1
   MaxBullets: 8
   Ammo: 8
   Bullet: {fileID: 5612761927162581345, guid: 057e07d77e9783a449a7ca317eba876c, type: 3}

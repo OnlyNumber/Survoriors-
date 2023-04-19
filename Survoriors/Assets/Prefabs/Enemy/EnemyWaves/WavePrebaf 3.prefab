@@ -49,10 +49,10 @@ MonoBehaviour:
   - {fileID: 754519107734480529, guid: b569280f2f52244498102212389f0761, type: 3}
   - {fileID: 4069341035697741451, guid: 87a310fcbb65c4249afea5233221e1e1, type: 3}
   enemyList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 5526300992233355121, guid: 05b652d9b751f2b49aad75ece8c5f582, type: 3}
+  - {fileID: 8801604647494855623, guid: 0c032c9c68615394db580157d5f90768, type: 3}
+  - {fileID: 7817722241282309932, guid: d27e1a808452f524ea70a769b4b29581, type: 3}
   enemiesCount: 6
   timeBetweenWaveEnemy: 4
-  timeBetweenItem: 4
+  timeBetweenItem: 2
   waveDuration: 300

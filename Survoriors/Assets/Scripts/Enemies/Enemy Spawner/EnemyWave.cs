@@ -7,7 +7,7 @@ public class EnemyWave : MonoBehaviour
 {
     public List<NetworkObject> pickupItemsList;
 
-    public List<NetworkObject> enemyList;
+    public List<EnemyNetwork> enemyList;
 
     public int enemiesCount;
 

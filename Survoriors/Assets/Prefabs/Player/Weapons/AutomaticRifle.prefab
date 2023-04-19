@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 325928653295565562}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2117001271344109166}
@@ -171,6 +171,7 @@ GameObject:
   - component: {fileID: 2117001271344109166}
   - component: {fileID: 6959434594946108603}
   - component: {fileID: 4861271679143154446}
+  - component: {fileID: -1661264815287877307}
   m_Layer: 7
   m_Name: AutomaticRifle
   m_TagString: Untagged
@@ -219,6 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
+  networkObject: {fileID: 0}
   AmmoText: {fileID: 0}
   Damage: 5
   TimeBetweenAttack: 0
@@ -226,3 +228,28 @@ MonoBehaviour:
   MaxBullets: 2
   Ammo: 10000
   Bullet: {fileID: 5612761927162581345, guid: 057e07d77e9783a449a7ca317eba876c, type: 3}
+--- !u!114 &-1661264815287877307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8579698352025098052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectInterest: 1
+  DefaultInterestGroups: []
+  DestroyWhenStateAuthorityLeaves: 0
+  AllowStateAuthorityOverride: 1
+  AoiPositionSource: {fileID: 0}
+  Flags: 2305
+  NetworkGuid:
+    RawGuidValue: a0b73075b4be5bf4d92f4e2b5d37eee3
+  NestedObjects:
+  - {fileID: 1341687274633384665}
+  NetworkedBehaviours:
+  - {fileID: 4861271679143154446}
+  SimulationBehaviours: []

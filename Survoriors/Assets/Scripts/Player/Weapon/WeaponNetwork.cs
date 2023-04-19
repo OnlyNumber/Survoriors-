@@ -8,6 +8,9 @@ using TMPro;
 public class WeaponNetwork : NetworkBehaviour
 {
     [SerializeField]
+    protected NetworkObject networkObject;
+
+    [SerializeField]
     protected TMP_Text AmmoText;  
 
     [SerializeField]
@@ -32,6 +35,11 @@ public class WeaponNetwork : NetworkBehaviour
 
     [SerializeField]
     protected NetworkObject Bullet;
+
+    private void Start()
+    {
+        networkObject = GetComponentInParent<NetworkObject>();
+    }
 
     public virtual void Shoot(Vector3 rotatePos)
     {

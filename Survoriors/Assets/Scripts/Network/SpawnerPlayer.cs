@@ -16,7 +16,7 @@ public class SpawnerPlayer : MonoBehaviour, INetworkRunnerCallbacks
 
     private SessionListUIHandler sessionListUIHandler;
 
-    private Dictionary<PlayerRef, NetworkPlayer> _spawnedCharacters = new Dictionary<PlayerRef, NetworkPlayer>();
+    public Dictionary<PlayerRef, NetworkPlayer> _spawnedCharacters = new Dictionary<PlayerRef, NetworkPlayer>();
 
     private void Awake()
     {

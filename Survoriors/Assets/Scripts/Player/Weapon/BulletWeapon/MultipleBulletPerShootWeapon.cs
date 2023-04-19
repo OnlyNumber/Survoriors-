@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using Fusion;
 
 public class MultipleBulletPerShootWeapon : WeaponNetwork
 {
@@ -11,22 +11,29 @@ public class MultipleBulletPerShootWeapon : WeaponNetwork
 
     private void Start()
     {
+        networkObject = GetComponentInParent<NetworkObject>();
+
         AmmoText = GameObject.Find("AmmoIndicator").GetComponent<TMP_Text>();
     }
 
     public override void FixedUpdateNetwork()
     {
+
         if (HasInputAuthority)
             AmmoText.text = $"{CurrentBullets} /{MaxBullets}  {Ammo}";
-        
+        else
+        {
+            networkObject = GetComponentInParent<NetworkObject>();
+        }
 
-
+        //Debug.Log("ShotGun");
 
 
         if (GetInput(out NetworkInputData networkInput))
         {
             if (networkInput.isFireButtonPressed)
             {
+                
                 if (IsCanShoot)
                 {
                     if (CurrentBullets > 0)
@@ -58,8 +65,8 @@ public class MultipleBulletPerShootWeapon : WeaponNetwork
 
     public override void Shoot(Vector3 rotatePos)
     {
-        Vector3 direction = rotatePos - transform.position;
-        direction.z = 0;
+        //Vector3 direction = rotatePos - transform.position;
+        //direction.z = 0;
 
         if (Runner == null)
         {
@@ -70,31 +77,31 @@ public class MultipleBulletPerShootWeapon : WeaponNetwork
         
         Runner.Spawn(Bullet, transform.position, null, null, (Runner, obj) =>
         {
-            obj.GetComponent<BulletNetwork>().InitializeDamage(Damage, direction);
+            obj.GetComponent<BulletNetwork>().InitializeDamage(Damage, rotatePos);
             obj.transform.Rotate(new Vector3(0, 0, Random.Range(-_randoScatter, _randoScatter)));
 
         });
         Runner.Spawn(Bullet, transform.position, null, null, (Runner, obj) =>
         {
-            obj.GetComponent<BulletNetwork>().InitializeDamage(Damage, direction);
+            obj.GetComponent<BulletNetwork>().InitializeDamage(Damage, rotatePos);
             obj.transform.Rotate(new Vector3(0, 0, Random.Range(-_randoScatter, _randoScatter)));
 
         });
         Runner.Spawn(Bullet, transform.position, null, null, (Runner, obj) =>
         {
-            obj.GetComponent<BulletNetwork>().InitializeDamage(Damage, direction);
+            obj.GetComponent<BulletNetwork>().InitializeDamage(Damage, rotatePos);
             obj.transform.Rotate(new Vector3(0, 0, Random.Range(-_randoScatter, _randoScatter)));
 
         });
         Runner.Spawn(Bullet, transform.position, null, null, (Runner, obj) =>
         {
-            obj.GetComponent<BulletNetwork>().InitializeDamage(Damage, direction);
+            obj.GetComponent<BulletNetwork>().InitializeDamage(Damage, rotatePos);
             obj.transform.Rotate(new Vector3(0, 0, Random.Range(-_randoScatter, _randoScatter)));
 
         });
         Runner.Spawn(Bullet, transform.position, null, null, (Runner, obj) =>
         {
-            obj.GetComponent<BulletNetwork>().InitializeDamage(Damage, direction);
+            obj.GetComponent<BulletNetwork>().InitializeDamage(Damage, rotatePos);
             obj.transform.Rotate(new Vector3(0, 0, Random.Range(-_randoScatter, _randoScatter)));
 
         });

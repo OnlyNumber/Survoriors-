@@ -1910,6 +1910,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2106675852919035627, guid: 4b9703cbe4bc5f94e92550c068bc1155, type: 3}
+      propertyPath: enemySpawnerPrebaf
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2106675852919035628, guid: 4b9703cbe4bc5f94e92550c068bc1155, type: 3}
       propertyPath: m_Name
       value: NetworkRunnerHandler

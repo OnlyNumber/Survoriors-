@@ -89,13 +89,13 @@ public class EnemySpawner : MonoBehaviour
         { 
             yield return new WaitForSeconds(_enemyWaves[_numberOfWave].timeBetweenWaveEnemy);
 
-            Debug.Log(_enemyWaves[_numberOfWave].enemiesCount);
+            //Debug.Log(_enemyWaves[_numberOfWave].enemiesCount);
 
             for (int i = 0; i < _enemyWaves[_numberOfWave].enemiesCount; i++)
             {
                 Debug.Log("Spawn");
                 if (_enemyWaves[_numberOfWave].enemyList.Count != 0)
-                    networkRunner.Spawn(_enemyWaves[_numberOfWave].enemyList[0/*Random.Range(0, _enemyWaves[_numberOfWave].enemyList.Count)*/], Vector2.zero/*_spawnPoints[Random.Range(0, _spawnPoints.Count)].position*/, Quaternion.identity);
+                    networkRunner.Spawn(_enemyWaves[_numberOfWave].enemyList[Random.Range(0, _enemyWaves[_numberOfWave].enemyList.Count)], Vector2.zero/*_spawnPoints[Random.Range(0, _spawnPoints.Count)].position*/, Quaternion.identity);
             }
         }
     }

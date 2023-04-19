@@ -98,6 +98,7 @@
     <Compile Include="Assets\Scripts\Player\DataHolderPlayer.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\Photon\Fusion\Scripts\Prototyping\Utilities\FusionUnitySceneManagerUtils.cs" />
+    <Compile Include="Assets\Scripts\UI\StartButton.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\Scripts\Enemies\Enemy Spawner\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyStateMachine\MovingEnemy.cs" />
@@ -130,6 +131,7 @@
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\DynamicJoystick.cs" />
     <Compile Include="Assets\Photon\Fusion\Scripts\Utilities\NetworkProjectUtilities.cs" />
     <Compile Include="Assets\Scripts\Player\Input\WeaponRotater.cs" />
+    <Compile Include="Assets\Scripts\UI\TimerControl.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\Photon\PhotonLibs\WebSocket\WebSocket.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Base\Joystick.cs" />
@@ -195,8 +197,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Scripts\Player\StateMachine\Moving.cs" />
     <Compile Include="Assets\Photon\Fusion\Scripts\FusionGraph.cs" />
-    <Compile Include="Assets\Scripts\UI\TimerControl.cs" />
-    <Compile Include="Assets\Scripts\UI\StartButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

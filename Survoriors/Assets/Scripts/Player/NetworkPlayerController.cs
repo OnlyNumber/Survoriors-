@@ -38,10 +38,19 @@ public class NetworkPlayerController : NetworkBehaviour
     {
         if (GetInput(out NetworkInputData networkInput))
         {
+            if (networkInput.mousePosition == null)
+            {
+                Debug.Log("No position");
+            }
+
+            if(weaponRotater != null)
             weaponRotater.RotateWeapon(networkInput.mousePosition);
+            else
+            {
+                
 
-
-
+                weaponRotater = GetComponentInChildren<WeaponRotater>();
+            }
         }
     }
 

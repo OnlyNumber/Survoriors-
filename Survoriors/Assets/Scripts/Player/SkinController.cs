@@ -8,33 +8,9 @@ using UnityEngine.UI;
 
 public class SkinController : NetworkBehaviour
 {
-
-
-    private int  playerSkin;
+    private int playerSkin;
 
     public delegate void ChangePlayerSkin();
-
-    /*public ChangePlayerSkin onPlayerChangedSkin;
-
-    public int PlayerSkin
-    {
-        set
-        {
-            playerSkin = value;
-
-            onPlayerChangedSkin?.Invoke();
-        }
-
-        get
-        {
-            return playerSkin;
-        }
-    }*/
-
-    
-
-    //[SerializeField]
-    //SpriteRenderer[] skins;
 
     struct NetworkSkinStruct : INetworkStruct
     {
@@ -44,21 +20,88 @@ public class SkinController : NetworkBehaviour
     [Networked(OnChanged = nameof(OnSkinChanged))]
     NetworkSkinStruct playerSkinNetwork { get; set; }
 
-    StateMachine sM;
+    StateMachine stateMachine;
 
+    [SerializeField]
+    private List<NetworkObject> _weaponList;
+
+    //[SerializeField]
+    //public List<Sprite> listsprite;
+
+    //public SpriteRenderer weaponSprite;
+
+    public int numberOfWeapon { get; private set; }
+
+    private Vector2 WEAPON_POSITION = new Vector2(-0.02f, -0.18f);
+
+    PlayerRef refer;
 
     private void Start()
     {
-        sM = GetComponentInChildren<StateMachine>();
+        //weapon = GetComponentInChildren<WeaponRotater>().gameObject;
 
-        NetworkSkinStruct skin ;
+        //weapon.AddComponent<MultipleBulletPerShootWeapon>();
 
+        //weaponSprite.sprite = listsprite[1];
+
+        /*NetworkObject weaponObject;
+
+        if (Runner == null)
+        {
+            Debug.Log("No runner");
+        }
+
+        if (weapon == null)
+        {
+            Debug.Log("weaponPrefab");
+        }
+        
+
+
+
+        weaponObject = Runner.Spawn(weapon,null,null, Runner.LocalPlayer);
+
+        Debug.Log(Runner.LocalPlayer.PlayerId);
+
+        if (weaponObject == null)
+        {
+            Debug.Log("weaponObject");
+        }
+        
+        if (weaponObject.gameObject == null)
+        {
+            Debug.Log("weaponObject.gameObject");
+        }
+        if (weaponObject.gameObject.transform == null)
+        {
+            Debug.Log("weaponObject.gameObject.transform");
+        }
+        if (gameObject == null)
+        {
+            Debug.Log("gameObject");
+        }
+        if (gameObject.transform == null)
+        {
+            Debug.Log("gameObject.transform");
+        }
+
+
+
+        weaponObject.gameObject.transform.SetParent(gameObject.transform);
+
+        weaponObject.transform.position = WEAPON_POSITION;
+
+        weaponObject.transform.localScale = new Vector3(1, 1, 0);*/
+
+
+        stateMachine = GetComponentInChildren<StateMachine>();
+        NetworkSkinStruct skin;
         skin.skinNumber = (int)DataHolderPlayer.playerSkin;
-
         Rpc_RequestChangeSkin(skin);
+
+        Rpc_RequestSpawnWeapon(Runner.LocalPlayer);
     }
-    
-    //[Rpc]
+
     [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
     private void Rpc_RequestChangeSkin(NetworkSkinStruct skin, RpcInfo info = default)
     {
@@ -67,10 +110,25 @@ public class SkinController : NetworkBehaviour
         playerSkinNetwork = skin;
     }
 
+    [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
+    private void Rpc_RequestSpawnWeapon(PlayerRef playerRef,  RpcInfo info = default)
+    {
+        Debug.Log($"Recive RPC request for player {transform.name} DataHolder ID {DataHolderPlayer.playerSkin}");
+
+        numberOfWeapon = Random.Range(0, _weaponList.Count);
+
+        NetworkObject weaponObject = Runner.Spawn(_weaponList[numberOfWeapon], null, null, playerRef);
+
+        weaponObject.gameObject.transform.SetParent(gameObject.transform);
+
+        weaponObject.transform.position = WEAPON_POSITION;
+
+        //weaponObject.transform.localScale = new Vector3(1, 1, 0);
+
+    }
+
     static void OnSkinChanged(Changed<SkinController> changed)
     {
-        //Debug.Log("work");
-
         changed.Behaviour.OnSkinChange();
     }
 
@@ -78,12 +136,12 @@ public class SkinController : NetworkBehaviour
     {
         playerSkin = playerSkinNetwork.skinNumber;
 
-        if(sM == null)
+        if (stateMachine == null)
         {
-            sM = GetComponentInChildren<StateMachine>();
+            stateMachine = GetComponentInChildren<StateMachine>();
         }
 
-        sM.ChangeSkin(playerSkinNetwork.skinNumber);
+        stateMachine.ChangeSkin(playerSkinNetwork.skinNumber);
     }
 
 }

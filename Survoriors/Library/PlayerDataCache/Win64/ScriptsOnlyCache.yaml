@@ -9,12 +9,14 @@ ScriptsOnlyBuild:
     - EnemyNetwork
     - EnemySpawner
     - EnemyStateMachine
+    - EnemyWave
     - FixedJoystick
     - GameManager
     - HealthHandler
     - HealthItem
     - MainMenuUIHandler
     - MenuSkinUIHandler
+    - MultipleBulletPerShootWeapon
     - NetworkCharacterControllerPrototype
     - NetworkPlayer
     - NetworkPlayerController
@@ -28,7 +30,9 @@ ScriptsOnlyBuild:
     - Skeleton
     - SkinController
     - SpawnerPlayer
+    - StartButton
     - StateMachine
+    - TimerControl
     - WeaponRotater
     - Zombie
     Fusion.Realtime.dll:
@@ -76,10 +80,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -190,6 +192,9 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: MenuSkinUIHandler
     methodName: OnChooseSkin
+  - assembly: Assembly-CSharp
+    fullTypeName: StartButton
+    methodName: SetStartButtonActive
   sceneClasses:
     Assets/Scenes/GamePlayScene.unity:
     - Class: 1
@@ -233,59 +238,73 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2876}
     - Class: 114
+      Script: {instanceID: 2918}
+    - Class: 114
+      Script: {instanceID: 3108}
+    - Class: 114
       Script: {instanceID: 3128}
     - Class: 114
       Script: {instanceID: 3474}
     - Class: 114
       Script: {instanceID: 3698}
     - Class: 114
-      Script: {instanceID: 3976}
+      Script: {instanceID: 3954}
     - Class: 114
-      Script: {instanceID: 4250}
+      Script: {instanceID: 3978}
     - Class: 114
-      Script: {instanceID: 4454}
+      Script: {instanceID: 4252}
     - Class: 114
-      Script: {instanceID: 4766}
+      Script: {instanceID: 4456}
     - Class: 114
-      Script: {instanceID: 5182}
+      Script: {instanceID: 4768}
     - Class: 114
-      Script: {instanceID: 5708}
+      Script: {instanceID: 5184}
     - Class: 114
-      Script: {instanceID: 5920}
+      Script: {instanceID: 5710}
     - Class: 114
-      Script: {instanceID: 6254}
+      Script: {instanceID: 5722}
     - Class: 114
-      Script: {instanceID: 6396}
+      Script: {instanceID: 5924}
     - Class: 114
-      Script: {instanceID: 6608}
+      Script: {instanceID: 5972}
     - Class: 114
-      Script: {instanceID: 6766}
+      Script: {instanceID: 6004}
     - Class: 114
-      Script: {instanceID: 6792}
+      Script: {instanceID: 6260}
     - Class: 114
-      Script: {instanceID: 6802}
+      Script: {instanceID: 6402}
     - Class: 114
-      Script: {instanceID: 6804}
+      Script: {instanceID: 6614}
     - Class: 114
-      Script: {instanceID: 6880}
+      Script: {instanceID: 6772}
     - Class: 114
-      Script: {instanceID: 7274}
+      Script: {instanceID: 6798}
     - Class: 114
-      Script: {instanceID: 7744}
+      Script: {instanceID: 6808}
     - Class: 114
-      Script: {instanceID: 7962}
+      Script: {instanceID: 6810}
     - Class: 114
-      Script: {instanceID: 7998}
+      Script: {instanceID: 6886}
     - Class: 114
-      Script: {instanceID: 8016}
+      Script: {instanceID: 7280}
     - Class: 114
-      Script: {instanceID: 8118}
+      Script: {instanceID: 7448}
     - Class: 114
-      Script: {instanceID: 8494}
+      Script: {instanceID: 7750}
     - Class: 114
-      Script: {instanceID: 8900}
+      Script: {instanceID: 7968}
     - Class: 114
-      Script: {instanceID: 8908}
+      Script: {instanceID: 8004}
+    - Class: 114
+      Script: {instanceID: 8022}
+    - Class: 114
+      Script: {instanceID: 8124}
+    - Class: 114
+      Script: {instanceID: 8500}
+    - Class: 114
+      Script: {instanceID: 8906}
+    - Class: 114
+      Script: {instanceID: 8914}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -380,87 +399,89 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3698}
     - Class: 114
-      Script: {instanceID: 4250}
+      Script: {instanceID: 4252}
     - Class: 114
-      Script: {instanceID: 4454}
+      Script: {instanceID: 4456}
     - Class: 114
-      Script: {instanceID: 4518}
+      Script: {instanceID: 4520}
     - Class: 114
-      Script: {instanceID: 4592}
+      Script: {instanceID: 4594}
     - Class: 114
-      Script: {instanceID: 4702}
+      Script: {instanceID: 4704}
     - Class: 114
-      Script: {instanceID: 4722}
+      Script: {instanceID: 4724}
     - Class: 114
-      Script: {instanceID: 4766}
+      Script: {instanceID: 4768}
     - Class: 114
-      Script: {instanceID: 5042}
+      Script: {instanceID: 5044}
     - Class: 114
-      Script: {instanceID: 5182}
+      Script: {instanceID: 5184}
     - Class: 114
-      Script: {instanceID: 5382}
+      Script: {instanceID: 5384}
     - Class: 114
-      Script: {instanceID: 5692}
+      Script: {instanceID: 5694}
     - Class: 114
-      Script: {instanceID: 5708}
+      Script: {instanceID: 5710}
     - Class: 114
-      Script: {instanceID: 5832}
+      Script: {instanceID: 5836}
     - Class: 114
-      Script: {instanceID: 5920}
+      Script: {instanceID: 5924}
     - Class: 114
-      Script: {instanceID: 6176}
+      Script: {instanceID: 6004}
     - Class: 114
-      Script: {instanceID: 6254}
+      Script: {instanceID: 6182}
     - Class: 114
-      Script: {instanceID: 6396}
+      Script: {instanceID: 6260}
     - Class: 114
-      Script: {instanceID: 6608}
+      Script: {instanceID: 6402}
     - Class: 114
-      Script: {instanceID: 6766}
+      Script: {instanceID: 6614}
     - Class: 114
-      Script: {instanceID: 6786}
-    - Class: 114
-      Script: {instanceID: 6788}
-    - Class: 114
-      Script: {instanceID: 6790}
+      Script: {instanceID: 6772}
     - Class: 114
       Script: {instanceID: 6792}
     - Class: 114
-      Script: {instanceID: 6802}
+      Script: {instanceID: 6794}
     - Class: 114
-      Script: {instanceID: 6804}
+      Script: {instanceID: 6796}
     - Class: 114
-      Script: {instanceID: 6880}
+      Script: {instanceID: 6798}
     - Class: 114
-      Script: {instanceID: 7274}
+      Script: {instanceID: 6808}
     - Class: 114
-      Script: {instanceID: 7442}
+      Script: {instanceID: 6810}
     - Class: 114
-      Script: {instanceID: 7744}
+      Script: {instanceID: 6886}
     - Class: 114
-      Script: {instanceID: 7802}
+      Script: {instanceID: 7280}
     - Class: 114
-      Script: {instanceID: 7962}
+      Script: {instanceID: 7448}
     - Class: 114
-      Script: {instanceID: 7998}
+      Script: {instanceID: 7750}
     - Class: 114
-      Script: {instanceID: 8016}
+      Script: {instanceID: 7808}
     - Class: 114
-      Script: {instanceID: 8118}
+      Script: {instanceID: 7968}
     - Class: 114
-      Script: {instanceID: 8342}
+      Script: {instanceID: 8004}
     - Class: 114
-      Script: {instanceID: 8494}
+      Script: {instanceID: 8022}
     - Class: 114
-      Script: {instanceID: 8900}
+      Script: {instanceID: 8124}
     - Class: 114
-      Script: {instanceID: 8908}
+      Script: {instanceID: 8348}
     - Class: 114
-      Script: {instanceID: 8956}
+      Script: {instanceID: 8500}
     - Class: 114
-      Script: {instanceID: 9308}
+      Script: {instanceID: 8906}
     - Class: 114
-      Script: {instanceID: 25688}
+      Script: {instanceID: 8914}
+    - Class: 114
+      Script: {instanceID: 8962}
+    - Class: 114
+      Script: {instanceID: 9314}
+    - Class: 114
+      Script: {instanceID: 31462}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -958,13 +979,19 @@ ScriptsOnlyBuild:
     className: BaseInput
   - hash:
       serializedVersion: 2
+      Hash: de73ee4a15b38a90780e7ac654bbe8c1
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: StartButton
+  - hash:
+      serializedVersion: 2
       Hash: 7536c3aaa3b668b80f1580147a12d30d
     assemblyName: Assembly-CSharp.dll
     namespaceName: TMPro.Examples
     className: TextMeshProFloatingText
   - hash:
       serializedVersion: 2
-      Hash: b8b42ba420b738adfcdbdea870d5e6d5
+      Hash: 9974b453e63c133903d07fd680ac4f0f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemySpawner
@@ -1312,6 +1339,12 @@ ScriptsOnlyBuild:
     className: WeaponRotater
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TimerControl
+  - hash:
+      serializedVersion: 2
       Hash: 62fef86270a167c41a606cfca1ecc156
     assemblyName: Assembly-CSharp.dll
     namespaceName: TMPro.Examples
@@ -1378,7 +1411,13 @@ ScriptsOnlyBuild:
     className: TMP_FontAsset
   - hash:
       serializedVersion: 2
-      Hash: fa101211d454b20425f8911ae00c8b67
+      Hash: 748382ed072b585a297b75e3f07486fe
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EnemyWave
+  - hash:
+      serializedVersion: 2
+      Hash: 53050be3d3e0527fbc68009c1a3f99c4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MultipleBulletPerShootWeapon
@@ -1432,7 +1471,7 @@ ScriptsOnlyBuild:
     className: Text
   - hash:
       serializedVersion: 2
-      Hash: caba9b9ddcaebe25e9c7312a7ca38172
+      Hash: 819c485eb9a21838f4142aa0a32b8082
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SkinController
@@ -1822,7 +1861,7 @@ ScriptsOnlyBuild:
     className: PositionAsUV1
   - hash:
       serializedVersion: 2
-      Hash: 2f02b6700c4707b4c680479856fbaad7
+      Hash: 821c2cdfa1e9130931476dbbe36a2290
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: NetworkRunnerHandler
@@ -1858,7 +1897,7 @@ ScriptsOnlyBuild:
     className: NetworkDebugStartGUI
   - hash:
       serializedVersion: 2
-      Hash: 5d11cfea27ce53a51299d8df6bcb7f82
+      Hash: e1ef4a3f2da59459f8322ba82664d8b1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: OneBulletPerShootWeapon
@@ -1984,7 +2023,7 @@ ScriptsOnlyBuild:
     className: NetworkSceneManagerDefault
   - hash:
       serializedVersion: 2
-      Hash: 5d11cfea27ce53a51299d8df6bcb7f82
+      Hash: e1ef4a3f2da59459f8322ba82664d8b1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: WeaponNetwork

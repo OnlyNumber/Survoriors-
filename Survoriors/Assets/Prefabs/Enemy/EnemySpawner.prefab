@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 8412389091948898559, guid: 82760911daaa164479c57b17863aa999, type: 3}
   _enemyWaves:
-  - {fileID: 451297600821026768, guid: 239b7231baa3d3f49b2ca10c47b51181, type: 3}
+  - {fileID: 451297600821026768, guid: 493cbd0d799e4d244b7aa135d1c2da27, type: 3}
   - {fileID: 451297600821026768, guid: 239b7231baa3d3f49b2ca10c47b51181, type: 3}
   - {fileID: 451297600821026768, guid: 493cbd0d799e4d244b7aa135d1c2da27, type: 3}
   - {fileID: 451297600821026768, guid: e0affa03f14cc9242b0056acf552ba34, type: 3}
