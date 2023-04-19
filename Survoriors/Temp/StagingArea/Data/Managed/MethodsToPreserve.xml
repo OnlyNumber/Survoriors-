@@ -1,0 +1,26 @@
+<linker>
+	<assembly fullname="Assembly-CSharp" ignoreIfMissing="1">
+		<type fullname="MainMenuUIHandler">
+			<method name="GoBackToMainMenu"/>
+			<method name="GoBackToMainMenu"/>
+			<method name="OnCreateNewSessionMenu"/>
+			<method name="OnJoinGameClick"/>
+			<method name="OnStartNewSessionClicked"/>
+		</type>
+		<type fullname="MenuSkinUIHandler">
+			<method name="ClearButtons"/>
+			<method name="ClearButtons"/>
+			<method name="ClearButtons"/>
+			<method name="OnChooseSkin"/>
+			<method name="OnChooseSkin"/>
+			<method name="OnChooseSkin"/>
+		</type>
+		<type fullname="SessionInfoListUIItem">
+			<method name="OnClick"/>
+			<method name="OnClick"/>
+		</type>
+		<type fullname="StartButton">
+			<method name="SetStartButtonActive"/>
+		</type>
+	</assembly>
+</linker>

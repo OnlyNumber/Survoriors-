@@ -459,6 +459,7 @@
 "Assets/Scripts/Network/SpawnerPlayer.cs"
 "Assets/Scripts/Network/Startup.cs"
 "Assets/Scripts/Player/DataHolderPlayer.cs"
+"Assets/Scripts/Player/FlipManager.cs"
 "Assets/Scripts/Player/HealthHandler.cs"
 "Assets/Scripts/Player/Input/ComputerInput.cs"
 "Assets/Scripts/Player/Input/IInput.cs"

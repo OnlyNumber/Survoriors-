@@ -18,14 +18,21 @@ public class MultipleBulletPerShootWeapon : WeaponNetwork
 
     public override void FixedUpdateNetwork()
     {
-
-        if (HasInputAuthority)
-            AmmoText.text = $"{CurrentBullets} /{MaxBullets}  {Ammo}";
-        else
+        try
         {
-            networkObject = GetComponentInParent<NetworkObject>();
-        }
 
+
+            if (HasInputAuthority)
+                AmmoText.text = $"{CurrentBullets} /{MaxBullets}  {Ammo}";
+            else
+            {
+                networkObject = GetComponentInParent<NetworkObject>();
+            }
+        }
+        catch
+        {
+
+        }
         //Debug.Log("ShotGun");
 
 

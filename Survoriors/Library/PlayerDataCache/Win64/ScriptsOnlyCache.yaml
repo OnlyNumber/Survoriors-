@@ -11,6 +11,7 @@ ScriptsOnlyBuild:
     - EnemyStateMachine
     - EnemyWave
     - FixedJoystick
+    - FlipManager
     - GameManager
     - HealthHandler
     - HealthItem
@@ -305,6 +306,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 8906}
     - Class: 114
       Script: {instanceID: 8914}
+    - Class: 114
+      Script: {instanceID: 52072}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -481,7 +484,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9314}
     - Class: 114
-      Script: {instanceID: 31462}
+      Script: {instanceID: 34526}
+    - Class: 114
+      Script: {instanceID: 52072}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -2189,8 +2194,14 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: caba9b9ddcaebe25e9c7312a7ca38172
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FlipManager
   platform: 19
   scenePathNames:
   - Assets/Scenes/MenuScene.unity
   - Assets/Scenes/GamePlayScene.unity
-  playerPath: C:/Users/User/Desktop/Phusion Tests Games/PhusionTest.exe
+  playerPath: C:/Users/User/Desktop/Phusion Tests Games/IL2CPP/PhusionTest.exe

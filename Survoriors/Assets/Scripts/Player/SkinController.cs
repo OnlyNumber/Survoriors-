@@ -99,7 +99,14 @@ public class SkinController : NetworkBehaviour
         skin.skinNumber = (int)DataHolderPlayer.playerSkin;
         Rpc_RequestChangeSkin(skin);
 
-        Rpc_RequestSpawnWeapon(Runner.LocalPlayer);
+        do
+        {
+
+            numberOfWeapon = Random.Range(0, _weaponList.Count);
+
+        } while (CheckThisNumberOfWeapon(numberOfWeapon));
+
+        Rpc_RequestSpawnWeapon(Runner.LocalPlayer, numberOfWeapon);
     }
 
     [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
@@ -110,17 +117,21 @@ public class SkinController : NetworkBehaviour
         playerSkinNetwork = skin;
     }
 
+
+
     [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
-    private void Rpc_RequestSpawnWeapon(PlayerRef playerRef,  RpcInfo info = default)
+    private void Rpc_RequestSpawnWeapon(PlayerRef playerRef,int numberOfWeapon,  RpcInfo info = default)
     {
         Debug.Log($"Recive RPC request for player {transform.name} DataHolder ID {DataHolderPlayer.playerSkin}");
 
-        numberOfWeapon = Random.Range(0, _weaponList.Count);
+        //numberOfWeapon = Random.Range(0, _weaponList.Count);
+
+        //CheckThisNumberOfWeapon(numberOfWeapon);
+
+        this.numberOfWeapon = numberOfWeapon;
 
         NetworkObject weaponObject = Runner.Spawn(_weaponList[numberOfWeapon], null, null, playerRef);
-
         weaponObject.gameObject.transform.SetParent(gameObject.transform);
-
         weaponObject.transform.position = WEAPON_POSITION;
 
         //weaponObject.transform.localScale = new Vector3(1, 1, 0);
@@ -143,5 +154,32 @@ public class SkinController : NetworkBehaviour
 
         stateMachine.ChangeSkin(playerSkinNetwork.skinNumber);
     }
+
+    private bool CheckThisNumberOfWeapon(int numberOfWeapon)
+    {
+        foreach(var player in FindObjectsOfType<NetworkPlayer>())
+        {
+            Debug.Log("Search");
+
+            if(player.GetComponent<NetworkObject>().InputAuthority.PlayerId != GetComponent<NetworkObject>().InputAuthority.PlayerId && numberOfWeapon == player.GetComponent<SkinController>().numberOfWeapon)
+            {
+                if(player.GetComponent<NetworkObject>().InputAuthority.PlayerId != GetComponent<NetworkObject>().InputAuthority.PlayerId)
+                {
+                    Debug.Log($" Same weapons ID");
+                }
+                Debug.Log($"{player.token} {GetComponent<NetworkPlayer>().token} Same weapons");
+
+                return true;
+            }
+            else
+            {
+                Debug.Log($"{player.GetComponent<NetworkObject>().InputAuthority.PlayerId} {GetComponent<NetworkObject>().InputAuthority.PlayerId} Not Same Weapons");
+            }
+        }
+
+        return false;
+
+    }
+
 
 }

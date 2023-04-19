@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 6485729332084163488}
   - component: {fileID: 3459406909032481030}
   - component: {fileID: 3014535470133388658}
+  - component: {fileID: -4011584333099283405}
   m_Layer: 7
   m_Name: PlayerPF
   m_TagString: Untagged
@@ -86,6 +87,7 @@ MonoBehaviour:
   - {fileID: 6721787440524164889}
   - {fileID: 1772472235890668523}
   - {fileID: 3459406909032481030}
+  - {fileID: -4011584333099283405}
   - {fileID: 2435505132922550993}
   SimulationBehaviours: []
 --- !u!50 &1755115926529812917
@@ -236,6 +238,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   halthHandler: {fileID: 3459406909032481030}
+--- !u!114 &-4011584333099283405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110069199195832450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2b0972b199096645b4d4c4a9d018b44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
 --- !u!1 &8231307095378665018
 GameObject:
   m_ObjectHideFlags: 0
