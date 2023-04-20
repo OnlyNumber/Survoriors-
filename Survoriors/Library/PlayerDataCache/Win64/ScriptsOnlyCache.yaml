@@ -31,6 +31,7 @@ ScriptsOnlyBuild:
     - SessionListUIHandler
     - Skeleton
     - SkinController
+    - SpawnEnemySpawner
     - SpawnerPlayer
     - StartButton
     - StateMachine
@@ -82,10 +83,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -230,7 +229,7 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 738}
+      Script: {instanceID: 740}
     - Class: 114
       Script: {instanceID: 1678}
     - Class: 114
@@ -274,45 +273,45 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6008}
     - Class: 114
-      Script: {instanceID: 6128}
+      Script: {instanceID: 6108}
     - Class: 114
-      Script: {instanceID: 6266}
+      Script: {instanceID: 6130}
     - Class: 114
-      Script: {instanceID: 6408}
+      Script: {instanceID: 6268}
     - Class: 114
-      Script: {instanceID: 6620}
+      Script: {instanceID: 6410}
     - Class: 114
-      Script: {instanceID: 6778}
+      Script: {instanceID: 6622}
     - Class: 114
-      Script: {instanceID: 6804}
+      Script: {instanceID: 6780}
     - Class: 114
-      Script: {instanceID: 6814}
+      Script: {instanceID: 6806}
     - Class: 114
       Script: {instanceID: 6816}
     - Class: 114
-      Script: {instanceID: 6892}
+      Script: {instanceID: 6818}
     - Class: 114
-      Script: {instanceID: 7286}
+      Script: {instanceID: 6894}
     - Class: 114
-      Script: {instanceID: 7454}
+      Script: {instanceID: 7288}
     - Class: 114
-      Script: {instanceID: 7756}
+      Script: {instanceID: 7456}
     - Class: 114
-      Script: {instanceID: 7974}
+      Script: {instanceID: 7780}
     - Class: 114
-      Script: {instanceID: 8010}
+      Script: {instanceID: 8034}
     - Class: 114
-      Script: {instanceID: 8028}
+      Script: {instanceID: 8052}
     - Class: 114
-      Script: {instanceID: 8130}
+      Script: {instanceID: 8154}
     - Class: 114
-      Script: {instanceID: 8506}
+      Script: {instanceID: 8530}
     - Class: 114
-      Script: {instanceID: 8912}
+      Script: {instanceID: 8754}
     - Class: 114
-      Script: {instanceID: 8920}
+      Script: {instanceID: 8938}
     - Class: 114
-      Script: {instanceID: 102450}
+      Script: {instanceID: 8946}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -407,6 +406,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3700}
     - Class: 114
+      Script: {instanceID: 3982}
+    - Class: 114
       Script: {instanceID: 4256}
     - Class: 114
       Script: {instanceID: 4460}
@@ -435,21 +436,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 5928}
     - Class: 114
+      Script: {instanceID: 5976}
+    - Class: 114
       Script: {instanceID: 6008}
     - Class: 114
-      Script: {instanceID: 6128}
+      Script: {instanceID: 6108}
     - Class: 114
-      Script: {instanceID: 6188}
+      Script: {instanceID: 6130}
     - Class: 114
-      Script: {instanceID: 6266}
+      Script: {instanceID: 6190}
     - Class: 114
-      Script: {instanceID: 6408}
+      Script: {instanceID: 6268}
     - Class: 114
-      Script: {instanceID: 6620}
+      Script: {instanceID: 6410}
     - Class: 114
-      Script: {instanceID: 6778}
+      Script: {instanceID: 6622}
     - Class: 114
-      Script: {instanceID: 6798}
+      Script: {instanceID: 6780}
     - Class: 114
       Script: {instanceID: 6800}
     - Class: 114
@@ -457,43 +460,41 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6804}
     - Class: 114
-      Script: {instanceID: 6814}
+      Script: {instanceID: 6806}
     - Class: 114
       Script: {instanceID: 6816}
     - Class: 114
-      Script: {instanceID: 6892}
+      Script: {instanceID: 6818}
     - Class: 114
-      Script: {instanceID: 7286}
+      Script: {instanceID: 6894}
     - Class: 114
-      Script: {instanceID: 7454}
+      Script: {instanceID: 7288}
     - Class: 114
-      Script: {instanceID: 7756}
+      Script: {instanceID: 7456}
     - Class: 114
-      Script: {instanceID: 7814}
+      Script: {instanceID: 7780}
     - Class: 114
-      Script: {instanceID: 7974}
+      Script: {instanceID: 7838}
     - Class: 114
-      Script: {instanceID: 8010}
+      Script: {instanceID: 7998}
     - Class: 114
-      Script: {instanceID: 8028}
+      Script: {instanceID: 8034}
     - Class: 114
-      Script: {instanceID: 8130}
+      Script: {instanceID: 8052}
     - Class: 114
-      Script: {instanceID: 8354}
+      Script: {instanceID: 8154}
     - Class: 114
-      Script: {instanceID: 8506}
+      Script: {instanceID: 8378}
     - Class: 114
-      Script: {instanceID: 8912}
+      Script: {instanceID: 8530}
     - Class: 114
-      Script: {instanceID: 8920}
+      Script: {instanceID: 8938}
     - Class: 114
-      Script: {instanceID: 8968}
+      Script: {instanceID: 8946}
     - Class: 114
-      Script: {instanceID: 9320}
+      Script: {instanceID: 8994}
     - Class: 114
-      Script: {instanceID: 34628}
-    - Class: 114
-      Script: {instanceID: 102450}
+      Script: {instanceID: 9346}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1009,7 +1010,7 @@ ScriptsOnlyBuild:
     className: TextMeshProFloatingText
   - hash:
       serializedVersion: 2
-      Hash: 9974b453e63c133903d07fd680ac4f0f
+      Hash: d12fc6ffe78156debf16eeb6115b23cb
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemySpawner
@@ -1462,6 +1463,12 @@ ScriptsOnlyBuild:
       Hash: caba9b9ddcaebe25e9c7312a7ca38172
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
+    className: FlipManagerWeapon
+  - hash:
+      serializedVersion: 2
+      Hash: caba9b9ddcaebe25e9c7312a7ca38172
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
     className: FlipManager
   - hash:
       serializedVersion: 2
@@ -1885,7 +1892,7 @@ ScriptsOnlyBuild:
     className: PositionAsUV1
   - hash:
       serializedVersion: 2
-      Hash: 821c2cdfa1e9130931476dbbe36a2290
+      Hash: 2f02b6700c4707b4c680479856fbaad7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: NetworkRunnerHandler
@@ -2045,6 +2052,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: Fusion
     className: NetworkSceneManagerDefault
+  - hash:
+      serializedVersion: 2
+      Hash: 5a596ce4ccbaa5ddeeb27d2e0237fb54
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SpawnEnemySpawner
   - hash:
       serializedVersion: 2
       Hash: e1ef4a3f2da59459f8322ba82664d8b1
@@ -2213,12 +2226,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: caba9b9ddcaebe25e9c7312a7ca38172
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: FlipManagerWeapon
   platform: 19
   scenePathNames:
   - Assets/Scenes/MenuScene.unity

@@ -142,6 +142,7 @@
     <Compile Include="Assets\Scripts\Enemies\Enemy Spawner\EnemyWave.cs" />
     <Compile Include="Assets\Scripts\Player\Weapon\BulletWeapon\MultipleBulletPerShootWeapon.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
+    <Compile Include="Assets\Scripts\Player\FlipManagerWeapon.cs" />
     <Compile Include="Assets\Scripts\Player\FlipManager.cs" />
     <Compile Include="Assets\Photon\Fusion\Scripts\Prototyping\NetworkSceneManagerBase.cs" />
     <Compile Include="Assets\Photon\Fusion\Scripts\Prototyping\NetworkCharacterControllerPrototype.cs" />
@@ -181,6 +182,7 @@
     <Compile Include="Assets\Scripts\Player\StateMachine\StateMachine.cs" />
     <Compile Include="Assets\Photon\Fusion\Scripts\Utilities\BoundsTools.cs" />
     <Compile Include="Assets\Photon\Fusion\Scripts\Prototyping\NetworkSceneManagerDefault.cs" />
+    <Compile Include="Assets\Scripts\Enemies\Enemy Spawner\SpawnEnemySpawner.cs" />
     <Compile Include="Assets\Scripts\Player\StateMachine\Idle.cs" />
     <Compile Include="Assets\Scripts\Player\Weapon\WeaponNetwork.cs" />
     <Compile Include="Assets\Photon\Fusion\Scripts\Prototyping\NetworkDebugStart.cs" />
@@ -199,13 +201,13 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Scripts\Player\StateMachine\Moving.cs" />
     <Compile Include="Assets\Photon\Fusion\Scripts\FusionGraph.cs" />
-    <Compile Include="Assets\Scripts\Player\FlipManagerWeapon.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.xml" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\Photon\Fusion\Assemblies\Fusion.Common.xml" />
+    <None Include="Assets\YTDS FolderExtension Freeversion\YTDS FolderExtension Freeversion\YTDS FolderExtension Freeversion\Background\illustrate.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
     <None Include="Assets\Photon\Fusion\Assemblies\Fusion.Sockets.xml" />
@@ -248,6 +250,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\YTDS FolderExtension Freeversion\YTDS FolderExtension Freeversion\YTDS FolderExtension Freeversion\Script\YTDS.FolderExtension.Freeversion.dll" />
     <None Include="Assets\Photon\Fusion\Plugins\NanoSockets\Metro\ARM\libnanosockets.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Bangers - OFL.txt" />
@@ -540,6 +543,9 @@
     </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@1.10.2\Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="YTDS.FolderExtension.Freeversion">
+      <HintPath>Assets\YTDS FolderExtension Freeversion\YTDS FolderExtension Freeversion\YTDS FolderExtension Freeversion\Script\YTDS.FolderExtension.Freeversion.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Android.Types">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.14f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>

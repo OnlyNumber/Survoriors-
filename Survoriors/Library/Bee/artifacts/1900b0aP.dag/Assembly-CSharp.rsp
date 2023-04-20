@@ -383,6 +383,7 @@
 "Assets/Scripts/Enemies/Disappearing.cs"
 "Assets/Scripts/Enemies/Enemy Spawner/EnemySpawner.cs"
 "Assets/Scripts/Enemies/Enemy Spawner/EnemyWave.cs"
+"Assets/Scripts/Enemies/Enemy Spawner/SpawnEnemySpawner.cs"
 "Assets/Scripts/Enemies/Enemy/Skeleton.cs"
 "Assets/Scripts/Enemies/Enemy/Zombie.cs"
 "Assets/Scripts/Enemies/EnemyNetwork.cs"

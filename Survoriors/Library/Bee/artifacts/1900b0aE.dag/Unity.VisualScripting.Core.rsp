@@ -131,6 +131,7 @@
 -r:"Assets/Photon/Fusion/Plugins/NanoSockets/NanoSockets/Dynamic/NanoSockets.dll"
 -r:"Assets/Photon/PhotonLibs/netstandard2.0/Photon3Unity3D.dll"
 -r:"Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll"
+-r:"Assets/YTDS FolderExtension Freeversion/YTDS FolderExtension Freeversion/YTDS FolderExtension Freeversion/Script/YTDS.FolderExtension.Freeversion.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.14f1/Editor/Data/Managed/UnityEditor.Graphs.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.14f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.14f1/Editor/Data/Managed/UnityEngine/UnityEditor.DeviceSimulatorModule.dll"
