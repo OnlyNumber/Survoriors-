@@ -16,7 +16,7 @@ public class Skeleton : EnemyNetwork
 
         Runner.Spawn(_bulletPrefab, transform.position, null, null,(runner, bullet) =>
         {
-            bullet.GetComponent<BulletNetwork>().InitializeDamage(damage, direction);
+            bullet.GetComponent<BulletNetwork>().InitializeBullet(damage, direction);
         });
     }
 

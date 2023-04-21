@@ -19,11 +19,11 @@ public class MobileInput : IInput
 
     public void GetInput(out Vector2 moveInputVector, out Vector2 mousePosition, out NetworkBool isCanShoot)
     {
-        if(moveJoysticl == null)
+        /*if(moveJoysticl == null)
         {
             Debug.Log("null");
 
-        }
+        }*/
 
         moveInputVector.x = moveJoysticl.Horizontal;
 

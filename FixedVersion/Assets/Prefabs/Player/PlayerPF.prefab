@@ -20,6 +20,8 @@ GameObject:
   - component: {fileID: 3459406909032481030}
   - component: {fileID: 3014535470133388658}
   - component: {fileID: -4011584333099283405}
+  - component: {fileID: 7259738228974201274}
+  - component: {fileID: 2645934484078865383}
   m_Layer: 7
   m_Name: PlayerPF
   m_TagString: Untagged
@@ -91,6 +93,8 @@ MonoBehaviour:
   - {fileID: 1772472235890668523}
   - {fileID: 3459406909032481030}
   - {fileID: -4011584333099283405}
+  - {fileID: 7259738228974201274}
+  - {fileID: 2645934484078865383}
   - {fileID: 2435505132922550993}
   SimulationBehaviours: []
 --- !u!50 &1755115926529812917
@@ -255,6 +259,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
+--- !u!114 &7259738228974201274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110069199195832450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89ceeeecd2b49ef4d8e293c4a181e796, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
+--- !u!114 &2645934484078865383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110069199195832450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89bae8dccb12bb343af4c53ceb30634e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
+  hostPlayer: {fileID: 0}
 --- !u!1 &8231307095378665018
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,8 +359,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1497294899
-  m_SortingLayer: 0
+  m_SortingLayerID: 426543035
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -150523396, guid: 0c187a32c5bde4747be8d00770b07403, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -725,7 +756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7111507247542777509, guid: 9ec419ebeb08c164b8850337e3fbd106, type: 3}
       propertyPath: Damage
-      value: 100
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8579698352025098052, guid: 9ec419ebeb08c164b8850337e3fbd106, type: 3}
       propertyPath: m_Name

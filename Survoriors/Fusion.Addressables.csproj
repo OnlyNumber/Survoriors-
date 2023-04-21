@@ -370,6 +370,9 @@
     <Reference Include="Fusion.Realtime">
       <HintPath>Assets\Photon\Fusion\Assemblies\Fusion.Realtime.dll</HintPath>
     </Reference>
+    <Reference Include="YTDS.FolderExtension.Freeversion">
+      <HintPath>Assets\YTDS FolderExtension Freeversion\YTDS FolderExtension Freeversion\YTDS FolderExtension Freeversion\Script\YTDS.FolderExtension.Freeversion.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Burst.Cecil">
       <HintPath>Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.dll</HintPath>
     </Reference>

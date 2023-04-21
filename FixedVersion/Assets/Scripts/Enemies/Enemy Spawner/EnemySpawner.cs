@@ -41,12 +41,14 @@ public class EnemySpawner : NetworkBehaviour
         
         Debug.Log((int)_enemyWaves[_numberOfWave].waveDuration);
 
-        timer.SetTimer((int)_enemyWaves[_numberOfWave].waveDuration);
+        //timer.SetTimer((int)_enemyWaves[_numberOfWave].waveDuration);
+
+        Rpc_RequestChangeTimer();
 
         yield return new WaitForSecondsRealtime(_enemyWaves[_numberOfWave].waveDuration);
         
         isWaveNow = false;
-        _numberOfWave++;
+        Rpc_RequestChangeWave();
 
         StopAllCoroutines();
 
@@ -84,6 +86,23 @@ public class EnemySpawner : NetworkBehaviour
 
     }
 
+    [Rpc]
+    private void Rpc_RequestChangeTimer()
+    {
+
+        timer.SetTimer((int)_enemyWaves[_numberOfWave].waveDuration);
+
+        _numberOfWave++;
+
+    }
+
+    [Rpc]
+    private void Rpc_RequestChangeWave()
+    {
+
+        _numberOfWave++;
+
+    }
 
 
 

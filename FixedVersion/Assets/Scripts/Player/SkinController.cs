@@ -163,11 +163,11 @@ public class SkinController : NetworkBehaviour
 
         if(!HasStateAuthority)
         {
-            Debug.Log("No Host");
-            Debug.Log(numberOfWeapon + "Number weapon");
+            //Debug.Log("No Host");
+            //Debug.Log(numberOfWeapon + "Number weapon");
         }
 
-        _weaponList[1].gameObject.SetActive(true);
+        _weaponList[0].gameObject.SetActive(true);
         
         /*if(!HasStateAuthority)
         {

@@ -38,7 +38,7 @@ public class PlayerInputHandler : MonoBehaviour
 
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = Camera.main.nearClipPlane;
-        networkInputData.mousePosition = _mousePosition;//Camera.main.ScreenToWorldPoint(mousePos);
+        networkInputData.mousePosition = _mousePosition;
 
         networkInputData.isFireButtonPressed = _isFireButtonPressed;
         networkInputData.isReloadButtonPressed = _isReloadButtonPressed;

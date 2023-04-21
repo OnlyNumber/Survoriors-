@@ -529,6 +529,9 @@
     <Reference Include="Fusion.Realtime">
       <HintPath>Assets\Photon\Fusion\Assemblies\Fusion.Realtime.dll</HintPath>
     </Reference>
+    <Reference Include="YTDS.FolderExtension.Freeversion">
+      <HintPath>Assets\YTDS FolderExtension Freeversion\YTDS FolderExtension Freeversion\YTDS FolderExtension Freeversion\Script\YTDS.FolderExtension.Freeversion.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Burst.Cecil">
       <HintPath>Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.dll</HintPath>
     </Reference>
@@ -543,9 +546,6 @@
     </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@1.10.2\Mono.Cecil.dll</HintPath>
-    </Reference>
-    <Reference Include="YTDS.FolderExtension.Freeversion">
-      <HintPath>Assets\YTDS FolderExtension Freeversion\YTDS FolderExtension Freeversion\YTDS FolderExtension Freeversion\Script\YTDS.FolderExtension.Freeversion.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Android.Types">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.14f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>

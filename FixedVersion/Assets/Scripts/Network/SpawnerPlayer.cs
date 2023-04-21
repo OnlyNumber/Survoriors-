@@ -18,6 +18,8 @@ public class SpawnerPlayer : MonoBehaviour, INetworkRunnerCallbacks
 
     public Dictionary<PlayerRef, NetworkPlayer> _spawnedCharacters = new Dictionary<PlayerRef, NetworkPlayer>();
 
+   // private DisconnectManager hostManager;
+
     private void Awake()
     {
         mapTokenIdWithNetworkPlayer = new Dictionary<int, NetworkPlayer>();
@@ -93,9 +95,35 @@ public class SpawnerPlayer : MonoBehaviour, INetworkRunnerCallbacks
             {
                 Debug.Log($"Spawning new player for connection token {playerToken}");
 
-                NetworkPlayer spawnedNetworkPlayer = runner.Spawn(playerPrefab, Vector3.zero, Quaternion.identity, player);
+                NetworkPlayer spawnedNetworkPlayer = runner.Spawn(playerPrefab, Vector3.zero, Quaternion.identity, player, (runner,obj ) => 
+                {
+                    Debug.Log("RUNNER " + runner.IsServer);
+
+                    Rpc_reqserv(obj, runner);
+                    
+
+                    obj.GetComponent<DisconnectManager>().networkRunner = runner;
+
+
+
+                    /* if (player.PlayerId == 1)
+                         Rpc_RequesForHost(obj.GetComponent<DisconnectManager>());
+                     else
+                     {
+                         Debug.Log("No host manager");
+                     }
+
+
+                     Rpc_RequesForSave(obj, player, hostManager);*/
+
+                    //obj.GetComponent<NetworkPlayer>().checkRef = player;
+                    //obj.GetComponent<DisconnectManager>().hostPlayer = hostManager;
+                });
 
                 spawnedNetworkPlayer.token = playerToken;
+
+                //Debug.Log("RUNNNER " + runner.IsServer);
+
 
                 //Debug.Log()
 
@@ -117,6 +145,29 @@ public class SpawnerPlayer : MonoBehaviour, INetworkRunnerCallbacks
         }*/ 
 
     }
+    [Rpc]
+    private void Rpc_reqserv(NetworkObject obj,NetworkRunner rune)
+    {
+        Debug.Log("Rpc_reqserv");
+
+        obj.GetComponent<DisconnectManager>().networkRunner = rune;
+    }
+
+
+   /* [Rpc]
+    private void Rpc_RequesForHost(DisconnectManager host)
+    {
+        hostManager = host;
+    }
+
+
+    [Rpc]
+    private void Rpc_RequesForSave(NetworkObject netObj, PlayerRef playerRef, DisconnectManager host)
+    {
+        netObj.GetComponent<NetworkPlayer>().checkRef = playerRef;
+        netObj.GetComponent<DisconnectManager>().hostPlayer = hostManager;
+    }*/
+
 
 
     public void OnConnectedToServer(NetworkRunner runner)
@@ -145,8 +196,17 @@ public class SpawnerPlayer : MonoBehaviour, INetworkRunnerCallbacks
 
     public async void OnHostMigration(NetworkRunner runner, HostMigrationToken hostMigrationToken)
     {
+        Debug.Log("Host migration");
 
         await runner.Shutdown(shutdownReason: ShutdownReason.HostMigration);
+
+        foreach(var player in _spawnedCharacters)
+        {
+            if(player.Value != null)
+            {
+                player.Value.GetOut();
+            }
+        }
 
         FindObjectOfType<NetworkRunnerHandler>().StartHostMigration(hostMigrationToken);
 
@@ -163,8 +223,8 @@ public class SpawnerPlayer : MonoBehaviour, INetworkRunnerCallbacks
         {
             _spawnedCharacters.Remove(player);
 
+            if(networkObject != null)
             runner.Despawn(networkObject.GetComponent<NetworkObject>());
-            
         }
 
     }

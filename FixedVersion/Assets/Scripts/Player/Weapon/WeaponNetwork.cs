@@ -7,6 +7,8 @@ using TMPro;
 
 public class WeaponNetwork : NetworkBehaviour
 {
+    protected PlayerScore playerScore;
+
     [SerializeField]
     protected NetworkObject networkObject;
 
@@ -39,6 +41,8 @@ public class WeaponNetwork : NetworkBehaviour
     private void Start()
     {
         networkObject = GetComponentInParent<NetworkObject>();
+        playerScore = GetComponent<PlayerScore>();
+
     }
 
     public virtual void Shoot(Vector3 rotatePos)

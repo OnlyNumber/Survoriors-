@@ -7,13 +7,12 @@ using Fusion;
 public class OneBulletPerShootWeapon : WeaponNetwork
 {
 
+
     private void Start()
     {
-        AmmoText = GameObject.Find("AmmoIndicator").GetComponent<TMP_Text>();
-    }
+        playerScore = GetComponentInParent<PlayerScore>();
 
-    public override void FixedUpdateNetwork()
-    {
+        AmmoText = GameObject.Find("AmmoIndicator").GetComponent<TMP_Text>();
 
         try
         {
@@ -24,8 +23,13 @@ public class OneBulletPerShootWeapon : WeaponNetwork
         }
         catch
         {
-            //Debug.Log(ex.Message);
+
         }
+
+    }
+
+    public override void FixedUpdateNetwork()
+    {
 
 
         if (GetInput(out NetworkInputData networkInput))
@@ -63,19 +67,20 @@ public class OneBulletPerShootWeapon : WeaponNetwork
 
     public override void Shoot(Vector3 rotatePos)
     {
-        //Vector3 direction = rotatePos - transform.position;
-        //direction.z = 0;
-
         if (Runner == null)
         {
             Debug.Log("NULL RUNEER");
         }
+        
 
-
-        Runner.Spawn(Bullet, transform.position, null, null, (Runner, obj) => { obj.GetComponent<BulletNetwork>().InitializeDamage(Damage, rotatePos); });
+        Runner.Spawn(Bullet, transform.position, null, null, (Runner, obj) => { obj.GetComponent<BulletNetwork>().InitializeBullet(Damage, rotatePos, playerScore); });
 
         CurrentBullets--;
 
+        if (HasInputAuthority)
+        {
+            AmmoText.text = $"{CurrentBullets} /{MaxBullets}  {Ammo}";
+        }
 
     }
 }

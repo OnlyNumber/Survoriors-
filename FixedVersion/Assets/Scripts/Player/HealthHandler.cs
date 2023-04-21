@@ -19,6 +19,9 @@ public class HealthHandler :  NetworkBehaviour, IDamageAble
     [SerializeField]
     private NetworkObject corpse;
 
+    [SerializeField]
+    private int _healthPoints;
+
     public int HealthPoints
     {
         get
@@ -47,8 +50,9 @@ public class HealthHandler :  NetworkBehaviour, IDamageAble
                 _healthPoints = _maxhealthPoints;
             }
 
-            if (_healthPoints < 0)
+            if (_healthPoints <= 0)
             {
+                if(corpse != null)
                 Runner.Spawn(corpse, transform.position);
 
                 Die();
@@ -58,8 +62,7 @@ public class HealthHandler :  NetworkBehaviour, IDamageAble
 
     }
 
-    [SerializeField]
-    private int _healthPoints;
+    
 
     private void Start()
     {
@@ -68,18 +71,41 @@ public class HealthHandler :  NetworkBehaviour, IDamageAble
 
 
     [Rpc(RpcSources.All, RpcTargets.All)]
-    private void Rpc_RequestChangehealth(int damage, RpcInfo info = default)
+    private void Rpc_RequestChangehealth(int damage, PlayerScore playerScore = null, RpcInfo info = default)
     {
+        if (playerScore != null)
+        {
+            Debug.Log("work");
+
+            if(HealthPoints > damage)
+            {
+                playerScore.IncreaseScore(damage);
+            }
+            else
+            {
+                playerScore.IncreaseScore(HealthPoints);
+                playerScore.IncreaseKills(1);
+
+            }
+        }
+
+        Debug.Log("Health");
+
         HealthPoints -= damage;
+
+        
+
     }
 
-    public void TakeDamage(int dmg)
+    public void TakeDamage(int dmg, PlayerScore playerScore = null)
     {
-        Rpc_RequestChangehealth(dmg);
+        Rpc_RequestChangehealth(dmg, playerScore);
     }
 
     private void Die()
     {
         Runner.Despawn(GetComponent<NetworkObject>());
     }
+
+   
 }
