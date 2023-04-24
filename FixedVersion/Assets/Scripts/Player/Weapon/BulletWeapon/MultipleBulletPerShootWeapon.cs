@@ -14,7 +14,7 @@ public class MultipleBulletPerShootWeapon : WeaponNetwork
 
     private void Start()
     {
-        playerScore = GetComponentInParent<PlayerScore>();
+        //playerScore = GetComponentInParent<PlayerScoreV2>();
 
         AmmoText = GameObject.Find("AmmoIndicator").GetComponent<TMP_Text>();
 
@@ -27,7 +27,7 @@ public class MultipleBulletPerShootWeapon : WeaponNetwork
         }
         catch
         {
-            //Debug.Log(ex.Message);
+
         }
     }
 
@@ -81,7 +81,7 @@ public class MultipleBulletPerShootWeapon : WeaponNetwork
 
             Runner.Spawn(Bullet, transform.position, null, null, (Runner, obj) =>
             {
-                obj.GetComponent<BulletNetwork>().InitializeBullet(Damage, rotatePos, playerScore);
+                obj.GetComponent<BulletNetwork>().InitializeBullet(Damage, rotatePos/*, playerScore*/);
                 obj.transform.Rotate(new Vector3(0, 0, Random.Range(-_randoScatter, _randoScatter)));
 
             });

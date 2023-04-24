@@ -71,11 +71,11 @@ public class HealthHandler :  NetworkBehaviour, IDamageAble
 
 
     [Rpc(RpcSources.All, RpcTargets.All)]
-    private void Rpc_RequestChangehealth(int damage, PlayerScore playerScore = null, RpcInfo info = default)
+    private void Rpc_RequestChangehealth(int damage/*, PlayerScoreV2 playerScore = null*/, RpcInfo info = default)
     {
-        if (playerScore != null)
+        /*if (playerScore != null)
         {
-            Debug.Log("work");
+            //Debug.Log("work");
 
             if(HealthPoints > damage)
             {
@@ -87,7 +87,7 @@ public class HealthHandler :  NetworkBehaviour, IDamageAble
                 playerScore.IncreaseKills(1);
 
             }
-        }
+        }*/
 
         Debug.Log("Health");
 
@@ -97,15 +97,60 @@ public class HealthHandler :  NetworkBehaviour, IDamageAble
 
     }
 
-    public void TakeDamage(int dmg, PlayerScore playerScore = null)
+    public void TakeDamage(int dmg/*, PlayerScoreV2 playerScore = null*/)
     {
-        Rpc_RequestChangehealth(dmg, playerScore);
+        Rpc_RequestChangehealth(dmg/*, playerScore*/);
+
+        /*if (playerScore != null)
+        {
+            //Debug.Log("work");
+
+            playerScore.Increase();
+
+            if (HealthPoints > dmg)
+            {
+                playerScore.IncreaseScore(dmg);
+            }
+            else
+            {
+                playerScore.IncreaseScore(HealthPoints);
+                playerScore.IncreaseKills(1);
+
+            }
+        }*/
+
     }
+
+    public void TakeDamage(int damage, PlayerScrV3 playerScr = null)
+    {
+
+        Rpc_RequestChangehealth(damage/*, playerScore*/);
+
+        if (playerScr != null)
+        {
+            //Debug.Log("work");
+
+            
+
+            if (HealthPoints > damage)
+            {
+                playerScr.Rpc_RequestChangeScore(damage);
+            }
+            else
+            {
+                playerScr.Rpc_RequestChangeScore(HealthPoints);
+                playerScr.Rpc_RequestChangeKill(1);
+
+            }
+        }
+
+    }
+
+
 
     private void Die()
     {
         Runner.Despawn(GetComponent<NetworkObject>());
     }
 
-   
-}
+    }

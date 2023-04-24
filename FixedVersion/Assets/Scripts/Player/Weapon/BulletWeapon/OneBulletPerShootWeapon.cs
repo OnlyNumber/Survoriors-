@@ -6,13 +6,19 @@ using Fusion;
 
 public class OneBulletPerShootWeapon : WeaponNetwork
 {
+    private PlayerScrV3 playerScrV3;
 
+    private TMP_Text testText;
 
     private void Start()
     {
-        playerScore = GetComponentInParent<PlayerScore>();
+        //playerScore = GetComponentInParent<PlayerScoreV2>();
+
+        playerScrV3 = GetComponentInParent<PlayerScrV3>();
 
         AmmoText = GameObject.Find("AmmoIndicator").GetComponent<TMP_Text>();
+
+        //testText = GameObject.Find("Kills Indicator").GetComponent<TMP_Text>();
 
         try
         {
@@ -40,8 +46,6 @@ public class OneBulletPerShootWeapon : WeaponNetwork
                 {
                     if (CurrentBullets > 0)
                     {
-                        //Debug.Log("Shoot");
-
                         Shoot(networkInput.mousePosition);
 
                         StartCoroutine(WaitingForShoot(TimeBetweenAttack));
@@ -67,19 +71,22 @@ public class OneBulletPerShootWeapon : WeaponNetwork
 
     public override void Shoot(Vector3 rotatePos)
     {
-        if (Runner == null)
-        {
-            Debug.Log("NULL RUNEER");
-        }
-        
+        //Debug.Log("Shoot");
 
-        Runner.Spawn(Bullet, transform.position, null, null, (Runner, obj) => { obj.GetComponent<BulletNetwork>().InitializeBullet(Damage, rotatePos, playerScore); });
+        playerScrV3.Rpc_RequestSaveShoots(1);
+
+        //if(HasInputAuthority)
+        //testText.text = $"{playerScrV3.Shoots}";
+
+        Runner.Spawn(Bullet, transform.position, null, null, (Runner, obj) => { obj.GetComponent<BulletNetwork>().InitializeBullet(Damage, rotatePos, playerScrV3); });
 
         CurrentBullets--;
 
         if (HasInputAuthority)
         {
             AmmoText.text = $"{CurrentBullets} /{MaxBullets}  {Ammo}";
+
+
         }
 
     }

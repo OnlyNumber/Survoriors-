@@ -6,23 +6,25 @@ using TMPro;
 
 public class PlayerScore : NetworkBehaviour
 {
-    
     public int score { get; private set; }
 
     public int kills { get; private set; }
 
-    private TMP_Text _killsText;
+    public delegate void OnKillChange();
+
+    public OnKillChange onKillChange;
 
     private void Start()
     {
-        _killsText = GameObject.Find("Kills Indicator").GetComponent<TMP_Text>();
+        //_killsText = FindObjectOfType<UIManager>().killsText;
     }
+
 
     public void IncreaseScore(int addScore)
     {
         if (addScore > 0)
         {
-            score += addScore;
+            Rpc_RequestChangeScore(addScore, 0);
         }
     }
 
@@ -30,20 +32,25 @@ public class PlayerScore : NetworkBehaviour
     {
         if (kill > 0)
         {
-            kills += kill;
-            ChangeKillScore();
-        }
-    }
+            Rpc_RequestChangeScore(0, kill);
 
-    private void ChangeKillScore()
-    {
-        _killsText.text = $"{kills}";
+            onKillChange?.Invoke();
+            //ChangeKillScore();
+        }
     }
 
     [ContextMenu("Show data debug")]
     public void ShowDebug()
     {
         Debug.Log($"damage: {score} /kill: {kills} ");
+    }
+
+    [Rpc(RpcSources.All, RpcTargets.All)]
+    private void Rpc_RequestChangeScore(int score, int kills, RpcInfo info = default)
+    {
+        this.score += score;
+
+        this.kills += kills;
     }
 
 

@@ -36,32 +36,13 @@ public class NetworkPlayer : NetworkBehaviour, IPlayerLeft
 
             Debug.Log("Spawn object");
         }
-        else
-        {
-            Debug.Log("Spawn other object");
-        }    
+        
 
     }
 
-    [ContextMenu("GetOut")]
     public void GetOut()
     {
-        if (!HasInputAuthority)
-        {
             Runner.Shutdown();
-        }
-        else
-        {
-            Rpc_RequestDestroyServer();
-            //exitButton.onClick?.Invoke();
-        }
-
-    }
-
-    [Rpc]
-    private void Rpc_RequestDestroyServer()
-    {
-        exitButton.onClick?.Invoke();
     }
 
 

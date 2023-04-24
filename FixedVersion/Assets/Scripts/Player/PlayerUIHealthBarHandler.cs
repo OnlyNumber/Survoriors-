@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerUIHealthHandler : MonoBehaviour
+public class PlayerUIHealthBarHandler : MonoBehaviour
 {
     [SerializeField]
     private HealthHandler halthHandler;
@@ -20,8 +20,6 @@ public class PlayerUIHealthHandler : MonoBehaviour
 
     private void ChangeHealthPoints()
     {
-        //Debug.Log($"{halthHandler.HealthPoints}  {halthHandler.HealthPoints / halthHandler._maxhealthPoints}   {halthHandler._maxhealthPoints}");
-
         healthPointsBar.fillAmount = (float)halthHandler.HealthPoints / (float)halthHandler._maxhealthPoints;
     }
 
