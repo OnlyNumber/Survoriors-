@@ -16,9 +16,33 @@ public class SpawnerPlayer : MonoBehaviour, INetworkRunnerCallbacks
 
     private SessionListUIHandler sessionListUIHandler;
 
-    public Dictionary<PlayerRef, NetworkPlayer> _spawnedCharacters = new Dictionary<PlayerRef, NetworkPlayer>();
+    private Dictionary<PlayerRef, NetworkPlayer> _spawnedCharacters = new Dictionary<PlayerRef, NetworkPlayer>();
 
-   // private DisconnectManager hostManager;
+    // private DisconnectManager hostManager;
+
+    [ContextMenu("Find players")]
+    public void ShowDictionary()
+    {
+        Debug.Log("Start show players");
+
+        foreach (var item in _spawnedCharacters)
+        {
+            Debug.Log("pla");
+            Debug.Log(item.Key.PlayerId);
+        }
+    }
+
+    public Dictionary<PlayerRef, NetworkPlayer> GetSpawnedPlayers()
+    {
+        Dictionary<PlayerRef, NetworkPlayer> spawnedCharactersCopy = new Dictionary<PlayerRef, NetworkPlayer>();
+
+        foreach(var item in _spawnedCharacters)
+        {
+            spawnedCharactersCopy.Add(item.Key, item.Value);
+        }
+
+        return spawnedCharactersCopy;
+    }
 
     private void Awake()
     {

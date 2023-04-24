@@ -65,7 +65,7 @@ public class EnemyNetwork : NetworkBehaviour
 
         if (players.Count == 0)
         {
-            Debug.Log("No players");
+            //Debug.Log("No players");
             Target = null;
 
             return;

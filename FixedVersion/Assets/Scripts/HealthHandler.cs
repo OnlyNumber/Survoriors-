@@ -16,6 +16,8 @@ public class HealthHandler :  NetworkBehaviour, IDamageAble
 
     public event OnTakeDamage onChangeHealth;
 
+    public event OnTakeDamage onDeath;
+
     [SerializeField]
     private NetworkObject corpse;
 
@@ -55,7 +57,8 @@ public class HealthHandler :  NetworkBehaviour, IDamageAble
                 if(corpse != null)
                 Runner.Spawn(corpse, transform.position);
 
-                Die();
+                onDeath?.Invoke();
+                //Die();
             }
 
         }
@@ -66,6 +69,15 @@ public class HealthHandler :  NetworkBehaviour, IDamageAble
 
     private void Start()
     {
+        if(Runner.IsPlayer)
+        {
+            onDeath += DeadPlayer;
+        }
+        else
+        {
+            onDeath += Die;
+        }
+
         _maxhealthPoints = _healthPoints;
     }
 
@@ -73,58 +85,18 @@ public class HealthHandler :  NetworkBehaviour, IDamageAble
     [Rpc(RpcSources.All, RpcTargets.All)]
     private void Rpc_RequestChangehealth(int damage/*, PlayerScoreV2 playerScore = null*/, RpcInfo info = default)
     {
-        /*if (playerScore != null)
-        {
-            //Debug.Log("work");
-
-            if(HealthPoints > damage)
-            {
-                playerScore.IncreaseScore(damage);
-            }
-            else
-            {
-                playerScore.IncreaseScore(HealthPoints);
-                playerScore.IncreaseKills(1);
-
-            }
-        }*/
-
-        Debug.Log("Health");
-
         HealthPoints -= damage;
-
-        
-
     }
 
     public void TakeDamage(int dmg/*, PlayerScoreV2 playerScore = null*/)
     {
         Rpc_RequestChangehealth(dmg/*, playerScore*/);
-
-        /*if (playerScore != null)
-        {
-            //Debug.Log("work");
-
-            playerScore.Increase();
-
-            if (HealthPoints > dmg)
-            {
-                playerScore.IncreaseScore(dmg);
-            }
-            else
-            {
-                playerScore.IncreaseScore(HealthPoints);
-                playerScore.IncreaseKills(1);
-
-            }
-        }*/
-
     }
 
     public void TakeDamage(int damage, PlayerScrV3 playerScr = null)
     {
 
-        Rpc_RequestChangehealth(damage/*, playerScore*/);
+        
 
         if (playerScr != null)
         {
@@ -144,6 +116,9 @@ public class HealthHandler :  NetworkBehaviour, IDamageAble
             }
         }
 
+        Rpc_RequestChangehealth(damage/*, playerScore*/);
+
+
     }
 
 
@@ -152,5 +127,11 @@ public class HealthHandler :  NetworkBehaviour, IDamageAble
     {
         Runner.Despawn(GetComponent<NetworkObject>());
     }
+
+    private void DeadPlayer()
+    {
+        gameObject.SetActive(false);
+    }
+
 
     }

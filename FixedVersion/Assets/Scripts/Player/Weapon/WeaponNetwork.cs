@@ -27,6 +27,8 @@ public class WeaponNetwork : NetworkBehaviour
     [SerializeField]
     protected int MaxBullets;
 
+    [SerializeField]
+    private int AmmoModificator;
 
     protected int CurrentBullets;
 
@@ -83,7 +85,7 @@ public class WeaponNetwork : NetworkBehaviour
 
     public void TakeAmmo()
     {
-        this.Ammo += MaxBullets;
+        this.Ammo += MaxBullets * AmmoModificator;
     }
 
 }

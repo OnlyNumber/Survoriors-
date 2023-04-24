@@ -73,7 +73,7 @@ public class OneBulletPerShootWeapon : WeaponNetwork
     {
         //Debug.Log("Shoot");
 
-        playerScrV3.Rpc_RequestSaveShoots(1);
+        //playerScrV3.Rpc_RequestSaveShoots(1);
 
         //if(HasInputAuthority)
         //testText.text = $"{playerScrV3.Shoots}";

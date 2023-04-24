@@ -7,7 +7,7 @@ public class PlayerScrV3 : NetworkBehaviour
 {
     private int shoots = 0;
 
-    private int score;
+    public int score { get; private set; }
 
     private int kills;
 
@@ -38,9 +38,6 @@ public class PlayerScrV3 : NetworkBehaviour
         set
         {
             shoots = value;
-            Debug.Log("Work");
-            //onShootChange?.Invoke();
-
         }
 
     }

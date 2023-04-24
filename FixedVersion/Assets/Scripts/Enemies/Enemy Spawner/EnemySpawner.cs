@@ -17,11 +17,17 @@ public class EnemySpawner : NetworkBehaviour
 
     private TimerControl timer;
 
+    [SerializeField]
+    private LeaderBoardShowInformation leaderBoardShowInformation;
+
     private void Start()
     {
         _numberOfWave = 0;
 
         timer = GameObject.Find("Timer Indicator").GetComponent<TimerControl>();
+
+        //if (HasStateAuthority)
+           // gameObject.AddComponent<PlayerCheckers>();
 
         //startButton = GameObject.Find("StartGame Button").GetComponent<Button>();
     }
@@ -38,7 +44,7 @@ public class EnemySpawner : NetworkBehaviour
         StartCoroutine(SpawnWave());
 
         StartCoroutine(SpawnItems());
-        
+
         Debug.Log((int)_enemyWaves[_numberOfWave].waveDuration);
 
         //timer.SetTimer((int)_enemyWaves[_numberOfWave].waveDuration);
@@ -46,13 +52,20 @@ public class EnemySpawner : NetworkBehaviour
         Rpc_RequestChangeTimer();
 
         yield return new WaitForSecondsRealtime(_enemyWaves[_numberOfWave].waveDuration);
-        
+
         isWaveNow = false;
         Rpc_RequestChangeWave();
 
         StopAllCoroutines();
 
-        StartCoroutine(WaveTimer());
+        if (_numberOfWave < _enemyWaves.Count)
+        {
+            StartCoroutine(WaveTimer());
+        }
+        else
+        {
+            ShowLeaderBoard();
+        }
     }
 
 
@@ -89,19 +102,71 @@ public class EnemySpawner : NetworkBehaviour
     [Rpc]
     private void Rpc_RequestChangeTimer()
     {
+        Debug.Log(_numberOfWave + " " + (int)_enemyWaves[_numberOfWave].waveDuration);
+
+        if(timer == null)
+        {
+            Debug.Log("timer null");
+        }
 
         timer.SetTimer((int)_enemyWaves[_numberOfWave].waveDuration);
 
-        _numberOfWave++;
+        //_numberOfWave++;
 
     }
 
     [Rpc]
     private void Rpc_RequestChangeWave()
     {
-
         _numberOfWave++;
+    }
 
+    private void ShowLeaderBoard()
+    {
+        if(HasStateAuthority)
+        leaderBoardShowInformation.ShowTable();
+    }
+    public void CheckAllPlayer()
+    {
+        if(CheckAlivePlayers())
+        {
+            return;
+        }
+
+        StopAllCoroutines();
+        ShowLeaderBoard();
+    }
+
+
+
+    SpawnerPlayer spawnerPlayer;
+    public bool CheckAlivePlayers()
+    {
+        Debug.Log("Start check");
+
+        if (spawnerPlayer == null)
+        {
+            spawnerPlayer = FindObjectOfType<SpawnerPlayer>();
+        }
+
+        int i = 0;//= spawnerPlayer.GetSpawnedPlayers().Count;
+
+        foreach (var item in spawnerPlayer.GetSpawnedPlayers().Values)
+        {
+            if (item.gameObject.activeInHierarchy == false)
+            {
+                i++;
+            }
+        }
+
+        
+
+        if (i == spawnerPlayer.GetSpawnedPlayers().Count )
+        {
+            return false;
+        }
+
+        return true;
     }
 
 
