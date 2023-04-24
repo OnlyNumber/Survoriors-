@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class TimerControl : MonoBehaviour
@@ -15,8 +12,6 @@ public class TimerControl : MonoBehaviour
         _timeTicker = 0;
 
         _timerText = GetComponent<TMP_Text>();
-
-        //Debug.Log(59 % 60);
     }
 
     private void Update()
@@ -34,11 +29,8 @@ public class TimerControl : MonoBehaviour
 
     private void UpdateTimer()
     {
-        //Debug.Log(_timeTicker);
-
         _timeTicker -= Time.deltaTime;
-
-        //Debug.Log(_timeTicker % 60);
+        
         if (_timeTicker % 60 > 10)
         {
             _timerText.text = $" {(int)(_timeTicker / 60)} : {(int)(_timeTicker % 60)}";

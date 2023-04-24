@@ -2,13 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Fusion;
-using UnityEngine.UI;
 
 public class EnemySpawner : NetworkBehaviour
 {
     private bool isWaveNow;
-
-    //private Button startButton;
 
     [SerializeField]
     private List<EnemyWave> _enemyWaves = new List<EnemyWave>();
@@ -20,16 +17,18 @@ public class EnemySpawner : NetworkBehaviour
     [SerializeField]
     private LeaderBoardShowInformation leaderBoardShowInformation;
 
+    [SerializeField]
+    private List<Transform> _spawnPoints;
+
+    SpawnerPlayer spawnerPlayer;
+
+
     private void Start()
     {
         _numberOfWave = 0;
 
         timer = GameObject.Find("Timer Indicator").GetComponent<TimerControl>();
 
-        //if (HasStateAuthority)
-           // gameObject.AddComponent<PlayerCheckers>();
-
-        //startButton = GameObject.Find("StartGame Button").GetComponent<Button>();
     }
 
     public void StartGame()
@@ -46,8 +45,6 @@ public class EnemySpawner : NetworkBehaviour
         StartCoroutine(SpawnItems());
 
         Debug.Log((int)_enemyWaves[_numberOfWave].waveDuration);
-
-        //timer.SetTimer((int)_enemyWaves[_numberOfWave].waveDuration);
 
         Rpc_RequestChangeTimer();
 
@@ -82,7 +79,7 @@ public class EnemySpawner : NetworkBehaviour
             {
                 Debug.Log("Spawn");
                 if (_enemyWaves[_numberOfWave].enemyList.Count != 0)
-                    Runner.Spawn(_enemyWaves[_numberOfWave].enemyList[Random.Range(0, _enemyWaves[_numberOfWave].enemyList.Count)], Vector2.zero/*_spawnPoints[Random.Range(0, _spawnPoints.Count)].position*/, Quaternion.identity);
+                    Runner.Spawn(_enemyWaves[_numberOfWave].enemyList[Random.Range(0, _enemyWaves[_numberOfWave].enemyList.Count)], _spawnPoints[Random.Range(0, _spawnPoints.Count)].position, Quaternion.identity);
             }
         }
     }
@@ -94,7 +91,7 @@ public class EnemySpawner : NetworkBehaviour
             yield return new WaitForSeconds(_enemyWaves[_numberOfWave].timeBetweenItem);
 
             if(_enemyWaves[_numberOfWave].pickupItemsList.Count != 0)
-                Runner.Spawn(_enemyWaves[_numberOfWave].pickupItemsList[Random.Range(0, _enemyWaves[_numberOfWave].pickupItemsList.Count)], new Vector3(Random.Range(-10, 10), Random.Range(-10, 10)), Quaternion.identity);
+                Runner.Spawn(_enemyWaves[_numberOfWave].pickupItemsList[Random.Range(0, _enemyWaves[_numberOfWave].pickupItemsList.Count)], new Vector3(Random.Range(-28, 28), Random.Range(-15, 15)), Quaternion.identity);
         }
 
     }
@@ -102,17 +99,7 @@ public class EnemySpawner : NetworkBehaviour
     [Rpc]
     private void Rpc_RequestChangeTimer()
     {
-        Debug.Log(_numberOfWave + " " + (int)_enemyWaves[_numberOfWave].waveDuration);
-
-        if(timer == null)
-        {
-            Debug.Log("timer null");
-        }
-
         timer.SetTimer((int)_enemyWaves[_numberOfWave].waveDuration);
-
-        //_numberOfWave++;
-
     }
 
     [Rpc]
@@ -136,20 +123,15 @@ public class EnemySpawner : NetworkBehaviour
         StopAllCoroutines();
         ShowLeaderBoard();
     }
-
-
-
-    SpawnerPlayer spawnerPlayer;
+    
     public bool CheckAlivePlayers()
     {
-        Debug.Log("Start check");
-
         if (spawnerPlayer == null)
         {
             spawnerPlayer = FindObjectOfType<SpawnerPlayer>();
         }
 
-        int i = 0;//= spawnerPlayer.GetSpawnedPlayers().Count;
+        int i = 0;
 
         foreach (var item in spawnerPlayer.GetSpawnedPlayers().Values)
         {

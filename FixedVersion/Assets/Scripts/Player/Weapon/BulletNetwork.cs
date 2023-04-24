@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Fusion;
@@ -26,7 +25,7 @@ public class BulletNetwork : NetworkBehaviour
 
     private List<LagCompensatedHit> _hits = new List <LagCompensatedHit>();
 
-    private PlayerScrV3 _playerScore;
+    private PlayerScore _playerScore;
 
     private void Start()
     {
@@ -52,11 +51,6 @@ public class BulletNetwork : NetworkBehaviour
     {
         if (collision.gameObject.layer == numberOfCollideableLayer)
         {
-            /*if (_playerScore == null)
-            {
-                Debug.Log("No PS");
-            }
-            */
             collision.gameObject.GetComponent<IDamageAble>().TakeDamage(damage,_playerScore);
 
             Runner.Despawn(_networkObject);
@@ -64,7 +58,7 @@ public class BulletNetwork : NetworkBehaviour
         }
     }
 
-    public void InitializeBullet(int damage, Vector3 direction, PlayerScrV3 score = null)
+    public void InitializeBullet(int damage, Vector3 direction, PlayerScore score = null)
     {
         this.damage = damage;
 

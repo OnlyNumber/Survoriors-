@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Fusion;
@@ -22,8 +21,6 @@ public class EnemyStateMachine : NetworkBehaviour
 
     private Animator _currentAnimator;
 
-    //private SkinController _skinController;
-
     private HealthHandler _healthHandler;
 
     private void Awake()
@@ -33,8 +30,6 @@ public class EnemyStateMachine : NetworkBehaviour
         _healthHandler = GetComponentInParent<HealthHandler>();
 
         _healthHandler.takeDamageEvent += GetNextStateHit;
-
-        //_skinController = GetComponentInParent<SkinController>();
 
         _states.Add(new MovingEnemy("Run", _currentAnimator, this));
         _states.Add(new DeadEnemy("Dead", _currentAnimator, this));
@@ -46,13 +41,7 @@ public class EnemyStateMachine : NetworkBehaviour
 
     public override void FixedUpdateNetwork()
     {
-
         currentState.OnUpdate();
-        
-
-        //GetNextState((int)StatesEnemy.Moving);
-        
-    
     }
 
     public void GetNextState(int numberOfState)

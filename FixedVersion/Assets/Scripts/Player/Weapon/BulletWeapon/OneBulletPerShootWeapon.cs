@@ -6,19 +6,13 @@ using Fusion;
 
 public class OneBulletPerShootWeapon : WeaponNetwork
 {
-    private PlayerScrV3 playerScrV3;
-
-    private TMP_Text testText;
+    private PlayerScore playerScrV3;
 
     private void Start()
     {
-        //playerScore = GetComponentInParent<PlayerScoreV2>();
-
-        playerScrV3 = GetComponentInParent<PlayerScrV3>();
+        playerScrV3 = GetComponentInParent<PlayerScore>();
 
         AmmoText = GameObject.Find("AmmoIndicator").GetComponent<TMP_Text>();
-
-        //testText = GameObject.Find("Kills Indicator").GetComponent<TMP_Text>();
 
         try
         {
@@ -71,12 +65,7 @@ public class OneBulletPerShootWeapon : WeaponNetwork
 
     public override void Shoot(Vector3 rotatePos)
     {
-        //Debug.Log("Shoot");
-
-        //playerScrV3.Rpc_RequestSaveShoots(1);
-
-        //if(HasInputAuthority)
-        //testText.text = $"{playerScrV3.Shoots}";
+        
 
         Runner.Spawn(Bullet, transform.position, null, null, (Runner, obj) => { obj.GetComponent<BulletNetwork>().InitializeBullet(Damage, rotatePos, playerScrV3); });
 

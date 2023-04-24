@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Fusion;
@@ -24,13 +23,9 @@ public class StateMachine : NetworkBehaviour
 
     private Animator _currentAnimator;
 
-    //private SkinController _skinController;
-
     private void Awake()
     {
         _currentAnimator = GetComponent<Animator>();
-
-        //_skinController = GetComponentInParent<SkinController>();
 
         _states.Add(new Idle("Idle",_currentAnimator));
         _states.Add(new Moving("Moving",_currentAnimator));

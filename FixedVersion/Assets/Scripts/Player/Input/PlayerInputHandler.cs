@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Fusion;
 
@@ -11,7 +9,6 @@ public class PlayerInputHandler : MonoBehaviour
     private NetworkBool _isReloadButtonPressed = false;
     private IInput moveInput;
 
-    //private FixedJoystick _joystick;
     private void Start()
     {
         moveInput = new MobileInput();

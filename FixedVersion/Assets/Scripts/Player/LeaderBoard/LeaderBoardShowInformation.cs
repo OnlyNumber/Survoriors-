@@ -1,8 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Fusion;
-using UnityEngine.UI;
 
 public class LeaderBoardShowInformation : NetworkBehaviour
 {
@@ -32,27 +30,16 @@ public class LeaderBoardShowInformation : NetworkBehaviour
     {
         playersTable = GetComponentsInChildren<PlayerPanel>();
 
-        //Debug.Log(playersTable.Length);
-
         leaderBoardPanel.SetActive(false);
     }
 
-   // [ContextMenu("Show table")]
     [Rpc]
     public void Rpc_RequestShowTable(PlayerScore[] playerScores )
     {
-        /*List<PlayerScrV3> playerInfo = new List<PlayerScrV3>();
-
-        foreach(var item in FindObjectOfType<SpawnerPlayer>().GetSpawnedPlayers().Values)
-        {
-            playerInfo.Add(item.GetComponent<PlayerScrV3>());
-        }*/
-
         for (int i = 0; i < playerScores.Length; i++)
         {
-            //playersTable[i].Image_PlayerSkin.sprite = playerInfo[i].GetComponentInChildren<SpriteRenderer>().sprite;
-            playersTable[i].Txt_Score.text = "Score: " + playerScores[i].score;//playerInfo[i].score.ToString();
-            playersTable[i].Txt_Kills.text = "Kills: " + playerScores[i].kills;//playerInfo[i].Kill.ToString();
+            playersTable[i].Txt_Score.text = "Score: " + playerScores[i].score;
+            playersTable[i].Txt_Kills.text = "Kills: " + playerScores[i].kills;
         }
 
         if(playerScores.Length < 2)
@@ -82,11 +69,11 @@ public class LeaderBoardShowInformation : NetworkBehaviour
         {
             transfer.skin = 0;
 
-            transfer.kills = item.GetComponent<PlayerScrV3>().Kill;
+            transfer.kills = item.GetComponent<global::PlayerScore>().Kill;
 
-            transfer.score = item.GetComponent<PlayerScrV3>().score;
+            transfer.score = item.GetComponent<global::PlayerScore>().score;
 
-            playerInfo.Add(transfer); //playerInfo.Add(item.GetComponent<PlayerScrV3>());
+            playerInfo.Add(transfer);
         }
 
         PlayerScore[] scores = new PlayerScore[playerInfo.Count];

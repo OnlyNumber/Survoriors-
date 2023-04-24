@@ -1,14 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Fusion;
-//using UnityEngine.UI;
 using TMPro;
 
 public class WeaponNetwork : NetworkBehaviour
 {
-    //protected PlayerScoreV2 playerScore;
-
     [SerializeField]
     protected NetworkObject networkObject;
 
@@ -43,8 +39,6 @@ public class WeaponNetwork : NetworkBehaviour
     private void Start()
     {
         networkObject = GetComponentInParent<NetworkObject>();
-        //playerScore = GetComponent<PlayerScoreV2>();
-
     }
 
     public virtual void Shoot(Vector3 rotatePos)
@@ -86,6 +80,12 @@ public class WeaponNetwork : NetworkBehaviour
     public void TakeAmmo()
     {
         this.Ammo += MaxBullets * AmmoModificator;
+
+        if (HasInputAuthority)
+        {
+            AmmoText.text = $"{CurrentBullets} /{MaxBullets}  {Ammo}";
+        }
+
     }
 
 }

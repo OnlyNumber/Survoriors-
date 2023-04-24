@@ -1,9 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Fusion;
-using System;
-
 
 public class HealthHandler :  NetworkBehaviour, IDamageAble
 {
@@ -93,7 +89,7 @@ public class HealthHandler :  NetworkBehaviour, IDamageAble
         Rpc_RequestChangehealth(dmg/*, playerScore*/);
     }
 
-    public void TakeDamage(int damage, PlayerScrV3 playerScr = null)
+    public void TakeDamage(int damage, PlayerScore playerScr = null)
     {
 
         

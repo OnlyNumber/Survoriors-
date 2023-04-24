@@ -1,57 +1,63 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Fusion;
-using TMPro;
 
 public class PlayerScore : NetworkBehaviour
 {
+    private int shoots = 0;
+
     public int score { get; private set; }
 
-    public int kills { get; private set; }
+    private int kills;
 
     public delegate void OnKillChange();
 
     public OnKillChange onKillChange;
 
-    private void Start()
+    public int Kill
     {
-        //_killsText = FindObjectOfType<UIManager>().killsText;
-    }
-
-
-    public void IncreaseScore(int addScore)
-    {
-        if (addScore > 0)
+        get
         {
-            Rpc_RequestChangeScore(addScore, 0);
+            return kills;
         }
-    }
-
-    public void IncreaseKills(int kill)
-    {
-        if (kill > 0)
+        private set
         {
-            Rpc_RequestChangeScore(0, kill);
-
+            kills = value;
             onKillChange?.Invoke();
-            //ChangeKillScore();
         }
+
     }
 
-    [ContextMenu("Show data debug")]
-    public void ShowDebug()
+    public int Shoots
     {
-        Debug.Log($"damage: {score} /kill: {kills} ");
+        get 
+        {
+            return shoots;
+        }
+        set
+        {
+            shoots = value;
+        }
+
     }
 
-    [Rpc(RpcSources.All, RpcTargets.All)]
-    private void Rpc_RequestChangeScore(int score, int kills, RpcInfo info = default)
+    [Rpc]
+    public void Rpc_RequestChangeKill(int kill)
+    {
+        this.Kill += kill;
+    }
+
+    [Rpc]
+    public void Rpc_RequestChangeScore(int score)
     {
         this.score += score;
-
-        this.kills += kills;
     }
 
 
+
+    [Rpc]
+    public void Rpc_RequestSaveShoots(int saveShoots, RpcInfo info = default)
+    {
+        Debug.Log("RPC");
+        Shoots += saveShoots;
+    }
 }

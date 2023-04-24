@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Fusion;
@@ -17,8 +16,6 @@ public class SpawnerPlayer : MonoBehaviour, INetworkRunnerCallbacks
     private SessionListUIHandler sessionListUIHandler;
 
     private Dictionary<PlayerRef, NetworkPlayer> _spawnedCharacters = new Dictionary<PlayerRef, NetworkPlayer>();
-
-    // private DisconnectManager hostManager;
 
     [ContextMenu("Find players")]
     public void ShowDictionary()
@@ -103,8 +100,6 @@ public class SpawnerPlayer : MonoBehaviour, INetworkRunnerCallbacks
     {
         if(runner.IsServer)
         {
-            //Debug.Log("asdad" + runner.SessionInfo);
-
             int playerToken = GetPlayerToken(runner, player);
 
             Debug.Log("OnPlayerJoined We are server Spawn player");
@@ -119,11 +114,7 @@ public class SpawnerPlayer : MonoBehaviour, INetworkRunnerCallbacks
             {
                 Debug.Log($"Spawning new player for connection token {playerToken}");
 
-                NetworkPlayer spawnedNetworkPlayer = runner.Spawn(playerPrefab, Vector3.zero, Quaternion.identity, player, (runner,obj ) => 
-                {
-                    Debug.Log("RUNNER " + runner.IsServer);
-
-                });
+                NetworkPlayer spawnedNetworkPlayer = runner.Spawn(playerPrefab, Vector3.zero, Quaternion.identity, player);
 
                 spawnedNetworkPlayer.token = playerToken;
 

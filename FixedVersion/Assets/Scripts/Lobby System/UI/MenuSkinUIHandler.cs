@@ -1,15 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class MenuSkinUIHandler : MonoBehaviour
 {
-    //color FFEC00;
-
-    //[SerializeField]
-    //Button[] buttons;
-
     [SerializeField]
     Image[] imageOfCheck;
 
@@ -19,14 +12,6 @@ public class MenuSkinUIHandler : MonoBehaviour
         blueFarmer = 0,
         orangeFarmer = 1,
         pinkFarmer = 2
-    }
-
-    //PlayerSkin choosedSkin = (PlayerSkin)(-1);
-
-    private void Start()
-    {
-        //imageOfCheck = new Image[buttons.Length];
-
     }
 
     public void OnChooseSkin(int numberOfSkin)

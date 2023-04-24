@@ -1,8 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Fusion;
-
 public interface IPickupItem
 {
     public static int PLAYER_LAYER = 7;

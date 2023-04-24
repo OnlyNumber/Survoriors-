@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Fusion;
 
@@ -11,6 +9,8 @@ public class BombItem : NetworkBehaviour, IPickupItem
     [SerializeField]
     private float _bombRadius;
 
+    private PlayerScore playerScr = null;
+
     public void DoOnPickUp()
     {
 
@@ -21,7 +21,7 @@ public class BombItem : NetworkBehaviour, IPickupItem
         foreach (var hit in _hits)
         {
             if(hit.gameObject.layer == IPickupItem.ENEMY_LAYER)
-            hit.GetComponent<IDamageAble>().TakeDamage(damage);
+            hit.GetComponent<IDamageAble>().TakeDamage(damage, playerScr);
 
         }
 
@@ -33,7 +33,10 @@ public class BombItem : NetworkBehaviour, IPickupItem
     {
         if(collision.gameObject.layer == IPickupItem.PLAYER_LAYER)
         {
+            playerScr = collision.gameObject.GetComponent<PlayerScore>();
+
             DoOnPickUp();
+            
         }
     }
 

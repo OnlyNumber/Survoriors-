@@ -1,9 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Fusion;
-using System.Linq;
-using UnityEngine.UI;
 
 
 public class SkinController : NetworkBehaviour
@@ -42,8 +39,6 @@ public class SkinController : NetworkBehaviour
         skin.skinNumber = (int)DataHolderPlayer.playerSkin;
 
         skin.playerRef = Runner.LocalPlayer;
-        //Rpc_RequestChangeSkin(skin);
-
         do
         {
         
@@ -54,19 +49,12 @@ public class SkinController : NetworkBehaviour
         
         skin.numberOfWeapon = numberOfWeapon;
         Rpc_RequestChangeSkin(skin);
-        Rpc_Do_Smth();
     }
 
     [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
     private void Rpc_RequestChangeSkin(NetworkSkinStruct skin, RpcInfo info = default)
     {
         playerSkinNetwork = skin;
-    }
-
-    [Rpc(RpcSources.All, RpcTargets.All)]
-    private void Rpc_Do_Smth()
-    {
-        Debug.Log("Do smth");
     }
 
     static void OnSkinChanged(Changed<SkinController> changed)
@@ -85,11 +73,9 @@ public class SkinController : NetworkBehaviour
 
         stateMachine.ChangeSkin(playerSkinNetwork.skinNumber);
 
-        //Debug.Log(playerSkinNetwork.numberOfWeapon);
-
         this.numberOfWeapon = playerSkinNetwork.numberOfWeapon;
 
-        _weaponList[0].gameObject.SetActive(true);
+        _weaponList[numberOfWeapon].gameObject.SetActive(true);
         
     }
 
@@ -100,7 +86,7 @@ public class SkinController : NetworkBehaviour
         foreach(var player in FindObjectsOfType<NetworkPlayer>())
         {
 
-            if(player.GetComponent<NetworkObject>().HasInputAuthority != GetComponent<NetworkObject>().HasInputAuthority && numberOfWeapon == player.GetComponent<SkinController>().numberOfWeapon)
+            if(player.GetComponent<NetworkObject>().InputAuthority.PlayerId != GetComponent<NetworkObject>().InputAuthority.PlayerId && numberOfWeapon == player.GetComponent<SkinController>().numberOfWeapon)
             {
                 Debug.Log($"{player.token} {GetComponent<NetworkPlayer>().token} Same weapons {numberOfWeapon} == {player.GetComponent<SkinController>().numberOfWeapon}");
 

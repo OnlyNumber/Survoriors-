@@ -232,7 +232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
   corpse: {fileID: 0}
-  _healthPoints: 2
+  _healthPoints: 30
 --- !u!114 &-4011584333099283405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -569,6 +569,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4861271679143154446, guid: a0b73075b4be5bf4d92f4e2b5d37eee3, type: 3}
+      propertyPath: AmmoModificator
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861271679143154446, guid: a0b73075b4be5bf4d92f4e2b5d37eee3, type: 3}
       propertyPath: TimeBetweenAttack
       value: 0.1
       objectReference: {fileID: 0}
@@ -766,8 +770,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7111507247542777509, guid: 9ec419ebeb08c164b8850337e3fbd106, type: 3}
+      propertyPath: Bullet
+      value: 
+      objectReference: {fileID: 5612761927162581345, guid: 2d277c21a32e3b845ad0b6bec74a8b2f, type: 3}
+    - target: {fileID: 7111507247542777509, guid: 9ec419ebeb08c164b8850337e3fbd106, type: 3}
       propertyPath: Damage
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7111507247542777509, guid: 9ec419ebeb08c164b8850337e3fbd106, type: 3}
+      propertyPath: ReloadTime
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7111507247542777509, guid: 9ec419ebeb08c164b8850337e3fbd106, type: 3}
+      propertyPath: AmmoModificator
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7111507247542777509, guid: 9ec419ebeb08c164b8850337e3fbd106, type: 3}
+      propertyPath: _amountOfBulletsPerShoot
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8579698352025098052, guid: 9ec419ebeb08c164b8850337e3fbd106, type: 3}
       propertyPath: m_Name
@@ -911,8 +931,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4861271679143154446, guid: 60322231181d58943ab098fda0d4bb59, type: 3}
+      propertyPath: Ammo
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861271679143154446, guid: 60322231181d58943ab098fda0d4bb59, type: 3}
+      propertyPath: Bullet
+      value: 
+      objectReference: {fileID: 5612761927162581345, guid: 7e5d8f14fef0b214eb906b31fe1847e4, type: 3}
+    - target: {fileID: 4861271679143154446, guid: 60322231181d58943ab098fda0d4bb59, type: 3}
       propertyPath: Damage
-      value: 100
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861271679143154446, guid: 60322231181d58943ab098fda0d4bb59, type: 3}
+      propertyPath: ReloadTime
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861271679143154446, guid: 60322231181d58943ab098fda0d4bb59, type: 3}
+      propertyPath: AmmoModificator
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861271679143154446, guid: 60322231181d58943ab098fda0d4bb59, type: 3}
+      propertyPath: TimeBetweenAttack
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5849463818113273807, guid: 60322231181d58943ab098fda0d4bb59, type: 3}
       propertyPath: m_LocalScale.x

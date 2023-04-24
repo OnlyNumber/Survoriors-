@@ -12,9 +12,11 @@ public class MultipleBulletPerShootWeapon : WeaponNetwork
     [SerializeField]
     private int _amountOfBulletsPerShoot;
 
+    private PlayerScore playerScrV3;
+
     private void Start()
     {
-        //playerScore = GetComponentInParent<PlayerScoreV2>();
+        playerScrV3 = GetComponentInParent<PlayerScore>();
 
         AmmoText = GameObject.Find("AmmoIndicator").GetComponent<TMP_Text>();
 
@@ -33,10 +35,6 @@ public class MultipleBulletPerShootWeapon : WeaponNetwork
 
     public override void FixedUpdateNetwork()
     {
-
-        //Debug.Log("ShotGun");
-
-
         if (GetInput(out NetworkInputData networkInput))
         {
             if (networkInput.isFireButtonPressed)
@@ -46,8 +44,6 @@ public class MultipleBulletPerShootWeapon : WeaponNetwork
                 {
                     if (CurrentBullets > 0)
                     {
-                        //Debug.Log("Shoot");
-
                         Shoot(networkInput.mousePosition);
 
                         StartCoroutine(WaitingForShoot(TimeBetweenAttack));
@@ -81,7 +77,7 @@ public class MultipleBulletPerShootWeapon : WeaponNetwork
 
             Runner.Spawn(Bullet, transform.position, null, null, (Runner, obj) =>
             {
-                obj.GetComponent<BulletNetwork>().InitializeBullet(Damage, rotatePos/*, playerScore*/);
+                obj.GetComponent<BulletNetwork>().InitializeBullet(Damage, rotatePos, playerScrV3);
                 obj.transform.Rotate(new Vector3(0, 0, Random.Range(-_randoScatter, _randoScatter)));
 
             });
