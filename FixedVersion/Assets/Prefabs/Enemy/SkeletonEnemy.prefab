@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1844463591
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -2092964637, guid: 4104ee12b4d54f54b91b3ba875787837, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 8801604647494855630}
   - component: {fileID: 8801604647494855616}
   - component: {fileID: 8801604647494855623}
+  - component: {fileID: 4944414970349459177}
   m_Layer: 6
   m_Name: SkeletonEnemy
   m_TagString: Untagged
@@ -183,6 +184,7 @@ MonoBehaviour:
   - {fileID: 8801604647494855629}
   - {fileID: 8801604647494855616}
   - {fileID: 8801604647494855623}
+  - {fileID: 4944414970349459177}
   - {fileID: 7920534967560730585}
   SimulationBehaviours: []
 --- !u!50 &8801604647494855628
@@ -288,8 +290,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
-  Speed: 0
+  Speed: 0.07
   damage: 1
   <distanceForAttack>k__BackingField: 10
   _timeBetweenAttack: 3
+  flipManagerEnemy: {fileID: 4944414970349459177}
   _bulletPrefab: {fileID: 4721414738380592164, guid: 82b05f39896a22b4b905ea64842d7bc2, type: 3}
+--- !u!114 &4944414970349459177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8801604647494855631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa7267926b6aedc469674cce7407f14f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interpolationDataSource: 0

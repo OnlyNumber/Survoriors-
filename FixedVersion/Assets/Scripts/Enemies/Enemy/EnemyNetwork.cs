@@ -24,6 +24,9 @@ public class EnemyNetwork : NetworkBehaviour
     [SerializeField]
     protected float _timeBetweenAttack;
 
+    [SerializeField]
+    private FlipManagerEnemy flipManagerEnemy;
+
     private void Awake()
     {
         players = new List<GameObject>();
@@ -39,6 +42,10 @@ public class EnemyNetwork : NetworkBehaviour
         {
             MoveToTarget();
         }
+
+        if(Target != null)
+        flipManagerEnemy.CheckFlip(Target.transform.position);
+
 
     }
 

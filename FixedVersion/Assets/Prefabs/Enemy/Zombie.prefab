@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5526300992233355081}
   - component: {fileID: 5526300992233355086}
   - component: {fileID: 5526300992233355121}
+  - component: {fileID: 9177386619983839626}
   m_Layer: 6
   m_Name: Zombie
   m_TagString: Untagged
@@ -63,6 +64,7 @@ MonoBehaviour:
   - {fileID: 5526300992233355080}
   - {fileID: 5526300992233355086}
   - {fileID: 5526300992233355121}
+  - {fileID: 9177386619983839626}
   - {fileID: 7977428886082574135}
   SimulationBehaviours: []
 --- !u!50 &5526300992233355083
@@ -169,10 +171,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
   Speed: 0.03
-  damage: 2
-  <distanceForAttack>k__BackingField: 1
+  damage: 3
+  <distanceForAttack>k__BackingField: 2
   _timeBetweenAttack: 2
-  radius: 1.5
+  flipManagerEnemy: {fileID: 9177386619983839626}
+  radius: 2
+--- !u!114 &9177386619983839626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5526300992233355078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa7267926b6aedc469674cce7407f14f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
 --- !u!1 &5526300992876328079
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,7 +262,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1844463591
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 613658156, guid: 1bc6097228993f045852159e71f81d5b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
