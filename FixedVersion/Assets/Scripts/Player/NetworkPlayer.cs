@@ -11,15 +11,15 @@ public class NetworkPlayer : NetworkBehaviour, IPlayerLeft
 
     public PlayerRef checkRef;
 
-    private Button exitButton;
+    //private Button exitButton;
 
     [Networked] public int token { get; set; }
 
     private void Start()
     {
-        exitButton = GameObject.Find("ExitButton").GetComponent<Button>();
+        FindObjectOfType<LeaderBoardShowInformation>().exitButton.onClick.AddListener(GetOut);
+    
 
-        exitButton.onClick.AddListener(GetOut);
     }
 
 
@@ -34,9 +34,18 @@ public class NetworkPlayer : NetworkBehaviour, IPlayerLeft
         {
             local = this;
 
+            Camera.main.gameObject.SetActive(false);
+
             Debug.Log("Spawn object");
         }
-        
+        else
+        {
+            Camera localCamera = GetComponentInChildren<Camera>();
+            localCamera.enabled = false;
+
+            AudioListener localAudioListener = GetComponentInChildren<AudioListener>();
+            localAudioListener.enabled = false;
+        }
 
     }
 

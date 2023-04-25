@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class GoToScene : MonoBehaviour
 {
-    [ContextMenu("GoToMenu")]
+
+    private const string NEXT_SCENE = "MenuScene";
+
     public void GoMenu()
     {
-        SceneManager.LoadScene("MenuScene");
+        SceneManager.LoadScene(NEXT_SCENE);
     }
 }

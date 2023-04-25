@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Fusion;
 
 public class LeaderBoardShowInformation : NetworkBehaviour
 {
-
     public struct PlayerScore : INetworkStruct
     {
         public int skin;
@@ -13,6 +13,9 @@ public class LeaderBoardShowInformation : NetworkBehaviour
 
 
     }
+
+    [SerializeField]
+    Sprite[] playersSkins;
 
     [SerializeField]
     private GameObject leaderBoardPanel;
@@ -24,6 +27,8 @@ public class LeaderBoardShowInformation : NetworkBehaviour
 
     [SerializeField]
     private GameObject weaponJoystick;
+
+    public Button exitButton;
 
 
     private void Start()
@@ -38,6 +43,7 @@ public class LeaderBoardShowInformation : NetworkBehaviour
     {
         for (int i = 0; i < playerScores.Length; i++)
         {
+            playersTable[i].Image_PlayerSkin.sprite = playersSkins[playerScores[i].skin];
             playersTable[i].Txt_Score.text = "Score: " + playerScores[i].score;
             playersTable[i].Txt_Kills.text = "Kills: " + playerScores[i].kills;
         }
@@ -67,7 +73,7 @@ public class LeaderBoardShowInformation : NetworkBehaviour
 
         foreach (var item in pointer.GetSpawnedPlayers().Values)
         {
-            transfer.skin = 0;
+            transfer.skin = item.GetComponent<SkinController>().playerSkin;
 
             transfer.kills = item.GetComponent<global::PlayerScore>().Kill;
 
@@ -78,9 +84,17 @@ public class LeaderBoardShowInformation : NetworkBehaviour
 
         PlayerScore[] scores = new PlayerScore[playerInfo.Count];
 
+        for (int i = 0; i < playerInfo.Count; i++)
+        {
+
+            scores[i] = playerInfo[i];
+
+        }
+
+
         Rpc_RequestShowTable(scores);
     }
 
-
+    
 
 }

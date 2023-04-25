@@ -5,7 +5,7 @@ using Fusion;
 
 public class SkinController : NetworkBehaviour
 {
-    private int playerSkin;
+    public int playerSkin { get; private set; }
 
     public delegate void ChangePlayerSkin();
 
@@ -18,7 +18,7 @@ public class SkinController : NetworkBehaviour
     }
 
     [Networked(OnChanged = nameof(OnSkinChanged))]
-    NetworkSkinStruct playerSkinNetwork { get; set; }
+    private NetworkSkinStruct playerSkinNetwork { get; set; }
 
     StateMachine stateMachine;
 
@@ -28,9 +28,9 @@ public class SkinController : NetworkBehaviour
     [SerializeField]
     public int numberOfWeapon;
 
-    private Vector2 WEAPON_POSITION = new Vector2(-0.02f, -0.18f);
+    //private Vector2 WEAPON_POSITION = new Vector2(-0.02f, -0.18f);
 
-    PlayerRef refer;
+    //PlayerRef refer;
 
     private void Start()
     {

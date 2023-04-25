@@ -33,8 +33,8 @@ public class PlayerInputHandler : MonoBehaviour
 
         networkInputData.movementAxisInput = _moveInputVector;
 
-        Vector3 mousePos = Input.mousePosition;
-        mousePos.z = Camera.main.nearClipPlane;
+        //Vector3 mousePos = Input.mousePosition;
+       // mousePos.z = Camera.main.nearClipPlane;
         networkInputData.mousePosition = _mousePosition;
 
         networkInputData.isFireButtonPressed = _isFireButtonPressed;

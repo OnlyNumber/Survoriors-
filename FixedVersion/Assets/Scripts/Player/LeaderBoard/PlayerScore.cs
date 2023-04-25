@@ -3,8 +3,6 @@ using Fusion;
 
 public class PlayerScore : NetworkBehaviour
 {
-    private int shoots = 0;
-
     public int score { get; private set; }
 
     private int kills;
@@ -27,19 +25,6 @@ public class PlayerScore : NetworkBehaviour
 
     }
 
-    public int Shoots
-    {
-        get 
-        {
-            return shoots;
-        }
-        set
-        {
-            shoots = value;
-        }
-
-    }
-
     [Rpc]
     public void Rpc_RequestChangeKill(int kill)
     {
@@ -54,10 +39,5 @@ public class PlayerScore : NetworkBehaviour
 
 
 
-    [Rpc]
-    public void Rpc_RequestSaveShoots(int saveShoots, RpcInfo info = default)
-    {
-        Debug.Log("RPC");
-        Shoots += saveShoots;
-    }
+    
 }

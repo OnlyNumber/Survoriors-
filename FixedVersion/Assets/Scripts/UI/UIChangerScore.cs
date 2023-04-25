@@ -20,6 +20,6 @@ public class UIChangerScore : MonoBehaviour
     private void ChangeKillScore()
     {
         if(playerShoots.HasInputAuthority)
-        killsText.text = $"{playerShoots.Kill}";
+        killsText.text = $"Kills: {playerShoots.Kill}";
     }
 }
